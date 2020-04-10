@@ -13,6 +13,28 @@
       novalidate
     >
       <div class="form-group">
+        <label for="name">Name</label>
+        <input
+                type="name"
+                class="form-control"
+                name="name"
+                [(ngModel)]="form.name"
+                required
+                minlength="2"
+                maxlength="40"
+                #name="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && name.invalid">
+          <div *ngIf="name.errors.required">Name is required</div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 22 characters
+          </div>
+          <div *ngIf="name.errors.maxlength">
+            Name must be at most 40 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <label for="username">Username</label>
         <input
           type="text"
@@ -53,6 +75,27 @@
         </div>
       </div>
       <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+                type="phoneNumber"
+                class="form-control"
+                name="phoneNumber"
+                [(ngModel)]="form.phoneNumber"
+                required
+                phoneNumber
+                minlength="12"
+                maxlength="12"
+                pattern="(\+48|0)[0-9]{9}"
+                #phoneNumber="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && phoneNumber.invalid">
+          <div *ngIf="phoneNumber.errors.required">Phone number is required</div>
+          <div *ngIf="phoneNumber.errors.pattern">
+            Invalid phone number
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <label for="password">Password</label>
         <input
           type="password"
@@ -67,6 +110,24 @@
           <div *ngIf="password.errors.required">Password is required</div>
           <div *ngIf="password.errors.minlength">
             Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+                type="password"
+                class="form-control"
+                name="confirmPassword"
+                [(ngModel)]="form.confirmPassword"
+                required
+                confirmPassword
+                pattern="{{ password.value }}"
+                #confirmPassword="ngModel"
+        />
+        <div class="alert-danger" *ngIf="f.submitted && confirmPassword.invalid">
+          <div *ngIf="confirmPassword.errors.pattern">
+            Passwords are not the same!
           </div>
         </div>
       </div>
