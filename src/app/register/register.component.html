@@ -126,6 +126,7 @@
                 #confirmPassword="ngModel"
         />
         <div class="alert-danger" *ngIf="f.submitted && confirmPassword.invalid">
+          <div *ngIf="confirmPassword.errors.required">Password confirmation is required</div>
           <div *ngIf="confirmPassword.errors.pattern">
             Passwords are not the same!
           </div>
