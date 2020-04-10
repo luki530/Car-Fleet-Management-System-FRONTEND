@@ -32,4 +32,8 @@ export class AuthService {
       confirmPassword: user.confirmPassword
     }, httpOptions);
   }
+
+  confirmemail(user): Observable<any> {
+    return this.http.post(AUTH_API + 'confirmemail', {}, httpOptions);
+  }
 }
