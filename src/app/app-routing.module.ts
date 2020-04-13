@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: 'confirmemail', component: ConfirmEmailComponent },
+  { path: 'confirmemail', component: ConfirmEmailComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

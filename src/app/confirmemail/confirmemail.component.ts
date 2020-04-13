@@ -1,26 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../_services/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-confirmemail',
-    templateUrl: './confirmemail.component.html',
-    styleUrls: ['./confirmemail.component.css']
+  selector: 'app-confirmemail',
+  templateUrl: './confirmemail.component.html',
+  styleUrls: ['./confirmemail.component.css']
 })
 
 export class ConfirmEmailComponent implements OnInit {
-    content = '';
 
-    constructor(private authService: AuthService) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
 
-    ngOnInit(): void {
-        // @ts-ignore
-        this.authService.subscribe(
-            data => {
-                this.content = data;
-            },
-            err => {
-                this.content = JSON.parse(err.error).message;
-            }
-        );
-    }
+  token: string = '';
+
+  ngOnInit() {
+    this.token = this.route.snapshot.queryParamMap.get('token');
+    this.http.get<any>(' http://localhost:8080/auth/confirm-email?token='+ this.token).subscribe();
+  }
 }
