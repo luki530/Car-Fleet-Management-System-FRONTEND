@@ -66,8 +66,10 @@
           Login failed: {{ errorMessage }}
         </div>
       </div>
+      <small class=float-right>
+        <a routerLink="/resetpassword" > Reset Password </a>
+      </small>
     </form>
-
     <div class="alert alert-success" *ngIf="isLoggedIn">
       Logged in as {{ roles }}.
     </div>

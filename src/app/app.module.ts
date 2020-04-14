@@ -16,6 +16,9 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
+import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenumber.component';
+import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
+import { ChangePasswordComponent } from './changepassword/changepassword.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
     BoardUserComponent,
     BoardModeratorComponent,
     ProfileComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    ConfirmPhoneNumberComponent,
+    ResetPasswordComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -38,4 +44,5 @@ import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

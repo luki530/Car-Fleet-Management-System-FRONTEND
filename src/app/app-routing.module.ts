@@ -9,6 +9,9 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
+import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenumber.component';
+import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
+import { ChangePasswordComponent } from './changepassword/changepassword.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +22,9 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'confirmemail', component: ConfirmEmailComponent},
+  { path: 'confirmphonenumber', component: ConfirmPhoneNumberComponent},
+  { path: 'resetpassword', component: ResetPasswordComponent},
+  { path: 'changepassword', component: ChangePasswordComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

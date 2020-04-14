@@ -26,14 +26,20 @@ export class AuthService {
     return this.http.post(AUTH_API + 'signup', {
       name: user.name,
       username: user.username,
-      email: user.email,
       phoneNumber: user.phoneNumber,
+      email: user.email,
       password: user.password,
       confirmPassword: user.confirmPassword
     }, httpOptions);
   }
 
-  confirmemail(user): Observable<any> {
-    return this.http.post(AUTH_API + 'confirmemail', {}, httpOptions);
+  // confirmemail(): Observable<any> {
+  //   return this.http.post(AUTH_API + 'confirmemail', {}, httpOptions);
+  // }
+
+  resetpassword(user): Observable<any> {
+    return this.http.post(AUTH_API + 'reset-password', {
+       username: user.username
+    }, httpOptions);
   }
 }

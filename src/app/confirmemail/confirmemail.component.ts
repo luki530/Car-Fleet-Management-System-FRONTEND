@@ -16,6 +16,6 @@ export class ConfirmEmailComponent implements OnInit {
 
   ngOnInit() {
     this.token = this.route.snapshot.queryParamMap.get('token');
-    this.http.get<any>(' http://localhost:8080/auth/confirm-email?token='+ this.token).subscribe();
+    this.http.get<any>(' http://localhost:8080/auth/confirm-email?token=' + this.token).subscribe();
   }
 }
