@@ -19,6 +19,27 @@ import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
 import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenumber.component';
 import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
 import { ChangePasswordComponent } from './changepassword/changepassword.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatFormFieldModule,
+  MatSidenavModule,
+  MatListModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatButtonModule,
+  MatTableModule,
+  MatDividerModule,
+  MatProgressSpinnerModule,
+  MatInputModule,
+  MatCardModule,
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatOptionModule
+} from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +60,29 @@ import { ChangePasswordComponent } from './changepassword/changepassword.compone
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    LayoutModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatProgressSpinnerModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
