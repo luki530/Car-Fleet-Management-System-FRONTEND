@@ -19,7 +19,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() { 
+  onSubmit() {
     // tslint:disable-next-line: max-line-length
     this.http.get<any>('http://localhost:8080/auth/confirm-phone-number?code=' + this.form.code).subscribe(response => {console.log(response),
     this.isSuccessful = true,

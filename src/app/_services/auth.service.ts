@@ -42,4 +42,9 @@ export class AuthService {
        username: user.username
     }, httpOptions);
   }
+
+  // listofusers(user): Observable<any> {
+  //   return this.http.get(AUTH_API + 'listofusers');
+  // }
+
 }
