@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "CarFleetManagementSystem"
+  "defaultProject": "CarFleetManagementSystem",
+  "cli": {
+    "analytics": false
+  }
 }
