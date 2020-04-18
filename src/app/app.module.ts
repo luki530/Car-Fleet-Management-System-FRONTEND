@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -19,6 +21,7 @@ import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
 import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenumber.component';
 import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
 import { ChangePasswordComponent } from './changepassword/changepassword.component';
+import { ListOfUsersComponent } from './listofusers/listofusers.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +36,16 @@ import { ChangePasswordComponent } from './changepassword/changepassword.compone
     ConfirmEmailComponent,
     ConfirmPhoneNumberComponent,
     ResetPasswordComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ListOfUsersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

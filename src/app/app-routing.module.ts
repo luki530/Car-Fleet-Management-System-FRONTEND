@@ -12,6 +12,7 @@ import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
 import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenumber.component';
 import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
 import { ChangePasswordComponent } from './changepassword/changepassword.component';
+import { ListOfUsersComponent } from './listofusers/listofusers.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'confirmphonenumber', component: ConfirmPhoneNumberComponent},
   { path: 'resetpassword', component: ResetPasswordComponent},
   { path: 'changepassword', component: ChangePasswordComponent},
+  { path: 'listofusers', component: ListOfUsersComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
