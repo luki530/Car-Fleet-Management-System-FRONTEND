@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  ipaddress: string = '';
+  ipaddress  = '';
 
   constructor(private http: HttpClient) { }
 

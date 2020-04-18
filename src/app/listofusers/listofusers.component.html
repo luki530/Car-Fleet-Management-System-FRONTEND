@@ -1,0 +1,32 @@
+<mat-table  [dataSource]="dataSource" multiTemplateDataRows matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-row *matHeaderRowDef="displayedColumns">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        </mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </mat-row>
+    </ng-container>
+
+    <ng-container matColumnDef="username">
+        <mat-header-row *matHeaderRowDef="displayedColumns">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+        </mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+        </mat-row>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <mat-header-row *matHeaderRowDef="displayedColumns">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        </mat-header-row>
+
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </mat-row>
+    </ng-container>
+</mat-table>
+
