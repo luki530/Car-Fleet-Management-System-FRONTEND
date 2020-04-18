@@ -13,6 +13,7 @@ import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenu
 import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
 import { ChangePasswordComponent } from './changepassword/changepassword.component';
 import { ListOfUsersComponent } from './listofusers/listofusers.component';
+import { UserProfileComponent } from './userprofile/userprofile.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,8 +28,9 @@ const routes: Routes = [
   { path: 'resetpassword', component: ResetPasswordComponent},
   { path: 'changepassword', component: ChangePasswordComponent},
   { path: 'listofusers', component: ListOfUsersComponent },
+  { path: 'userprofile', component: UserProfileComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

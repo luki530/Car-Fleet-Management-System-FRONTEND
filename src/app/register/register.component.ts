@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private _router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        this._router.navigate(['confirmphonenumber']);
+        this.router.navigate(['confirmphonenumber']);
       },
       err => {
         this.errorMessage = err.error.message;

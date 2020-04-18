@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -15,11 +17,15 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ListOfUsersComponent implements OnInit {
   form: any;
   dataSource: MatTableDataSource<any>;
-  displayedColumns = ['id', 'username', 'email'];
+  isLoadingResults = true;
+  displayedColumns = ['id', 'username', 'email', 'phoneNumber'];
+  id: number;
 
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,14 +34,27 @@ export class ListOfUsersComponent implements OnInit {
     })
   };
 
+
   ngOnInit() {
     this.http.get<any>('http://localhost:8080/listofusers', this.httpOptions)
-    .subscribe(
-      (data: any) => {
-        console.log(data);
-        this.dataSource = new MatTableDataSource(data);
-        this.dataSource.sort = this.sort;
-      });
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.dataSource = new MatTableDataSource(data);
+          this.dataSource.sort = this.sort;
+          this.dataSource.paginator = this.paginator;
+          this.isLoadingResults = false;
+        },
+        err => {
+          this.isLoadingResults = false;
+    }),
+    this.activatedRoute.queryParams.subscribe(params => {
+           this.id = params.id;
+    });
+}
+
+  btnClick(newValue: number) {
+    this.router.navigate(['/userprofile'], {queryParams: {id: newValue}, relativeTo : this.activatedRoute});
   }
 }
 

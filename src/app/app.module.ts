@@ -7,7 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -24,6 +26,7 @@ import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenu
 import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
 import { ChangePasswordComponent } from './changepassword/changepassword.component';
 import { ListOfUsersComponent } from './listofusers/listofusers.component';
+import { UserProfileComponent } from './userprofile/userprofile.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { ListOfUsersComponent } from './listofusers/listofusers.component';
     ResetPasswordComponent,
     ChangePasswordComponent,
     ListOfUsersComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,10 @@ import { ListOfUsersComponent } from './listofusers/listofusers.component';
     HttpClientModule,
     MatTableModule,
     MatSortModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('https://api.ipify.org/?format=json').subscribe((res : any) => {
+    this.http.get('https://api.ipify.org/?format=json').subscribe((res: any) => {
       window.sessionStorage.setItem('CLIENT_IP', res.ip);
     });
 
