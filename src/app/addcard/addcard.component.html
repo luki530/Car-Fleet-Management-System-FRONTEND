@@ -1,0 +1,11 @@
+<mat-toolbar>
+    <button  mat-stroked-button (click)="onClose()"></button>
+</mat-toolbar>
+<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Crad ID" name="cardId" [(ngModel)]="form.cardId" required #cardId="ngModel" />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && cardId.invalid">
+            Card Id is required!
+        </div>
+    </div>
+</form>

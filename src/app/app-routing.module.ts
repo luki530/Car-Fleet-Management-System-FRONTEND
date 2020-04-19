@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'listofusers', component: ListOfUsersComponent },
   { path: 'userprofile', component: UserProfileComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

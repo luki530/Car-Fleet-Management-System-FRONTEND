@@ -10,6 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -27,6 +32,7 @@ import { ResetPasswordComponent } from './resetpassword/resetpassword.component'
 import { ChangePasswordComponent } from './changepassword/changepassword.component';
 import { ListOfUsersComponent } from './listofusers/listofusers.component';
 import { UserProfileComponent } from './userprofile/userprofile.component';
+import { AddCardComponent } from './addcard/addcard.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +50,10 @@ import { UserProfileComponent } from './userprofile/userprofile.component';
     ChangePasswordComponent,
     ListOfUsersComponent,
     UserProfileComponent,
+    AddCardComponent
   ],
+  entryComponents: [AddCardComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -55,7 +64,12 @@ import { UserProfileComponent } from './userprofile/userprofile.component';
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTabsModule,
+    MatDialogModule,
+    MatToolbarModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

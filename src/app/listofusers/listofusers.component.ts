@@ -7,18 +7,18 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
+@Injectable()
 @Component({
   selector: 'app-listofusers',
   templateUrl: './listofusers.component.html',
   styleUrls: ['./listofusers.component.css']
 })
 
-@Injectable()
 export class ListOfUsersComponent implements OnInit {
   form: any;
   dataSource: MatTableDataSource<any>;
   isLoadingResults = true;
-  displayedColumns = ['id', 'username', 'email', 'phoneNumber'];
+  displayedColumns = ['id', 'username', 'email'];
   id: number;
 
   @ViewChild(MatSort, { static: false }) sort: MatSort;
@@ -44,17 +44,23 @@ export class ListOfUsersComponent implements OnInit {
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.isLoadingResults = false;
+          console.log(data[0]);
         },
         err => {
           this.isLoadingResults = false;
-    }),
-    this.activatedRoute.queryParams.subscribe(params => {
-           this.id = params.id;
-    });
-}
+        }),
+      this.activatedRoute.queryParams.subscribe(params => {
+        this.id = params.id;
+      });
+  }
 
   btnClick(newValue: number) {
-    this.router.navigate(['/userprofile'], {queryParams: {id: newValue}, relativeTo : this.activatedRoute});
+    this.router.navigate(['/userprofile'], { queryParams: { id: newValue }, relativeTo: this.activatedRoute });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
 
