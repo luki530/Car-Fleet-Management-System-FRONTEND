@@ -44,7 +44,6 @@ export class ListOfUsersComponent implements OnInit {
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.isLoadingResults = false;
-          console.log(data[0]);
         },
         err => {
           this.isLoadingResults = false;

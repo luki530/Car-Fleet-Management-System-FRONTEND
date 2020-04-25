@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username: string;
-  ipaddress = '';
+  ip = '';
 
   constructor(private tokenStorageService: TokenStorageService, private http: HttpClient) { }
 
