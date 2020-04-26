@@ -5,8 +5,7 @@
 ### Angular ###
 ## Angular ##
 # compiled output
-dist/CarFleetManagementSystem
-dist/out-tsc
+dist
 tmp/
 app/**/*.js
 app/**/*.js.map
