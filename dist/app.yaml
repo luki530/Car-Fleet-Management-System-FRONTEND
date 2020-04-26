@@ -1,0 +1,9 @@
+runtime: nodejs10
+api_version: 1
+threadsafe: true
+handlers:
+- url: /
+  static_files: CarFleetManagementSystem/index.html
+  upload: CarFleetManagementSystem/index.html
+- url: /
+  static_dir: CarFleetManagementSystem
