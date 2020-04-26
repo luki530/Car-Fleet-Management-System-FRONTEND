@@ -6,14 +6,13 @@ handlers:
   static_files: dist/CarFleetManagementSystem/index.html
   upload: dist/CarFleetManagementSystem/index.html
 - url: /
-  static_dir: dist/CarFleetManagementSystem
-  
- skip_files:
-  - e2e/
-  - node_modules/
-  - src/
-  - ^(.*/)?\..*$
-  - ^(.*/)?.*\.json$
-  - ^(.*/)?.*\.md$
-  - ^(.*/)?.*\.yaml$
-  - ^LICENSE
+  static_dir: dist/CarFleetManagementSystem 
+skip_files:
+ - e2e/
+ - node_modules/
+ - src/
+ - ^(.*/)?\..*$
+ - ^(.*/)?.*\.json$
+ - ^(.*/)?.*\.md$
+ - ^(.*/)?.*\.yaml$
+ - ^LICENSE
