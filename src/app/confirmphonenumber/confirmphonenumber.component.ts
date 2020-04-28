@@ -21,7 +21,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
 
   onSubmit() {
     // tslint:disable-next-line: max-line-length
-    this.http.get<any>('http://localhost:8080/auth/confirm-phone-number?code=' + this.form.code).subscribe(response => {console.log(response),
+    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/auth/confirm-phone-number?code=' + this.form.code).subscribe(response => {console.log(response),
     this.isSuccessful = true,
     this.isCodeInvalid = false,
     this.successMessage = response.message;

@@ -35,7 +35,7 @@ export class UserProfileComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.userId = params.id;
     });
-    this.http.get<any>('http://localhost:8080/userprofile?id=' + this.userId, this.httpOptions)
+    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/userprofile?id=' + this.userId, this.httpOptions)
       .subscribe(
         (data: any) => {
           console.log(data);

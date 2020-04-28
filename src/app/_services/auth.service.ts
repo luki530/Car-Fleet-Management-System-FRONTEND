@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:8080/auth/';
+const AUTH_API = 'https://backend.carfleetmanagementsystem.pl:443/auth/';
 
 
 const httpOptions = {
