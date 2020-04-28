@@ -3,9 +3,17 @@ api_version: 1
 threadsafe: true
 handlers:
 - url: /
+<<<<<<< HEAD
   static_files: dist/CarFleetManagementSystem/index.html
   upload: dist/CarFleetManagementSystem/index.html
 - url: /
+=======
+  secure: always
+  static_files: dist/CarFleetManagementSystem/index.html
+  upload: dist/CarFleetManagementSystem/index.html
+- url: /
+  secure: always
+>>>>>>> 167766e00a79d7ae43cdf5ae464136e3565939f1
   static_dir: dist/CarFleetManagementSystem 
 skip_files:
  - e2e/
