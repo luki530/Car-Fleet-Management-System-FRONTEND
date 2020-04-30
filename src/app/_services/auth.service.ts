@@ -45,9 +45,11 @@ export class AuthService {
     }, httpOptions);
   }
 
-  // confirmemail(): Observable<any> {
-  //   return this.http.post(AUTH_API + 'confirmemail', {}, httpOptions);
-  // }
+  confirmemail(token): Observable<any> {
+    return this.http.post(AUTH_API + 'confirmemail', {
+      confirmationToken: token
+    }, httpOptions);
+  }
 
   resetpassword(user): Observable<any> {
     return this.http.post(AUTH_API + 'reset-password', {

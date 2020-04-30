@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-confirmemail',
@@ -10,12 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ConfirmEmailComponent implements OnInit {
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private authService: AuthService, private http: HttpClient, private route: ActivatedRoute) { }
 
   token: string = '';
 
   ngOnInit() {
     this.token = this.route.snapshot.queryParamMap.get('token');
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/auth/confirm-email?token=' + this.token).subscribe();
+    this.authService.confirmemail(this.token).subscribe();
   }
 }
