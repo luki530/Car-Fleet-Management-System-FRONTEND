@@ -27,6 +27,13 @@ export class AuthService {
     }, httpOptions);
   }
 
+  confirmemail(user): Observable<any> {
+    return this.http.post(AUTH_API + 'confirm-phone-number?code=', {
+      username: user.username,
+      code: user.code
+    }, httpOptions);
+  }
+
   register(user): Observable<any> {
     return this.http.post(AUTH_API + 'signup', {
       name: user.name,

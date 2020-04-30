@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-confirmphonenumber',
@@ -13,7 +14,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
   errorMessage = '';
   successMessage = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private authService: AuthService) { }
 
 
   ngOnInit() {
@@ -21,7 +22,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
 
   onSubmit() {
     // tslint:disable-next-line: max-line-length
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/auth/confirm-phone-number?code=' + this.form.code).subscribe(response => {console.log(response),
+    this.authService.confirmemail(this.form).subscribe(response => {console.log(response),
     this.isSuccessful = true,
     this.isCodeInvalid = false,
     this.successMessage = response.message;
