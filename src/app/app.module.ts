@@ -51,8 +51,7 @@ import { CookieService } from 'ngx-cookie-service';
     ChangePasswordComponent,
     ListOfUsersComponent,
     UserProfileComponent,
-    AddCardComponent,
-    CookieService
+    AddCardComponent
   ],
   entryComponents: [AddCardComponent],
 
@@ -73,7 +72,8 @@ import { CookieService } from 'ngx-cookie-service';
     MatDialogModule,
     MatToolbarModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,
+				CookieService],
   bootstrap: [AppComponent]
 })
 
