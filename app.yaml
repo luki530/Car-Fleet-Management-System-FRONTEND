@@ -5,10 +5,22 @@ handlers:
 - url: /
   secure: always
   static_files: dist/CarFleetManagementSystem/index.html
-  upload: dist/CarFleetManagementSystem/index.html
-- url: /
+  upload: dist/CarFleetManagementSystem/.*
+- url: /(.*\.js)
   secure: always
-  static_dir: dist/CarFleetManagementSystem 
+  redirect_http_response_code: 301
+  static_files: dist/CarFleetManagementSystem/\1
+  upload: dist/CarFleetManagementSystem/.*\.js
+- url: /(.*\.css)
+  secure: always
+  redirect_http_response_code: 301
+  static_files: dist/CarFleetManagementSystem/\1
+  mime_type: text/css
+  upload: dist/CarFleetManagementSystem/.*\.css
+- url: /.*
+  secure: always
+  static_files: dist/CarFleetManagementSystem/index.html
+  upload: dist/CarFleetManagementSystem/.*
 skip_files:
  - e2e/
  - node_modules/
