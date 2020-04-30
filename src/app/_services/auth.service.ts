@@ -30,7 +30,7 @@ export class AuthService {
   confirmphonenumber(user): Observable<any> {
     return this.http.post(AUTH_API + 'confirm-phone-number?code=', {
       username: window.sessionStorage.getItem('registrationUsername'),
-      code: user.code
+      confirmationCode: user.code
     }, httpOptions);
   }
 
