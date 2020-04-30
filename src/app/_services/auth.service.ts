@@ -27,9 +27,9 @@ export class AuthService {
     }, httpOptions);
   }
 
-  confirmemail(user): Observable<any> {
+  confirmphonenumber(user): Observable<any> {
     return this.http.post(AUTH_API + 'confirm-phone-number?code=', {
-      username: user.username,
+      username: window.sessionStorage.getItem('registrationUsername'),
       code: user.code
     }, httpOptions);
   }

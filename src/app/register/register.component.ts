@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        window.sessionStorage.setItem('registrationUsername', this.form.username);
         this.router.navigate(['confirmphonenumber']);
       },
       err => {

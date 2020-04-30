@@ -22,7 +22,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
 
   onSubmit() {
     // tslint:disable-next-line: max-line-length
-    this.authService.confirmemail(this.form).subscribe(response => {console.log(response),
+    this.authService.confirmphonenumber(this.form).subscribe(response => {console.log(response),
     this.isSuccessful = true,
     this.isCodeInvalid = false,
     this.successMessage = response.message;
