@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
 
-        this.cookieService.set('remember-me', data, 20);
+        // this.cookieService.set('remember-me', data, 20);
 
         this.reloadPage();
       },
