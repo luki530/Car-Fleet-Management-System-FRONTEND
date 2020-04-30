@@ -18,7 +18,7 @@ export class AddCardComponent implements OnInit {
 
   onSubmit(){
     this.onClose();
-    this.value = true;
+    this.cardId;
   }
 
   onClose() {

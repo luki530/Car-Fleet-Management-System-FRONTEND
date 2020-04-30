@@ -3,7 +3,7 @@
 </mat-toolbar>
 <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Crad ID" name="cardId" [(ngModel)]="form.cardId" required #cardId="ngModel" />
+        <input type="text" class="form-control" placeholder="Card ID" name="cardId" [(ngModel)]="form.cardId" required #cardId="ngModel" />
         <div class="alert alert-danger" role="alert" *ngIf="f.submitted && cardId.invalid">
             Card Id is required!
         </div>

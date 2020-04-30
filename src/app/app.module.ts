@@ -33,6 +33,7 @@ import { ChangePasswordComponent } from './changepassword/changepassword.compone
 import { ListOfUsersComponent } from './listofusers/listofusers.component';
 import { UserProfileComponent } from './userprofile/userprofile.component';
 import { AddCardComponent } from './addcard/addcard.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AddCardComponent } from './addcard/addcard.component';
     ChangePasswordComponent,
     ListOfUsersComponent,
     UserProfileComponent,
-    AddCardComponent
+    AddCardComponent,
+    CookieService
   ],
   entryComponents: [AddCardComponent],
 

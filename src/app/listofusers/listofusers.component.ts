@@ -36,7 +36,7 @@ export class ListOfUsersComponent implements OnInit {
 
 
   ngOnInit() {
-    this.http.get<any>('http://localhost:8080/listofusers', this.httpOptions)
+    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofusers', this.httpOptions)
       .subscribe(
         (data: any) => {
           console.log(data);
