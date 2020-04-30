@@ -46,7 +46,7 @@ export class AuthService {
   }
 
   confirmemail(token): Observable<any> {
-    return this.http.post(AUTH_API + 'confirmemail', {
+    return this.http.post(AUTH_API + 'confirm-email', {
       confirmationToken: token
     }, httpOptions);
   }
