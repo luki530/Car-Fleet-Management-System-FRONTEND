@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
 
   onChangeChk($event) {
     $event.srcElement.isChecked = true;
-}
+    console.log(this.isChecked);
+  }
 
   onSubmit() {
     this.authService.login(this.form).subscribe(
