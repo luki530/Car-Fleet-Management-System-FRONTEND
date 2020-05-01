@@ -26,12 +26,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  onChangeChk($event) {
+    $event.srcElement.isChecked = true;
+}
+
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-        if (!this.isChecked) {
+        if (this.isChecked) {
           this.tokenStorage.saveTokenLocal(data.accessToken);
           this.tokenStorage.saveUserLocal(data);
         }
