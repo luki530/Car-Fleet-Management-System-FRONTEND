@@ -23,7 +23,7 @@
       </div>
       <div>
         <td>Remember Me:</td>
-        <td><input type="checkbox" name="Remember Me" isChecked/></td>
+        <td><input ng-model="myCheckbox" type="checkbox" name="Remember Me" ng-change='rememberMe(myCheckbox)'/></td>
       </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block">
