@@ -23,10 +23,6 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
-    setTimeout(() => {
-      localStorage.clear();
-    }, 60);
-
   }
 
   onChangeChk($event) {
