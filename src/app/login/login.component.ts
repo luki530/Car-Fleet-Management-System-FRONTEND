@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-        if (this.isChecked) {
+        if (!this.isChecked) {
           this.tokenStorage.saveTokenLocal(data.accessToken);
           this.tokenStorage.saveUserLocal(data);
         }
