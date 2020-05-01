@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  isChecked: false;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService) { }
 
@@ -35,7 +36,11 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
 
-        this.cookieService.set('session-id', data);
+        if (!this.isChecked){
+          window.localStorage.setItem('remember-me', this.tokenStorage.getToken());
+        } else {
+          window.sessionStorage.setItem('remember-me', this.tokenStorage.getToken());
+        }
         this.reloadPage();
       },
       err => {
