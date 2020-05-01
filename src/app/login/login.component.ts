@@ -26,9 +26,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onChangeChk(event: any) {
+  onChangeChk($event) {
+    if ($event.target.checked === true) {
     this.isChecked = !this.isChecked;
     console.log(this.isChecked);
+      }
   }
 
   onSubmit() {
