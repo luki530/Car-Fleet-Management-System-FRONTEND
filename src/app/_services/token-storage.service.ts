@@ -38,13 +38,13 @@ export class TokenStorageService {
     window.localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
+  public getTokenLocal(): string {
+    return localStorage.getItem(TOKEN_KEY);
+  }
+
   public saveTokenLocal(token: string) {
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.setItem(TOKEN_KEY, token);
-  }
-
-  public getTokenLocal(): string {
-    return localStorage.getItem(TOKEN_KEY);
   }
 
   public getUserLocal() {

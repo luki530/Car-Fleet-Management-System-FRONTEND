@@ -19,14 +19,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    if (!!this.tokenStorageService.getTokenLocal) {
+    if (!!this.tokenStorageService.getTokenLocal()) {
       this.tokenStorageService.saveToken(this.tokenStorageService.getTokenLocal());
       this.tokenStorageService.saveUser(this.tokenStorageService.getUserLocal());
     }
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
-      const user = this.tokenStorageService.getUser();
+      const user = this.tokenStorageService.getUserLocal();
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
