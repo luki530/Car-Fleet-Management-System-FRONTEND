@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-  isChecked: false;
+  isChecked = false;
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService) { }
 
@@ -26,8 +26,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onChangeChk($event) {
-    $event.srcElement.isChecked = true;
+  onChangeChk(event: any) {
+    this.isChecked = !this.isChecked;
     console.log(this.isChecked);
   }
 
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-        if (!this.isChecked) {
+        if (this.isChecked) {
           this.tokenStorage.saveTokenLocal(data.accessToken);
           this.tokenStorage.saveUserLocal(data);
         }
