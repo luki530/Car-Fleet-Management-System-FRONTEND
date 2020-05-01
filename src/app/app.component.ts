@@ -18,10 +18,12 @@ export class AppComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('https://api.ipify.org/?format=json').subscribe((res: any) => {
-      window.sessionStorage.setItem('CLIENT_IP', res.ip);
-    });
 
+    if (!!this.tokenStorageService.getTokenLocal) {
+      this.tokenStorageService.saveToken(this.tokenStorageService.getTokenLocal());
+      this.tokenStorageService.saveUser(this.tokenStorageService.getUserLocal());
+    }
+    
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {

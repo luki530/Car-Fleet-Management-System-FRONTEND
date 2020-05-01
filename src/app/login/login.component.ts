@@ -26,23 +26,19 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  rememberMe(isChecked) {
-    if (!this.isChecked) {
-      window.localStorage.setItem('remember-me', this.tokenStorage.getToken());
-    } else {
-      window.sessionStorage.setItem('remember-me', this.tokenStorage.getToken());
-    }
-  }
-
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-
+        if (this.isChecked) {
+          this.tokenStorage.saveTokenLocal(data.accessToken);
+          this.tokenStorage.saveUserLocal(data);
+        }
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+
         this.reloadPage();
       },
       err => {

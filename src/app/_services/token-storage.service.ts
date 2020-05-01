@@ -12,6 +12,7 @@ export class TokenStorageService {
 
   signOut() {
     window.sessionStorage.clear();
+    window.localStorage.clear();
   }
 
   public saveToken(token: string) {
@@ -30,5 +31,23 @@ export class TokenStorageService {
 
   public getUser() {
     return JSON.parse(sessionStorage.getItem(USER_KEY));
+  }
+
+  public saveUserLocal(user: any) {
+    window.localStorage.removeItem(USER_KEY);
+    window.localStorage.setItem(USER_KEY, JSON.stringify(user));
+  }
+
+  public saveTokenLocal(token: string) {
+    window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.setItem(TOKEN_KEY, token);
+  }
+
+  public getTokenLocal(): string {
+    return localStorage.getItem(TOKEN_KEY);
+  }
+
+  public getUserLocal() {
+    return JSON.parse(localStorage.getItem(USER_KEY));
   }
 }

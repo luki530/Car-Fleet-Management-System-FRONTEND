@@ -21,9 +21,9 @@
           </div>
         </div>
       </div>
-      <div>
-        <td>Remember Me:</td>
-        <td><input ng-model="myCheckbox" type="checkbox" name="Remember Me" ng-change='rememberMe(myCheckbox)'/></td>
+      <div class="form-group">
+        <label for="checkbox">Remember me: </label>
+        <td><input [(ngModel)]="isChecked" type="checkbox" name="Remember Me" class="form-control" #isChecked="ngModel"/></td>
       </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block">

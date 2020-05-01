@@ -1,6 +1,8 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TokenStorageService } from '../_services/token-storage.service';
+
 
 const AUTH_API = 'https://backend.carfleetmanagementsystem.pl:443/auth/';
 
@@ -17,8 +19,9 @@ const httpOptions = {
 export class AuthService {
 
   ipaddress  = '';
+  isChecked: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
   login(credentials): Observable<any> {
     return this.http.post(AUTH_API + 'signin', {
