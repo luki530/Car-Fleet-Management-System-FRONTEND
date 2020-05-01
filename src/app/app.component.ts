@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
       this.tokenStorageService.saveToken(this.tokenStorageService.getTokenLocal());
       this.tokenStorageService.saveUser(this.tokenStorageService.getUserLocal());
     }
-    
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
