@@ -1,7 +1,7 @@
 <div class="col-md-12">
   <div class="card card-container">
     <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
-    < *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
@@ -21,8 +21,8 @@
           </div>
         </div>
       </div>
-      <label class="form-group">
-        <label></label><td><input (change)="onChangeChk($event)" type="checkbox" name="Remember Me: " class="form-control"/>Remember me </td></label>
+      <div class="form-group">
+        <label><td><input (change)="onChangeChk($event)" type="checkbox" name="Remember Me: " class="form-control"/>Remember me </td></label>
       </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block">
