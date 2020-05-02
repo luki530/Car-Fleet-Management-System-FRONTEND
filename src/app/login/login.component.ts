@@ -29,7 +29,10 @@ export class LoginComponent implements OnInit {
     if ($event.target.checked === true) {
     this.isChecked = !this.isChecked;
     console.log(this.isChecked);
-      }
+    } else {
+    this.isChecked = !this.isChecked;
+    console.log(this.isChecked);
+    }
   }
 
   onSubmit() {
