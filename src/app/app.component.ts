@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   private roles: string[];
@@ -14,6 +14,11 @@ export class AppComponent implements OnInit {
   showModeratorBoard = false;
   username: string;
   ip = '';
+
+logo = ('../assets/logo.png');
+
+  navigation = [];
+
 
   constructor(private tokenStorageService: TokenStorageService, private http: HttpClient) { }
 
@@ -34,6 +39,10 @@ export class AppComponent implements OnInit {
 
       this.username = user.username;
     }
+    this.navigation = [
+      { link: 'admin', label: 'Admin board', show: this.showAdminBoard},
+      { link: 'listofusers', label: 'List of users' }
+    ];
   }
 
   logout() {

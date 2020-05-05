@@ -4,17 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
-import { MatSortModule } from '@angular/material/sort';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -34,6 +27,25 @@ import { ListOfUsersComponent } from './listofusers/listofusers.component';
 import { UserProfileComponent } from './userprofile/userprofile.component';
 import { AddCardComponent } from './addcard/addcard.component';
 import { CookieService } from 'ngx-cookie-service';
+import {
+  MatFormFieldModule,
+  MatSidenavModule,
+  MatListModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatIconModule,
+  MatButtonModule,
+  MatTableModule,
+  MatDividerModule,
+  MatProgressSpinnerModule,
+  MatInputModule,
+  MatCardModule,
+  MatSlideToggleModule,
+  MatSelectModule,
+  MatOptionModule,
+  MatSortModule,
+  MatCheckboxModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -60,17 +72,32 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatTableModule,
     MatSortModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    MatProgressSpinnerModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
     MatTabsModule,
     MatDialogModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule
   ],
   providers: [authInterceptorProviders,
 				CookieService],

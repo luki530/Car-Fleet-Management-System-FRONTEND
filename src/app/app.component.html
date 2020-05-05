@@ -1,45 +1,77 @@
-<div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand">Car Fleet Management System</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="home">Home</a>
+<div>
+  <mat-sidenav-container >
+    <mat-sidenav #sidenav mode="push">
+      <div class="branding"><img [src]="logo" [alt]="logo" />
+        <span>CFMS</span></div>
+      <mat-nav-list>
+        <ng-container *ngFor="let item of navigation">
+        <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]"
+          routerLinkActive="active">
+          {{item.label}}
+        </a>
+      </ng-container>
+        <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
+          rel="noopener noreferrer">
+          Github
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
 
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a class="nav-link" routerLink="admin">Admin Board</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a class="nav-link" routerLink="mod">Moderator Board</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="isLoggedIn" routerLink="listofusers">List of Users</a>
-      </li>
-    </ul>
+    <div class="wrapper">
 
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="register">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="login">Login</a>
-      </li>
-    </ul>
+      <div class="toolbar">
+        <mat-toolbar color="primary">
+          <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
 
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul>
-  </nav>
+          </button>
 
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+          <span routerLink="" class="branding spacer center d-inline d-sm-none">
+            <img [src]="logo" [alt]="logo" /></span>
+          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
+              [alt]="logo" />CFMS</span>
+          <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo" [alt]="logo" />Car Fleet
+            Management System</span>
+
+          <span class="d-none d-md-inline">
+            <ng-container *ngFor="let item of navigation">
+              <button mat-button class="nav-button" *ngIf="item.show" [routerLink]="[item.link]"
+              routerLinkActive="active">
+              {{item.label}}
+            </button>
+            </ng-container>
+
+          </span>
+
+          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
+            Login
+          </button>
+          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
+            Register
+          </button>
+
+          <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
+            <mat-icon>person</mat-icon>
+          </button>
+          <mat-menu #toolbarUserMenu="matMenu">
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>power_settings_new</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+
+          <a mat-icon-button class="link d-none d-sm-inline"
+            href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
+            rel="noopener noreferrer">
+            <mat-icon>code</mat-icon>
+          </a>
+        </mat-toolbar>
+      </div>
+
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+
+    </div>
+  </mat-sidenav-container>
 </div>
