@@ -38,7 +38,10 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-
+        this._snackBar.open("Signed in !", 'Close', {
+          duration: 5000,
+          panelClass: ['advice']
+        });
         this.reloadPage();
       },
       err => {
