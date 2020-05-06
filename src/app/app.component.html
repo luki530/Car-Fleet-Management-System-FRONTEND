@@ -1,76 +1,90 @@
 <div *ngIf="showApp">
-  <mat-sidenav-container [ngStyle]="{background: 'url(../assets/background.jpg)'}">
-    <mat-sidenav #sidenav mode="push">
-      <div class="branding"><img [src]="logo" [alt]="logo" />
-        <span>CFMS</span></div>
-      <mat-nav-list>
-        <ng-container *ngFor="let item of navigation">
-        <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]"
-          routerLinkActive="active">
-          {{item.label}}
-        </a>
-      </ng-container>
-        <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
-          rel="noopener noreferrer">
+    <mat-sidenav-container [ngStyle]="{background: 'url(../assets/background.jpg)'}">
+        <mat-sidenav #sidenav mode="push">
+            <div class="branding"><img [src]="logo" [alt]="logo" />
+                <span>CFMS</span></div>
+            <mat-nav-list>
+                <ng-container *ngFor="let item of navigation">
+                    <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]" routerLinkActive="active">
+            {{item.label}}
+          </a>
+                </ng-container>
+                <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
           Github
         </a>
-      </mat-nav-list>
-    </mat-sidenav>
+            </mat-nav-list>
+        </mat-sidenav>
 
-    <div class="wrapper">
+        <div class="wrapper">
 
-      <div class="toolbar">
-        <mat-toolbar color="primary">
-          <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
+            <div class="toolbar">
+                <mat-toolbar color="primary">
+                    <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
             <mat-icon>menu</mat-icon>
 
           </button>
 
-          <span routerLink="" class="branding spacer center d-inline d-sm-none">
+                    <span routerLink="" class="branding spacer center d-inline d-sm-none">
             <img [src]="logo" [alt]="logo" /></span>
-          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
+                    <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
               [alt]="logo" />CFMS</span>
-          <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo" [alt]="logo" />Car Fleet
+                    <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo" [alt]="logo" />Car Fleet
             Management System</span>
 
-          <span class="d-none d-md-inline">
+                    <span class="d-none d-md-inline">
             <ng-container *ngFor="let item of navigation">
               <button mat-button class="nav-button" *ngIf="item.show" [routerLink]="[item.link]"
-              routerLinkActive="active">
-              {{item.label}}
-            </button>
+                routerLinkActive="active">
+                {{item.label}}
+              </button>
             </ng-container>
 
           </span>
 
-          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
+                    <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
             Login
           </button>
-          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
+                    <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
             Register
           </button>
 
-          <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
+                    <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
             <mat-icon>person</mat-icon>
           </button>
-          <mat-menu #toolbarUserMenu="matMenu">
-            <button mat-menu-item (click)="logout()">
+                    <mat-menu #toolbarUserMenu="matMenu">
+                        <button mat-menu-item (click)="logout()">
               <mat-icon>power_settings_new</mat-icon>
               <span>Logout</span>
             </button>
-          </mat-menu>
+                    </mat-menu>
 
-          <a mat-icon-button class="link d-none d-sm-inline"
-            href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
-            rel="noopener noreferrer">
-            <mat-icon>code</mat-icon>
-          </a>
-        </mat-toolbar>
-      </div>
+                    <a mat-icon-button class="link d-none d-sm-inline" href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
+                        <mat-icon>code</mat-icon>
+                    </a>
+                </mat-toolbar>
+            </div>
 
-      <div class="container">
-        <router-outlet (activate)="reloadContext()"></router-outlet>
-      </div>
-    </div>
-  </mat-sidenav-container>
+
+
+            <div class="content">
+                <router-outlet (activate)="reloadContext()"></router-outlet>
+            </div>
+            <div class="footer">
+                <div class="row">
+                    <div class="col-sm-12 links" style="height: 50px">
+                        <a href="https://www.github.com/tomastrajan" target="_blank" rel="noopener noreferrer">
+                            <fa-icon [icon]="['fab','github']"></fa-icon>
+                            <span>About</span>
+                        </a>
+                        <a href="https://www.medium.com/@tomastrajan" target="_blank" rel="noopener noreferrer">
+                            <fa-icon [icon]="faBell"></fa-icon>
+                            <span>Contact</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </mat-sidenav-container>
 </div>

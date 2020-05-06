@@ -3,6 +3,8 @@ import { TokenStorageService } from './_services/token-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+import { faBell } from '@fortawesome/free-regular-svg-icons';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,6 +18,7 @@ export class AppComponent implements OnInit {
   username: string;
   ip = '';
   showApp = true;
+  faBell = faBell;
 
   logo = ('../assets/logo.png');
 

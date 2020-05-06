@@ -1,3 +1,4 @@
+@import '../styles-variables';
 mat-sidenav-container {
     height: 100vh;
     width: 100%;
@@ -41,8 +42,14 @@ mat-sidenav-container {
             font-size: 14px;
         }
     }
+    @media (max-width: map-get($grid-breakpoints, lg)) {
+        .nav-button {
+            min-width: 0;
+            padding: 0 10px;
+        }
+    }
     .wrapper {
-        position: relative;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -56,8 +63,9 @@ mat-sidenav-container {
         }
         .footer {
             flex: 0 0 auto;
-            padding: 0 15px;
+            padding: 15px 0;
             text-align: center;
+            background-color: #424241;
             .row {
                 padding: 10px 0;
                 .links {
@@ -82,29 +90,56 @@ mat-sidenav-container {
                             transition: width 0.5s;
                         }
                     }
+                    @media (min-width: map-get($grid-breakpoints, lg)) {
+                        a {
+                            padding: 20px 10px;
+                        }
+                    }
+                    @media (max-width: map-get($grid-breakpoints, md)) {
+                        a {
+                            padding: 20px;
+                            span {
+                                width: 0;
+                                padding: 0;
+                            }
+                        }
+                    }
+                    @media (max-width: map-get($grid-breakpoints, sm)) {
+                        a {
+                            padding: 20px 5px;
+                        }
+                    }
+                }
+                @media (min-width: map-get($grid-breakpoints, sm)) {
+                    .signature {
+                        position: relative;
+                        a {
+                            position: absolute;
+                            right: 15px;
+                        }
+                    }
                 }
             }
         }
     }
-}
-
-mat-sidenav {
-    width: 250px;
-    .branding {
-        height: 64px;
-        padding: 8px 10px;
-        font-size: 20px;
-        font-weight: 500;
-        img {
-            height: 48px;
-            margin: 2px 10px 0 0;
+    mat-sidenav {
+        width: 250px;
+        .branding {
+            height: 64px;
+            padding: 8px 10px;
+            font-size: 20px;
+            font-weight: 500;
+            img {
+                height: 48px;
+                margin: 2px 10px 0 0;
+            }
+            span {
+                position: relative;
+                top: 3px;
+            }
         }
-        span {
-            position: relative;
-            top: 3px;
+        .mat-nav-list {
+            padding-top: 0;
         }
-    }
-    .mat-nav-list {
-        padding-top: 0;
     }
 }
