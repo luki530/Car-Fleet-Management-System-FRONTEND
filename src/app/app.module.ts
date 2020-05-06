@@ -49,6 +49,7 @@ import {
 
 
 } from '@angular/material';
+import { LogoutPageComponent } from './logout-page/logout-page.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {
     ChangePasswordComponent,
     ListOfUsersComponent,
     UserProfileComponent,
-    AddCardComponent
+    AddCardComponent,
+    LogoutPageComponent
   ],
   entryComponents: [AddCardComponent],
 

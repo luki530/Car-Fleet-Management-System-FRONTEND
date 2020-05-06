@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="showApp">
   <mat-sidenav-container [ngStyle]="{background: 'url(../assets/background.jpg)'}">
     <mat-sidenav #sidenav mode="push">
       <div class="branding"><img [src]="logo" [alt]="logo" />
@@ -69,9 +69,8 @@
       </div>
 
       <div class="container">
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="reloadContext()"></router-outlet>
       </div>
-
     </div>
   </mat-sidenav-container>
 </div>
