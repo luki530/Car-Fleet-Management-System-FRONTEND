@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+@mixin anms-app-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    mat-sidenav-container {
+        .footer {
+            color: mat-color($primary, lighter);
+            background-color: mat-color($primary, darker);
+            .links,
+            .signature {
+                a {
+                    color: mat-color($primary, lighter);
+                    &:hover {
+                        color: mat-color($accent);
+                    }
+                }
+            }
+        }
+    }
+}

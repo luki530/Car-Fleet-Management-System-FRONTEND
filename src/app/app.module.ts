@@ -27,6 +27,9 @@ import { ListOfUsersComponent } from './listofusers/listofusers.component';
 import { UserProfileComponent } from './userprofile/userprofile.component';
 import { AddCardComponent } from './addcard/addcard.component';
 import { CookieService } from 'ngx-cookie-service';
+import { LogoutPageComponent } from './logout-page/logout-page.component';
+import { FaIconLibrary , FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+
 import {
   MatFormFieldModule,
   MatSidenavModule,
@@ -49,7 +52,6 @@ import {
 
 
 } from '@angular/material';
-import { LogoutPageComponent } from './logout-page/logout-page.component';
 
 @NgModule({
   declarations: [
@@ -103,10 +105,10 @@ import { LogoutPageComponent } from './logout-page/logout-page.component';
     MatOptionModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FontAwesomeModule
   ],
-  providers: [authInterceptorProviders,
-				CookieService],
+  providers: [authInterceptorProviders, CookieService],
   bootstrap: [AppComponent]
 })
 
