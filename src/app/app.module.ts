@@ -17,6 +17,8 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
@@ -28,7 +30,7 @@ import { UserProfileComponent } from './userprofile/userprofile.component';
 import { AddCardComponent } from './addcard/addcard.component';
 import { CookieService } from 'ngx-cookie-service';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
-import { FaIconLibrary , FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {
   MatFormFieldModule,
@@ -70,7 +72,9 @@ import {
     ListOfUsersComponent,
     UserProfileComponent,
     AddCardComponent,
-    LogoutPageComponent
+    LogoutPageComponent,
+    ContactComponent,
+    AboutComponent
   ],
   entryComponents: [AddCardComponent],
 
