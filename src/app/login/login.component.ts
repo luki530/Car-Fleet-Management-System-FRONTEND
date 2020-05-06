@@ -3,6 +3,8 @@ import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material';
+import { Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +12,15 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: any = {isChecked: false};
+  @Output() refreshContext = new EventEmitter();
+  form: any = { isChecked: false };
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
 
   // tslint:disable-next-line: max-line-length
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService, private snackBar: MatSnackBar) { }
+  constructor(private authService: AuthService, private router: Router, private tokenStorage: TokenStorageService, private cookieService: CookieService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -38,16 +41,17 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.snackBar.open('Signed in !', 'Close', {
+        this._snackBar.open('Signed in !', 'Close', {
           duration: 5000,
           panelClass: ['advice']
         });
-        this.reloadPage();
+        this.refreshContext.next();
+        this.router.navigate(['home']);
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
-        this.snackBar.open(this.errorMessage, 'Close', {
+        this._snackBar.open(this.errorMessage, 'Close', {
           duration: 5000,
           panelClass: ['prompt']
         });

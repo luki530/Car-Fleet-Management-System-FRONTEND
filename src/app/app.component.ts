@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +15,14 @@ export class AppComponent implements OnInit {
   showModeratorBoard = false;
   username: string;
   ip = '';
+  showApp = true;
 
-logo = ('../assets/logo.png');
+  logo = ('../assets/logo.png');
 
   navigation = [];
 
 
-  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient) { }
+  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
 
@@ -40,13 +42,20 @@ logo = ('../assets/logo.png');
       this.username = user.username;
     }
     this.navigation = [
-      { link: 'admin', label: 'Admin board', show: this.showAdminBoard},
+      { link: 'admin', label: 'Admin board', show: this.showAdminBoard },
       { link: 'listofusers', label: 'List of users' }
     ];
   }
 
   logout() {
     this.tokenStorageService.signOut();
-    window.location.reload();
+    this.reloadContext();
+    this.router.navigate(['logoutpage']);
+  }
+
+  reloadContext() {
+    this.showApp = false;
+    this.ngOnInit();
+    this.showApp = true;
   }
 }

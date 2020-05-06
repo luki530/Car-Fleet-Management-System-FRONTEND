@@ -14,6 +14,7 @@ import { ResetPasswordComponent } from './resetpassword/resetpassword.component'
 import { ChangePasswordComponent } from './changepassword/changepassword.component';
 import { ListOfUsersComponent } from './listofusers/listofusers.component';
 import { UserProfileComponent } from './userprofile/userprofile.component';
+import { LogoutPageComponent } from './logout-page/logout-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'changepassword', component: ChangePasswordComponent},
   { path: 'listofusers', component: ListOfUsersComponent },
   { path: 'userprofile', component: UserProfileComponent},
+  {path: 'logoutpage', component: LogoutPageComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
