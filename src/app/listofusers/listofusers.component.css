@@ -1,42 +1,41 @@
 /* Structure */
-.example-container {
-    position: relative;
-    min-height: 200px;
-  }
-  
-  .example-table-container {
-    position: relative;
-    max-height: 400px;
-    overflow: auto;
-  }
-  
-  table {
-    width: 100%;
-  }
-  
-  /* Column Widths */
-  .mat-column-number,
-  .mat-column-state {
-    max-width: 64px;
-  }
-  
-  .mat-column-created {
-    max-width: 124px;
-    min-width: 80px;
-  }
-  .mat-row{        
-    position: relative;
+mat-card {
+  padding: 40px 40px;
+  margin: 2em auto;
 }
-th {
-    background-color: #4CAF50;
-    color: white;
-  }
+.example-container {
+  position: relative;
+  min-height: 200px;
+}
 
-  .pointerCursor {
-      cursor: pointer;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
+.example-table-container {
+  position: relative;
+  max-height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+}
+
+.mat-column-created {
+  max-width: 124px;
+  min-width: 80px;
+}
+.mat-row {
+  position: relative;
+}
+.pointerCursor {
+  cursor: pointer;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

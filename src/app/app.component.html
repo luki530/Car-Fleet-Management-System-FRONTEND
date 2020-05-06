@@ -5,11 +5,11 @@
         <span>CFMS</span></div>
       <mat-nav-list>
         <ng-container *ngFor="let item of navigation">
-        <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]"
-          routerLinkActive="active">
-          {{item.label}}
-        </a>
-      </ng-container>
+          <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]"
+            routerLinkActive="active">
+            {{item.label}}
+          </a>
+        </ng-container>
         <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
           rel="noopener noreferrer">
           Github
@@ -36,9 +36,9 @@
           <span class="d-none d-md-inline">
             <ng-container *ngFor="let item of navigation">
               <button mat-button class="nav-button" *ngIf="item.show" [routerLink]="[item.link]"
-              routerLinkActive="active">
-              {{item.label}}
-            </button>
+                routerLinkActive="active">
+                {{item.label}}
+              </button>
             </ng-container>
 
           </span>
@@ -54,6 +54,10 @@
             <mat-icon>person</mat-icon>
           </button>
           <mat-menu #toolbarUserMenu="matMenu">
+            <button mat-menu-item routerLink="profile">
+              <mat-icon>person</mat-icon>
+              <span>My Profile</span>
+            </button>
             <button mat-menu-item (click)="logout()">
               <mat-icon>power_settings_new</mat-icon>
               <span>Logout</span>
