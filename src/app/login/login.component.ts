@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
 
   // tslint:disable-next-line: max-line-length
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService, private _snackBar: MatSnackBar) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this._snackBar.open("Signed in !", 'Close', {
+        this.snackBar.open('Signed in !', 'Close', {
           duration: 5000,
           panelClass: ['advice']
         });
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
-        this._snackBar.open(this.errorMessage, 'Close', {
+        this.snackBar.open(this.errorMessage, 'Close', {
           duration: 5000,
           panelClass: ['prompt']
         });

@@ -103,8 +103,7 @@ import {
     MatCheckboxModule,
     MatSnackBarModule
   ],
-  providers: [authInterceptorProviders,
-				CookieService],
+  providers: [authInterceptorProviders, CookieService],
   bootstrap: [AppComponent]
 })
 
