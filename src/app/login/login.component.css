@@ -9,10 +9,14 @@ mat-form-field {
     display: block;
 }
 
+::ng-deep .mat-card-header-text {
+  margin: 0px;
+}
+
 .profile-img-card {
     width: 125px;
     height: 125px;
-    margin: 0 200px;
+    margin: 0 auto;
     display: block;
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
