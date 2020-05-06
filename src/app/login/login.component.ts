@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   isChecked = false;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -53,6 +55,8 @@ export class LoginComponent implements OnInit {
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        this._snackBar.open(this.errorMessage, 'Close', {duration: 5000,
+        panelClass: ['prompt']});
       }
     );
   }
@@ -61,3 +65,4 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
 }
+

@@ -44,7 +44,10 @@ import {
   MatSelectModule,
   MatOptionModule,
   MatSortModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatSnackBarModule
+
+
 } from '@angular/material';
 
 @NgModule({
@@ -97,7 +100,8 @@ import {
     MatSelectModule,
     MatOptionModule,
     MatProgressSpinnerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   providers: [authInterceptorProviders,
 				CookieService],
