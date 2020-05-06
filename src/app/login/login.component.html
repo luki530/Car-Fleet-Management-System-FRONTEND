@@ -17,7 +17,7 @@
                 </mat-error>
             </mat-form-field>
             <div>
-                <mat-checkbox class="example-margin" [(ngModel)]="isChecked">Remember me</mat-checkbox>
+                <mat-checkbox class="example-margin" (change)="onChangeChk($event)" checked>Remember me</mat-checkbox>
             </div>
             <button mat-raised-button color="primary">Login</button>
             <mat-card-actions>
