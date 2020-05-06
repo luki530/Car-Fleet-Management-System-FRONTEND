@@ -1,5 +1,4 @@
 <div *ngIf="showApp">
-<<<<<<< HEAD
   <mat-sidenav-container [ngStyle]="{background: 'url(../assets/background.jpg)'}">
     <mat-sidenav #sidenav mode="push">
       <div class="branding"><img [src]="logo" [alt]="logo" />
@@ -13,19 +12,6 @@
         </ng-container>
         <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
           rel="noopener noreferrer">
-=======
-    <mat-sidenav-container [ngStyle]="{background: 'url(../assets/background.jpg)'}">
-        <mat-sidenav #sidenav mode="push">
-            <div class="branding"><img [src]="logo" [alt]="logo" />
-                <span>CFMS</span></div>
-            <mat-nav-list>
-                <ng-container *ngFor="let item of navigation">
-                    <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]" routerLinkActive="active">
-            {{item.label}}
-          </a>
-                </ng-container>
-                <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
->>>>>>> 8a4bf8a9ebbe4f2000f862d4b755b771f5ff85d9
           Github
         </a>
             </mat-nav-list>
@@ -67,17 +53,12 @@
                     <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
             <mat-icon>person</mat-icon>
           </button>
-<<<<<<< HEAD
           <mat-menu #toolbarUserMenu="matMenu">
             <button mat-menu-item routerLink="profile">
               <mat-icon>person</mat-icon>
               <span>My Profile</span>
             </button>
             <button mat-menu-item (click)="logout()">
-=======
-                    <mat-menu #toolbarUserMenu="matMenu">
-                        <button mat-menu-item (click)="logout()">
->>>>>>> 8a4bf8a9ebbe4f2000f862d4b755b771f5ff85d9
               <mat-icon>power_settings_new</mat-icon>
               <span>Logout</span>
             </button>
