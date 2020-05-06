@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   ip = '';
   showApp = true;
   faBell = faBell;
-
+  faCog = faCog;
   faInfo = faInfo;
 
   logo = ('../assets/logo.png');

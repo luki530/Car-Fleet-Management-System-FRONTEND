@@ -47,6 +47,9 @@
                     <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
             Register
           </button>
+                    <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
+            <fa-icon [icon]="faCog"></fa-icon>
+          </button>
 
                     <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
             <mat-icon>person</mat-icon>
@@ -76,11 +79,11 @@
             <div class="footer">
                 <div class="row">
                     <div class="col-sm-12 links">
-                        <a href="/about" target="_blank" rel="noopener noreferrer">
+                        <a routerLink="about" target="_blank" rel="noopener noreferrer">
                             <fa-icon [icon]="faInfo"></fa-icon>
-                            <span>About</span>
+                            <span>About Us</span>
                         </a>
-                        <a href="/contact" target="_blank" rel="noopener noreferrer">
+                        <a routerLink="contact" target="_blank" rel="noopener noreferrer">
                             <fa-icon [icon]="faBell"></fa-icon>
                             <span>Contact</span>
                         </a>
