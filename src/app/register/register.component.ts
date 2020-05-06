@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,10 @@ export class RegisterComponent implements OnInit {
       err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
+        this._snackBar.open(this.errorMessage, 'Close', {
+          duration: 5000,
+          panelClass: ['prompt']
+        });
       }
     );
   }
