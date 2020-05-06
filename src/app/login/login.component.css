@@ -9,8 +9,8 @@ mat-form-field {
     display: block;
 }
 
-::ng-deep .mat-card-header-text {
-  margin: 0px;
+:host /deep/ .mat-card-header-text {
+    margin: 0;
 }
 
 .profile-img-card {
@@ -20,7 +20,7 @@ mat-form-field {
     display: block;
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
-    border-radius: 100%;
+    border-radius: 100%; */
 }
 
 .example-margin {
