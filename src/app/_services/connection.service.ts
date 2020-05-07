@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConnectionService {
-  url = 'http://localhost:3000/send';
+  url: string = 'https://backend.carfleetmanagementsystem.pl/contactus';
   constructor(private http: HttpClient) { }
 
   sendMessage(messageContent: any) {

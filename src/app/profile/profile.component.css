@@ -1,0 +1,15 @@
+mat-list,
+mat-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-img-card {
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    display: block;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+}

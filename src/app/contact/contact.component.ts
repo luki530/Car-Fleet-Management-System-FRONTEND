@@ -9,9 +9,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-contactForm: FormGroup;
-disabledSubmitButton: boolean = false;
-optionsSelect: Array<any>;
+  contactForm: FormGroup;
+  disabledSubmitButton: boolean = true;
 
   @HostListener('input') oninput() {
 
@@ -22,39 +21,32 @@ optionsSelect: Array<any>;
 
   constructor(fb: FormBuilder, private connectionService: ConnectionService) {
 
-  this.contactForm = fb.group({
-    contactFormName: ['', Validators.required],
-    contactFormEmail: ['', Validators.compose([Validators.required, Validators.email])],
-    contactFormSubjects: ['', Validators.required],
-    contactFormMessage: ['', Validators.required],
-    contactFormCopy: ['', Validators.requiredTrue],
+    this.contactForm = fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      subject: ['', Validators.required],
+      message: ['', Validators.required],
+      copy: ['', Validators.requiredTrue],
     });
   }
 
   ngOnInit() {
-
-  this.optionsSelect = [
-    { value: 'Feedback', label: 'Feedback' },
-    { value: 'Report a bug', label: 'Report a bug' },
-    { value: 'Feature request', label: 'Feature request' },
-    { value: 'Other stuff', label: 'Other stuff' },
-    ];
- }
+  }
 
   get name() {
-    return this.contactForm.get('contactFormName');
+    return this.contactForm.get('name');
   }
   get email() {
-    return this.contactForm.get('contactFormEmail');
+    return this.contactForm.get('email');
   }
-  get subjects() {
-    return this.contactForm.get('contactFormSubjects');
+  get subject() {
+    return this.contactForm.get('subject');
   }
   get message() {
-    return this.contactForm.get('contactFormMessage');
+    return this.contactForm.get('message');
   }
   get copy() {
-    return this.contactForm.get('contactFormCopy');
+    return this.contactForm.get('copy');
   }
 
   onSubmit() {
@@ -67,4 +59,4 @@ optionsSelect: Array<any>;
     });
   }
 
-  }
+}
