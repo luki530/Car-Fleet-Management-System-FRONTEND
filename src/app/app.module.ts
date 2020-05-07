@@ -31,7 +31,7 @@ import { UserProfileComponent } from './userprofile/userprofile.component';
 import { AddCardComponent } from './addcard/addcard.component';
 import { CookieService } from 'ngx-cookie-service';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
-import { FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {
   MatFormFieldModule,
@@ -56,6 +56,7 @@ import {
 
 } from '@angular/material';
 import { SettingsComponent } from './settings/settings.component';
+import { ConnectionService } from './_services/connection.service';
 
 @NgModule({
   declarations: [
@@ -117,7 +118,7 @@ import { SettingsComponent } from './settings/settings.component';
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule
   ],
-  providers: [authInterceptorProviders, CookieService],
+  providers: [authInterceptorProviders, CookieService, ConnectionService],
   bootstrap: [AppComponent]
 })
 

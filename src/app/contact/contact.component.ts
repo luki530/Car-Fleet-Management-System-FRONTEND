@@ -10,8 +10,8 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class ContactComponent implements OnInit {
 
 contactForm: FormGroup;
-disabledSubmitButton: boolean = true;
-// optionsSelect: Array<any>;
+disabledSubmitButton: boolean = false;
+optionsSelect: Array<any>;
 
   @HostListener('input') oninput() {
 
@@ -25,7 +25,7 @@ disabledSubmitButton: boolean = true;
   this.contactForm = fb.group({
     contactFormName: ['', Validators.required],
     contactFormEmail: ['', Validators.compose([Validators.required, Validators.email])],
-    // contactFormSubjects: ['', Validators.required],
+    contactFormSubjects: ['', Validators.required],
     contactFormMessage: ['', Validators.required],
     contactFormCopy: ['', Validators.requiredTrue],
     });
@@ -33,12 +33,12 @@ disabledSubmitButton: boolean = true;
 
   ngOnInit() {
 
-  // this.optionsSelect = [
-  //   { value: 'Feedback', label: 'Feedback' },
-  //   { value: 'Report a bug', label: 'Report a bug' },
-  //   { value: 'Feature request', label: 'Feature request' },
-  //   { value: 'Other stuff', label: 'Other stuff' },
-  //   ];
+  this.optionsSelect = [
+    { value: 'Feedback', label: 'Feedback' },
+    { value: 'Report a bug', label: 'Report a bug' },
+    { value: 'Feature request', label: 'Feature request' },
+    { value: 'Other stuff', label: 'Other stuff' },
+    ];
  }
 
   get name() {
@@ -47,9 +47,9 @@ disabledSubmitButton: boolean = true;
   get email() {
     return this.contactForm.get('contactFormEmail');
   }
-  // get subjects() {
-  //   return this.contactForm.get('contactFormSubjects');
-  // }
+  get subjects() {
+    return this.contactForm.get('contactFormSubjects');
+  }
   get message() {
     return this.contactForm.get('contactFormMessage');
   }

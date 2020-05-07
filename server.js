@@ -11,8 +11,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: 'developerka1987@gmail.com ', // Enter here email address from which you want to send emails
-        pass: 'DeVeLoPeRkA12' // Enter here password for email account from which you want to send emails
+        user: '', // Enter here email address from which you want to send emails
+        pass: '' // Enter here password for email account from which you want to send emails
     },
     tls: {
         rejectUnauthorized: false
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(function(req, res, next) {
 
     res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    req.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept");
     next();
 });
 
@@ -32,14 +32,14 @@ app.post('/send', function(req, res) {
 
     let senderName = req.body.contactFormName;
     let senderEmail = req.body.contactFormEmail;
-    //   let messageSubject = req.body.contactFormSubjects;
+    let messageSubject = req.body.contactFormSubjects;
     let messageText = req.body.contactFormMessage;
     let copyToSender = req.body.contactFormCopy;
 
     let mailOptions = {
-        to: [' '], // Enter here the email address on which you want to send emails from your customers
+        to: ['developerka1987@gmail.com '], // Enter here the email address on which you want to send emails from your customers
         from: senderName,
-        // subject: messageSubject,
+        subject: messageSubject,
         text: messageText,
         replyTo: senderEmail
     };
@@ -60,13 +60,13 @@ app.post('/send', function(req, res) {
         return;
     }
 
-    //   if (messageSubject === '') {
-    //     res.status(400);
-    //     res.send({
-    //     message: 'Bad request'
-    //     });
-    //     return;
-    //   }
+    if (messageSubject === '') {
+        res.status(400);
+        res.send({
+            message: 'Bad request'
+        });
+        return;
+    }
 
     if (messageText === '') {
         res.status(400);
