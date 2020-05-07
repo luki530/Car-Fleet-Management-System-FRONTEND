@@ -17,6 +17,9 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
+  showUsersBoard = false;
+  showCarsBoard = false;
+  showCarLogsBoard = false;
   username: string;
   ip = '';
   showApp = true;
@@ -45,12 +48,16 @@ export class AppComponent implements OnInit {
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showUsersBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
+      this.showCarsBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
+      this.showCarLogsBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
 
       this.username = user.username;
     }
     this.navigation = [
-      { link: 'admin', label: 'Admin board', show: this.showAdminBoard },
-      { link: 'listofusers', label: 'List of users' }
+      { link: 'listofusers', label: 'Users', show: this.showUsersBoard },
+      { link: 'cars', label: 'Cars', show: this.showCarsBoard},
+      {link: 'carlogs', label: 'Car Logs', show: this.showCarLogsBoard}
     ];
   }
 
