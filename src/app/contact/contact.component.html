@@ -1,34 +1,46 @@
-<!-- Default form contact -->
-<form class="text-center border border-light p-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+<mat-card>
+    <mat-card-content>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
-    <p class="h4 mb-4">Contact us</p>
+            <p class="h4 mb-4">Contact us</p>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Name" [(ngModel)]="form.name" name="name" required #name="ngModel">
+                <mat-error>
+                    Please provide a valid username
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Email" [(ngModel)]="form.email" name="email" required pattern="([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})" #email="ngModel">
+                <mat-error>
+                    Please provide a valid email address
+                </mat-error>
+            </mat-form-field>
 
-    <!-- Name -->
-    <input type="text" formControlName="name" id="defaultContactFormName" mdbInput class="form-control mb-4" placeholder="Name">
+            <mat-form-field class="full-width-input">
+                <select matNativeControl>
+                    <option disabled>--</option>
+                    <option *ngFor="let subject of subjects " [value]="subject">
+                        {{subject}}
+                    </option>
+                </select>
+                <mat-error>Please choose a subject</mat-error>
+            </mat-form-field>
 
-    <!-- Email -->
-    <input type="email" formControlName="email" id="defaultContactFormEmail" mdbInput class="form-control mb-4" placeholder="E-mail">
+            <mat-form-field appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea matInput [(ngModel)]="form.message" name="message" required #message="ngModel"></textarea>
+                <mat-error>
+                    Please provide a message
+                </mat-error>
+            </mat-form-field>
 
-    <!-- Subject -->
-    <label>Subject</label>
-    <select formControlName="subject" class="browser-default custom-select mb-4">
-    <option value="" disabled>Choose option</option>
-    <option value="1" selected>Feedback</option>
-    <option value="2">Report a bug</option>
-    <option value="3">Feature request</option>
-    <option value="4">Feature request</option>
-  </select>
+            <div>
+                <mat-checkbox class="example-margin" [(ngModel)]="form.isChecked" name="copy">Send me a copy of this message
+                </mat-checkbox>
+            </div>
+            <!-- Send button -->
+            <button mat-raised-button color="primary">Send</button>
 
-    <!-- Message -->
-    <div class="form-group">
-        <textarea formControlName="message" class="form-control rounded-0" mdbInput id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
-    </div>
-
-    <!-- Copy -->
-    <mdb-checkbox [default]="false" class="mb-4" mdbValidate formControlName="copy">Send me a copy of this message</mdb-checkbox>
-
-    <!-- Send button -->
-    <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">Send</button>
-
-</form>
-<!-- Default form contact -->
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,59 +1,34 @@
 import { ConnectionService } from '../_services/connection.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent {
+  form: any = {};
+  selectedValue: string;
+  selected = 'option2';
+  subjects = [
+     'Feedback',
+  'Report a bug',
+    'Feature a request'
+  ];
 
-  contactForm: FormGroup;
-  disabledSubmitButton: boolean = true;
+  constructor(private connectionService: ConnectionService) {
 
-  @HostListener('input') oninput() {
-
-    if (this.contactForm.valid) {
-      this.disabledSubmitButton = false;
-    }
   }
-
-  constructor(fb: FormBuilder, private connectionService: ConnectionService) {
-
-    this.contactForm = fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.compose([Validators.required, Validators.email])],
-      subject: ['', Validators.required],
-      message: ['', Validators.required],
-      copy: ['', Validators.requiredTrue],
-    });
+  compareFn(c1,c2): boolean {
+    return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 
-  ngOnInit() {
-  }
-
-  get name() {
-    return this.contactForm.get('name');
-  }
-  get email() {
-    return this.contactForm.get('email');
-  }
-  get subject() {
-    return this.contactForm.get('subject');
-  }
-  get message() {
-    return this.contactForm.get('message');
-  }
-  get copy() {
-    return this.contactForm.get('copy');
-  }
 
   onSubmit() {
-    this.connectionService.sendMessage(this.contactForm.value).subscribe(() => {
+    this.connectionService.sendMessage(this.form.value).subscribe(() => {
       alert('Your message has been sent.');
-      this.contactForm.reset();
-      this.disabledSubmitButton = true;
+      this.form.reset();
     }, (error: any) => {
       console.log('Error', error);
     });
