@@ -29,11 +29,6 @@
                             <td mat-cell *matCellDef="let row">{{row.blocked}}</td>
                         </ng-container>
 
-                        <ng-container matColumnDef="loggerDevice">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Logger Device Serial Number</th>
-                            <td mat-cell *matCellDef="let row">{{row.loggerDevice.serialNumber}}</td>
-                        </ng-container>
-
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="btnClick(row.id)" class="pointerCursor">
                         </tr>

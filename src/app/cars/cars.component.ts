@@ -18,7 +18,7 @@ export class CarsComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   dataSource1: MatTableDataSource<any>;
   isLoadingResults = true;
-  displayedColumns = ['id', 'model', 'plateNumber', 'blocked', 'loggerDevice'];
+  displayedColumns = ['id', 'model', 'plateNumber', 'blocked'];
   displayedColumns2 = ['id', 'serialNumber', 'simCardNumber'];
   id: number;
 
@@ -40,6 +40,7 @@ export class CarsComponent implements OnInit {
       .subscribe(
         (data: any) => {
           console.log(data);
+          data.loggerDevice = data.loggerDevice === 'null' ? null : data.loggerDevice;
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
