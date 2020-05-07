@@ -13,7 +13,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private roles: string[];
+  private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
@@ -46,18 +46,20 @@ export class AppComponent implements OnInit {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
 
-      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
-      this.showUsersBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
-      this.showCarsBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
-      this.showCarLogsBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
 
       this.username = user.username;
     }
+    this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+    this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+    this.showUsersBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
+    this.showCarsBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
+    this.showCarLogsBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
+
+
     this.navigation = [
       { link: 'listofusers', label: 'Users', show: this.showUsersBoard },
-      { link: 'cars', label: 'Cars', show: this.showCarsBoard},
-      {link: 'carlogs', label: 'Car Logs', show: this.showCarLogsBoard}
+      { link: 'cars', label: 'Cars', show: this.showCarsBoard },
+      { link: 'carlogs', label: 'Car Logs', show: this.showCarLogsBoard }
     ];
   }
 
