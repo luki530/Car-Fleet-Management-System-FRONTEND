@@ -18,6 +18,7 @@ import { LogoutPageComponent } from './logout-page/logout-page.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { SettingsComponent } from './settings/settings.component';
+import { CarsComponent } from './cars/cars.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'settings', component: SettingsComponent},
+  { path: 'cars', component: CarsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

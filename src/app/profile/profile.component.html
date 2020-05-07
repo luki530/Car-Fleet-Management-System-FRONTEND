@@ -5,31 +5,31 @@
     <mat-list class>
         <mat-list-item>
             <mat-icon mat-list-icon>person</mat-icon>
-            <div mat-line> <span>Name: </span> {{name}}</div>
+            <div mat-line>Name: {{name}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>perm_identity</mat-icon>
-            <div mat-line> <span>Username: </span> {{username}}</div>
+            <div mat-line> Username: {{username}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>phone_android</mat-icon>
-            <div mat-line> <span>PhoneNumber: </span> {{phoneNumber}}</div>
+            <div mat-line> PhoneNumber: {{phoneNumber}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>alternate_email</mat-icon>
-            <div mat-line> <span>Email: </span> {{email}}</div>
+            <div mat-line> Email: {{email}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>supervisor_account</mat-icon>
-
-            <div mat-line *matCellDef="let row">
-                <span>Roles: </span>
-                <ng-template *ngFor="let role of roles">{{role}}</ng-template>
+            <div>
+                <span> &nbsp;&nbsp;&nbsp; Roles: &nbsp; </span>
             </div>
+            <div *ngFor="let role of roles"> {{role.name.substring(5)}} &nbsp; </div>
         </mat-list-item>
     </mat-list>
+    <button mat-raised-button color="primary">Delete Account</button>
 </mat-card>

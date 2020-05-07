@@ -13,16 +13,19 @@ import { AddCardComponent } from '../addcard/addcard.component';
   styleUrls: ['./userprofile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  isLoadingResults = true;
+  currentUser: any;
   form: any;
-  dataSource: MatTableDataSource<any>;
-  displayedColumns = ['id', 'username', 'email', 'phoneNumber', 'name', 'cardId', 'buttons'];
+  isLoggedIn = false;
+  name: string;
+  username: string;
+  phoneNumber: string;
+  email: string;
+  roles = [];
   userId: any;
   cardId: any;
-  value: AddCardComponent['value'];
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -31,6 +34,7 @@ export class UserProfileComponent implements OnInit {
     })
   };
 
+
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       this.userId = params.id;
@@ -38,12 +42,14 @@ export class UserProfileComponent implements OnInit {
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/userprofile?id=' + this.userId, this.httpOptions)
       .subscribe(
         (data: any) => {
-          console.log(data);
-          this.dataSource = new MatTableDataSource(Array(data));
-          this.isLoadingResults = false;
+          this.name = data.name;
+          this.username = data.username;
+          this.phoneNumber = data.phoneNumber;
+          this.email = data.email;
+          this.roles = data.roles;
+          console.log(this.roles);
         },
         err => {
-          this.isLoadingResults = false;
         });
   }
 

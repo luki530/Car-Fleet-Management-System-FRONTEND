@@ -57,6 +57,7 @@ import {
 } from '@angular/material';
 import { SettingsComponent } from './settings/settings.component';
 import { ConnectionService } from './_services/connection.service';
+import { CarsComponent } from './cars/cars.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ConnectionService } from './_services/connection.service';
     LogoutPageComponent,
     ContactComponent,
     AboutComponent,
-    SettingsComponent
+    SettingsComponent,
+    CarsComponent
   ],
   entryComponents: [AddCardComponent],
 
