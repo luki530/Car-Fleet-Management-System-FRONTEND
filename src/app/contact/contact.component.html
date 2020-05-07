@@ -1,61 +1,38 @@
-<mdb-card>
+<!-- Default form contact -->
+<form class="text-center border border-light p-5" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
-    <mdb-card-header class="info-color white-text text-center py-4">
-        <h5>
-            <strong>Contact us</strong>
-        </h5>
-    </mdb-card-header>
+  <p class="h4 mb-4">Contact us</p>
 
-    <mdb-card-body class="px-lg-5 pt-0">
+  <!-- Name -->
+  <input type="text" formControlName="name" id="defaultContactFormName" mdbInput
+    class="form-control mb-4" placeholder="Name">
 
-        <form class="text-center" style="color: #757575;" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-            <div class="md-form mt-3">
-                <input type="text" formControlName="contactFormName" id="materialContactFormName" class="form-control" mdbInput mdbValidate />
-                <label for="materialContactFormName">Name</label>
-                <mdb-error *ngIf="name.invalid && (name.dirty || name.touched)">Input invalid</mdb-error>
-                <mdb-success *ngIf="name.valid && (name.dirty || name.touched)">Input valid</mdb-success>
-            </div>
+  <!-- Email -->
+  <input type="email" formControlName="email" id="defaultContactFormEmail" mdbInput
+    class="form-control mb-4" placeholder="E-mail">
 
-            <div class="md-form">
-                <input type="email" formControlName="contactFormEmail" id="materialContactFormEmail" class="form-control" mdbInput mdbValidate />
-                <label for="materialContactFormEmail">E-mail</label>
-                <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">Input invalid</mdb-error>
-                <mdb-success *ngIf="email.valid && (email.dirty || email.touched)">Input valid</mdb-success>
-            </div>
+  <!-- Subject -->
+  <label>Subject</label>
+  <select formControlName="subject" class="browser-default custom-select mb-4">
+    <option value="" disabled>Choose option</option>
+    <option value="1" selected>Feedback</option>
+    <option value="2">Report a bug</option>
+    <option value="3">Feature request</option>
+    <option value="4">Feature request</option>
+  </select>
 
-            <!-- <span>Subject</span>
-            <div class="row">
-                <div class="col-md-12 mx-auto">
-                    <div class="md-form">
-                         <mat-select formControlName="contactFormSubjects" [options]="optionsSelect" placeholder="Choose your option" mdbValidate></mat-select>
-                        <mdb-error *ngIf="subjects.invalid && (subjects.dirty || subjects.touched)">Input invalid</mdb-error>
-                        <mdb-success *ngIf="subjects.valid && (subjects.dirty || subjects.touched)">Input valid</mdb-success>
-                    </div>
-                </div>
-            </div> -->
+  <!-- Message -->
+  <div class="form-group">
+    <textarea formControlName="message" class="form-control rounded-0" mdbInput id="exampleFormControlTextarea2"
+      rows="3" placeholder="Message"></textarea>
+  </div>
 
-            <div class="md-form">
-                <textarea type="text" formControlName="contactFormMessage" id="materialContactFormMessage" class="form-control md-textarea" mdbInput mdbValidate></textarea>
-                <label for="materialContactFormMessage">Message</label>
-                <mdb-error *ngIf="message.invalid && (message.dirty || message.touched)">Input invalid</mdb-error>
-                <mdb-success *ngIf="message.valid && (message.dirty || message.touched)">Input valid</mdb-success>
-            </div>
+  <!-- Copy -->
+  <mdb-checkbox [default]="false" class="mb-4" mdbValidate formControlName="copy">Send me a copy of this message</mdb-checkbox>
 
-            <div class="row">
-                <div class="col-md-6 mx-auto d-flex justify-content-center">
-                    <div class="md-form">
-                        <mdb-checkbox mdbValidate formControlName="contactFormCopy">Send me a copy of this message</mdb-checkbox>
-                        <mdb-error *ngIf="copy.invalid && (copy.dirty || copy.touched)">Input invalid</mdb-error>
-                        <mdb-success *ngIf="copy.valid && (copy.dirty || copy.touched)">Input valid</mdb-success>
-                    </div>
-                </div>
-            </div>
+  <!-- Send button -->
+  <button mdbBtn color="info" outline="true" block="true" class="z-depth-0 my-4 waves-effect"
+    mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">Send</button>
 
-            <button mdbBtn color="info" outline="true" rounded="true" block="true" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit" [disabled]="disabledSubmitButton">
-        Send
-      </button>
-        </form>
-
-    </mdb-card-body>
-
-</mdb-card>
+</form>
+<!-- Default form contact -->
