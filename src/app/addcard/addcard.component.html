@@ -1,11 +1,14 @@
-<mat-toolbar>
-    <button  mat-stroked-button (click)="onClose()"></button>
-</mat-toolbar>
-<form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Card ID" name="cardId" [(ngModel)]="form.cardId" required #cardId="ngModel" />
-        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && cardId.invalid">
-            Card Id is required!
-        </div>
-    </div>
+<form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+    <h2 mat-dialog-title>Add card</h2>
+    <mat-form-field class="full-width-input">
+        <input matInput placeholder="Card ID" [(ngModel)]="form.cardId" name="cardId" required pattern="^[0-9]*$" minlength="8" maxlength="8" #cardId="ngModel">
+        <mat-error>
+            Please provide a valid card id
+        </mat-error>
+    </mat-form-field>
+
+    <mat-dialog-actions>
+        <button mat-stroked-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button>Save</button>
+    </mat-dialog-actions>
 </form>

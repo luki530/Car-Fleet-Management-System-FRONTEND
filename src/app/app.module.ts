@@ -54,6 +54,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SettingsComponent } from './settings/settings.component';
 import { ConnectionService } from './_services/connection.service';
 import { CarsComponent } from './cars/cars.component';
+import { AddcarComponent } from './addcar/addcar.component';
+import { AddLoggerDeviceComponent } from './addloggerdevice/addloggerdevice.component';
+import { DeleteuserComponent } from './deleteuser/deleteuser.component';
+import { DeleteloggerdeviceComponent } from './deleteloggerdevice/deleteloggerdevice.component';
+import { DeletecarComponent } from './deletecar/deletecar.component';
+import { CarProfileComponent } from './carprofile/carprofile.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +82,13 @@ import { CarsComponent } from './cars/cars.component';
     ContactComponent,
     AboutComponent,
     SettingsComponent,
-    CarsComponent
+    CarsComponent,
+    AddcarComponent,
+    AddLoggerDeviceComponent,
+    DeleteuserComponent,
+    DeleteloggerdeviceComponent,
+    DeletecarComponent,
+    CarProfileComponent
   ],
   entryComponents: [AddCardComponent],
 

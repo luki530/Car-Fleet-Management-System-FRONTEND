@@ -22,7 +22,7 @@ export class UserProfileComponent implements OnInit {
   email: string;
   roles = [];
   userId: any;
-  cardId: any;
+  cardId: string;
 
   // tslint:disable-next-line: max-line-length
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
@@ -47,18 +47,21 @@ export class UserProfileComponent implements OnInit {
           this.phoneNumber = data.phoneNumber;
           this.email = data.email;
           this.roles = data.roles;
-          console.log(this.roles);
+          if (!(data.card == null)) {
+            this.cardId = data.card.cardId;
+          }
         },
         err => {
         });
   }
 
-  onCreate() {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%';
-    this.dialog.open(AddCardComponent, dialogConfig);
+  openDialog(): void {
+    let dialogRef = this.dialog.open(AddCardComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
   }
 }
 

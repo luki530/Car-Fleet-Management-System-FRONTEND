@@ -18,9 +18,10 @@ export class CarsComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   dataSource1: MatTableDataSource<any>;
   isLoadingResults = true;
-  displayedColumns = ['id', 'model', 'plateNumber', 'blocked'];
+  displayedColumns = ['id', 'model', 'plateNumber', 'blocked', 'loggerDevice'];
   displayedColumns2 = ['id', 'serialNumber', 'simCardNumber'];
   id: number;
+  serialNumber: any = '';
 
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
@@ -40,7 +41,6 @@ export class CarsComponent implements OnInit {
       .subscribe(
         (data: any) => {
           console.log(data);
-          data.loggerDevice = data.loggerDevice === 'null' ? null : data.loggerDevice;
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
@@ -64,12 +64,17 @@ export class CarsComponent implements OnInit {
   }
 
   btnClick(newValue: number) {
-    this.router.navigate(['/userprofile'], { queryParams: { id: newValue }, relativeTo: this.activatedRoute });
+    this.router.navigate(['/carprofile'], { queryParams: { id: newValue }, relativeTo: this.activatedRoute });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  applyFilter1(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource1.filter = filterValue.trim().toLowerCase();
   }
 }
 
