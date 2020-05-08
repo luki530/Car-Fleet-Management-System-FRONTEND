@@ -1,26 +1,35 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
-    <h3>
-      <strong>{{ currentUser.username }}</strong> Profile
-    </h3>
-  </header>
-  <p>
-    <strong>Token:</strong>
-    {{ currentUser.accessToken.substring(0, 20) }} ...
-    {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
-  </p>
-  <p>
-    <strong>Email:</strong>
-    {{ currentUser.email }}
-  </p>
-  <strong>Roles:</strong>
-  <ul>
-    <li *ngFor="let role of currentUser.roles">
-      {{ role }}
-    </li>
-  </ul>
-</div>
-
-<ng-template #loggedOut>
-  Please login.
-</ng-template>
+<mat-card>
+    <mat-card-header>
+        <img mat-card-avatar id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+    </mat-card-header>
+    <mat-list class>
+        <mat-list-item>
+            <mat-icon mat-list-icon>person</mat-icon>
+            <div mat-line>Name: {{name}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>perm_identity</mat-icon>
+            <div mat-line> Username: {{username}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>phone_android</mat-icon>
+            <div mat-line> PhoneNumber: {{phoneNumber}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>alternate_email</mat-icon>
+            <div mat-line> Email: {{email}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>supervisor_account</mat-icon>
+            <div>
+                <span> &nbsp;&nbsp;&nbsp; Roles: &nbsp; </span>
+            </div>
+            <div *ngFor="let role of roles"> {{role.name.substring(5)}} &nbsp; </div>
+        </mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary">Delete Account</button>
+</mat-card>

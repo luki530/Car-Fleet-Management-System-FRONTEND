@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,14 +12,15 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: any = {};
+  @Output() refreshContext = new EventEmitter();
+  form: any = { isChecked: false };
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-  isChecked = false;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService: CookieService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private authService: AuthService, private router: Router, private tokenStorage: TokenStorageService, private cookieService: CookieService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -25,34 +29,32 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onChangeChk($event) {
-    if ($event.target.checked === true) {
-    this.isChecked = !this.isChecked;
-    console.log(this.isChecked);
-    } else if ($event.target.checked === false) {
-    this.isChecked = !this.isChecked;
-    console.log(this.isChecked);
-    }
-  }
-
   onSubmit() {
     this.authService.login(this.form).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-        if (this.isChecked) {
+        if (this.form.isChecked) {
           this.tokenStorage.saveTokenLocal(data.accessToken);
           this.tokenStorage.saveUserLocal(data);
         }
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-
-        this.reloadPage();
+        this._snackBar.open('Signed in !', 'Close', {
+          duration: 5000,
+          panelClass: ['advice']
+        });
+        this.refreshContext.next();
+        this.router.navigate(['home']);
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        this._snackBar.open(this.errorMessage, 'Close', {
+          duration: 5000,
+          panelClass: ['prompt']
+        });
       }
     );
   }
@@ -61,3 +63,4 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
 }
+

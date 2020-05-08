@@ -1,52 +1,40 @@
-<div class="example-container mat-elevation-z8">
-
-    <div class="example-table-container">
-
-        <table mat-table [dataSource]="dataSource" multiTemplateDataRows>
-            <ng-container class="ng" matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef>ID</th>
-                <td mat-cell *matCellDef="let row">{{row.id}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="username">
-                <th mat-header-cell *matHeaderCellDef>Username</th>
-                <td mat-cell *matCellDef="let row">{{row.username}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef>Email</th>
-                <td mat-cell *matCellDef="let row">{{row.email}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="phoneNumber">
-                <th mat-header-cell *matHeaderCellDef>Phone Number</th>
-                <td mat-cell *matCellDef="let row">{{row.phoneNumber}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef>Name</th>
-                <td mat-cell *matCellDef="let row">{{row.name}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="cardId">
-                <th mat-header-cell *matHeaderCellDef>Card ID</th>
-                <td mat-cell *matCellDef="let row"> - </td>
-            </ng-container>
-
-            <ng-container matColumnDef="buttons">
-                <th mat-header-cell *matHeaderCellDef>Buttons</th>
-                <td mat-cell *matCellDef="let row">
-                    <button mat-raised-button color="primary" (click)="onCreate()">Add card</button>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-        </table>
-
-        <mat-card *ngIf="isLoadingResults" style="display: flex; justify-content: center; align-items: center">
-            <mat-spinner color="primary" mode="indeterminate">
-            </mat-spinner>
-        </mat-card>
-    </div>
-</div>
+<mat-card>
+    <mat-card-header>
+        <img mat-card-avatar id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+    </mat-card-header>
+    <mat-list class>
+        <mat-list-item>
+            <mat-icon mat-list-icon>person</mat-icon>
+            <div mat-line>Name: {{name}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>perm_identity</mat-icon>
+            <div mat-line> Username: {{username}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>phone_android</mat-icon>
+            <div mat-line> PhoneNumber: {{phoneNumber}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>alternate_email</mat-icon>
+            <div mat-line> Email: {{email}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>credit_card</mat-icon>
+            <div mat-line> CardId: {{cardId}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>supervisor_account</mat-icon>
+            <div>
+                <span> &nbsp;&nbsp;&nbsp; Roles: &nbsp; </span>
+            </div>
+            <div *ngFor="let role of roles"> {{role.name.substring(5)}} &nbsp; </div>
+        </mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" (click)="onCreate()">Add card</button>
+</mat-card>

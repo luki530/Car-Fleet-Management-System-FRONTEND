@@ -1,0 +1,23 @@
+.home-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    height: 400px;
+    width: 300px;
+}
+
+.tab {
+    position: relative;
+    height: 100%;
+}
+
+.home-card {
+    background-color: transparent;
+}
+
+img {
+    margin: 2px 10px 0 0;
+}

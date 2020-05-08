@@ -1,0 +1,46 @@
+<mat-card>
+    <mat-card-content>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
+            <p class="h4 mb-4">Contact us</p>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Name" [(ngModel)]="form.name" name="name" required #name="ngModel">
+                <mat-error>
+                    Please provide a valid username
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Email" [(ngModel)]="form.email" name="email" required pattern="([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})" #email="ngModel">
+                <mat-error>
+                    Please provide a valid email address
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+                <mat-select [(ngModel)]="form.subject" name="subject">
+                    <mat-option disabled>--</mat-option>
+                    <mat-option *ngFor="let subject of subjects " [value]="subject">
+                        {{subject}}
+                    </mat-option>
+                </mat-select>
+                <mat-error>Please choose a subject</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea matInput [(ngModel)]="form.message" name="message" required #message="ngModel"></textarea>
+                <mat-error>
+                    Please provide a message
+                </mat-error>
+            </mat-form-field>
+
+            <div>
+                <mat-checkbox class="example-margin" [(ngModel)]="form.isChecked" name="copy">Send me a copy of this message
+                </mat-checkbox>
+            </div>
+            <!-- Send button -->
+            <button mat-raised-button color="primary">Send</button>
+
+        </form>
+    </mat-card-content>
+</mat-card>
