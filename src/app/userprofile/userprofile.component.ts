@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { AddCardComponent } from '../addcard/addcard.component';
+import { DeleteUserComponent } from '../deleteuser/deleteuser.component';
+import { AssignRolesComponent } from '../assignroles/assignroles.component';
 
 @Injectable()
 @Component({
@@ -34,7 +36,6 @@ export class UserProfileComponent implements OnInit {
     })
   };
 
-
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       this.userId = params.id;
@@ -55,8 +56,26 @@ export class UserProfileComponent implements OnInit {
         });
   }
 
-  openDialog(): void {
+  addCard(): void {
     let dialogRef = this.dialog.open(AddCardComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
+
+  assignRoles(): void {
+    let dialogRef = this.dialog.open(AssignRolesComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  }
+
+  deleteUser(): void {
+    let dialogRef = this.dialog.open(DeleteUserComponent, {
     });
 
     dialogRef.afterClosed().subscribe(result => {

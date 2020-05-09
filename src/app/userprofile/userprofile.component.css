@@ -4,11 +4,25 @@ mat-card {
     margin: 0 auto;
 }
 
-button {
+.buttonRoles {
     margin: -20px -50px;
     position: relative;
     top: 50%;
-    left: 50%;
+    left: 20%;
+}
+
+.buttonCard {
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 70%;
+}
+
+.buttonDelete {
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 45%;
 }
 
 .profile-img-card {

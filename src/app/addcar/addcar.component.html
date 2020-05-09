@@ -1,1 +1,28 @@
-<p>addcar works!</p>
+<mat-card>
+    <mat-card-content>
+        <form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+            <mat-card-header>
+                <img mat-card-avatar id="profile-img" src="https://1001freedownloads.s3.amazonaws.com/vector/thumb/315495/766c3ac5602e36c95df81e89b085dc8a-luxury-racing-car-lamborghini.png" class="profile-img-card" />
+            </mat-card-header>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Model" [(ngModel)]="form.model" name="model" required #model="ngModel">
+                <mat-error>
+                    Please provide a valid model
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Plate Number" [(ngModel)]="form.plateNumber" name="plateNumber" required #plateNumber="ngModel">
+                <mat-error>
+                    Please provide a valid plate number
+                </mat-error>
+            </mat-form-field>
+            <div>
+                <mat-checkbox class="example-margin" [(ngModel)]="form.blocked" name="blocked">Blocked </mat-checkbox>
+            </div>
+            <mat-dialog-actions>
+                <button mat-stroked-button mat-dialog-close>Cancel</button>
+                <button mat-raised-button>Add Car</button>
+            </mat-dialog-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,22 @@
+mat-card {
+    max-width: 600px;
+    padding: 40px 40px;
+    margin: 2em auto;
+    text-align: center;
+}
+
+mat-form-field {
+    display: block;
+}
+
+:host /deep/ .mat-card-header-text {
+    margin: 0;
+}
+
+.example-margin {
+    margin: 0 10px;
+}
+
+.prompt {
+    color: red;
+}

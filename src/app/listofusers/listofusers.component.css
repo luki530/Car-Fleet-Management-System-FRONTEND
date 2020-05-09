@@ -1,9 +1,6 @@
-/* Structure */
-
 mat-card {
-    padding: 40px 40px;
     margin: 2em auto;
-    width: 800px;
+    width: 50%;
 }
 
 .example-container {

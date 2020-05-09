@@ -54,12 +54,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SettingsComponent } from './settings/settings.component';
 import { ConnectionService } from './_services/connection.service';
 import { CarsComponent } from './cars/cars.component';
-import { AddcarComponent } from './addcar/addcar.component';
+import { AddCarComponent } from './addcar/addcar.component';
 import { AddLoggerDeviceComponent } from './addloggerdevice/addloggerdevice.component';
-import { DeleteuserComponent } from './deleteuser/deleteuser.component';
-import { DeleteloggerdeviceComponent } from './deleteloggerdevice/deleteloggerdevice.component';
-import { DeletecarComponent } from './deletecar/deletecar.component';
 import { CarProfileComponent } from './carprofile/carprofile.component';
+import { LoggerDeviceDetailsComponent } from './loggerdevicedetails/loggerdevicedetails.component';
+import { DeleteUserComponent } from './deleteuser/deleteuser.component';
+import { DeleteCarComponent } from './deletecar/deletecar.component';
+import { DeleteLoggerDeviceComponent } from './deleteloggerdevice/deleteloggerdevice.component';
+import { AssignRolesComponent } from './assignroles/assignroles.component';
 
 @NgModule({
   declarations: [
@@ -83,14 +85,23 @@ import { CarProfileComponent } from './carprofile/carprofile.component';
     AboutComponent,
     SettingsComponent,
     CarsComponent,
-    AddcarComponent,
+    AddCarComponent,
     AddLoggerDeviceComponent,
-    DeleteuserComponent,
-    DeleteloggerdeviceComponent,
-    DeletecarComponent,
-    CarProfileComponent
+    CarProfileComponent,
+    LoggerDeviceDetailsComponent,
+    DeleteUserComponent,
+    DeleteCarComponent,
+    DeleteLoggerDeviceComponent,
+    AssignRolesComponent
   ],
-  entryComponents: [AddCardComponent],
+  entryComponents: [AddCardComponent,
+    AddCarComponent,
+    AddLoggerDeviceComponent,
+    DeleteUserComponent,
+    DeleteCarComponent,
+    DeleteLoggerDeviceComponent,
+    AssignRolesComponent
+  ],
 
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-addloggerdevice',
@@ -9,9 +9,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./addloggerdevice.component.css']
 })
 export class AddLoggerDeviceComponent implements OnInit {
-  form: any;
-  serialNumber: string;
-  simCardNumber: string;
+  form: any = {};
+  simCardNumber: any;
+  serialNumber: any;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -20,25 +20,23 @@ export class AddLoggerDeviceComponent implements OnInit {
     })
   };
 
-
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService,  public dialogref: MatDialogRef<AddLoggerDeviceComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService,  public dialogref: MatDialogRef<AddLoggerDeviceComponent>) { }
 
-
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   save() {
-    this.http.post<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
+    this.http.post<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', {
+        simCardNumber: this.form.simCardNumber,
+        serialNumber: this.form.serialNumber
+    }, this.httpOptions)
       .subscribe(
-        (data: any) => {
-          this.serialNumber = data.serialNumber;
-          this.simCardNumber = data.simCardNumber;
+        (response: any) => { 
         },
         err => {
         });
-    this.dialogref.close(this.data.cardId);
+    this.dialogref.close();
   }
 
 }

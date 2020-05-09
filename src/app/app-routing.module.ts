@@ -20,6 +20,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SettingsComponent } from './settings/settings.component';
 import { CarsComponent } from './cars/cars.component';
 import { CarProfileComponent } from './carprofile/carprofile.component';
+import { LoggerDeviceDetailsComponent } from './loggerdevicedetails/loggerdevicedetails.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'settings', component: SettingsComponent},
   { path: 'cars', component: CarsComponent},
   { path: 'carprofile', component: CarProfileComponent},
+  { path: 'loggerdevicedetails', component: LoggerDeviceDetailsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

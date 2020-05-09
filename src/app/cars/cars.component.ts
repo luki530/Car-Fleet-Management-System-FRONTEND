@@ -5,6 +5,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AddCarComponent } from '../addcar/addcar.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AddLoggerDeviceComponent } from '../addloggerdevice/addloggerdevice.component';
 
 
 @Injectable()
@@ -26,8 +29,9 @@ export class CarsComponent implements OnInit {
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
 
+
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -67,6 +71,10 @@ export class CarsComponent implements OnInit {
     this.router.navigate(['/carprofile'], { queryParams: { id: newValue }, relativeTo: this.activatedRoute });
   }
 
+  btnClick1(newValue: number) {
+    this.router.navigate(['/loggerdevicedetails'], { queryParams: { id: newValue }, relativeTo: this.activatedRoute });
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -76,5 +84,24 @@ export class CarsComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource1.filter = filterValue.trim().toLowerCase();
   }
+
+  addCar(): void {
+    let dialogRef = this.dialog.open(AddCarComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  } 
+
+  addLoggerDevice(): void {
+    let dialogRef = this.dialog.open(AddLoggerDeviceComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
+    });
+  } 
+
 }
 
