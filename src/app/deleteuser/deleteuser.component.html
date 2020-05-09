@@ -1,1 +1,6 @@
-<p>deleteuser works!</p>
+<h2 mat-dialog-title>WARNING!</h2>
+<p>Are you sure about deleting this user</p>
+<mat-dialog-actions>
+    <button mat-stroked-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button (click)="deleteUser()">Delete</button>
+</mat-dialog-actions>

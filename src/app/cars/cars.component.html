@@ -84,9 +84,11 @@
 
                     <mat-divider></mat-divider>
 
-                    <div>
-                        <button mat-raised-button color="primary" class="buttonAssign" (click)="addLoggerDevice()">Add Logger Device</button>
-                    </div>
+                    <mat-list>
+                        <div>
+                            <button mat-raised-button color="primary" class="buttonAssign" (click)="addLoggerDevice()">Add Logger Device</button>
+                        </div>
+                    </mat-list>
 
                     <mat-card *ngIf="isLoadingResults" style="display: flex; justify-content: center; align-items: center">
                         <mat-spinner color="primary" mode="indeterminate">

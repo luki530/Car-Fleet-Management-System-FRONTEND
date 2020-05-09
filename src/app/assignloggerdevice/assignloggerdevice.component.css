@@ -1,0 +1,39 @@
+mat-card {
+    width: 100%;
+}
+
+.example-container {
+    position: relative;
+    min-height: 200px;
+}
+
+.example-table-container {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+}
+
+
+/* Column Widths */
+
+.mat-column-number,
+.mat-column-state {
+    max-width: 100px;
+}
+
+.mat-row {
+    position: relative;
+}
+
+.pointerCursor {
+    cursor: pointer;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}

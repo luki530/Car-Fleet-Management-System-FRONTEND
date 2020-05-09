@@ -4,6 +4,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DeleteCarComponent } from '../deletecar/deletecar.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AssignLoggerDeviceComponent } from '../assignloggerdevice/assignloggerdevice.component';
 
 @Component({
   selector: 'app-carprofile',
@@ -58,6 +59,11 @@ export class CarProfileComponent implements OnInit {
   }
 
   assignLoggerDevice(): void {
+    let dialogRef = this.dialog.open(AssignLoggerDeviceComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
 }

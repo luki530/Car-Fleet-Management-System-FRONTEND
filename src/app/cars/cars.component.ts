@@ -24,7 +24,7 @@ export class CarsComponent implements OnInit {
   displayedColumns = ['id', 'model', 'plateNumber', 'blocked', 'loggerDevice'];
   displayedColumns2 = ['id', 'serialNumber', 'simCardNumber'];
   id: number;
-  serialNumber: any = '';
+  // serialNumber: any = '';
 
   @ViewChild(MatSort, { static: false }) sort: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;

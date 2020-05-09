@@ -62,6 +62,7 @@ import { DeleteUserComponent } from './deleteuser/deleteuser.component';
 import { DeleteCarComponent } from './deletecar/deletecar.component';
 import { DeleteLoggerDeviceComponent } from './deleteloggerdevice/deleteloggerdevice.component';
 import { AssignRolesComponent } from './assignroles/assignroles.component';
+import { AssignLoggerDeviceComponent } from './assignloggerdevice/assignloggerdevice.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { AssignRolesComponent } from './assignroles/assignroles.component';
     DeleteUserComponent,
     DeleteCarComponent,
     DeleteLoggerDeviceComponent,
-    AssignRolesComponent
+    AssignRolesComponent,
+    AssignLoggerDeviceComponent
   ],
   entryComponents: [AddCardComponent,
     AddCarComponent,
@@ -100,7 +102,8 @@ import { AssignRolesComponent } from './assignroles/assignroles.component';
     DeleteUserComponent,
     DeleteCarComponent,
     DeleteLoggerDeviceComponent,
-    AssignRolesComponent
+    AssignRolesComponent,
+    AssignLoggerDeviceComponent
   ],
 
   imports: [
