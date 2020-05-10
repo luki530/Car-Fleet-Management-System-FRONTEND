@@ -24,6 +24,6 @@
         </mat-list-item>
     </mat-list>
     <button mat-raised-button color="primary" class="buttonDelete" (click)="openDialog()">Delete Car</button>
-    <button mat-raised-button color="primary" class="buttonAssign" (click)="assignLoggerDevice()">Assign Logger Device</button>
+    <button *ngIf="serialNumber != null" mat-raised-button color="primary" class="buttonAssign" (click)="assignLoggerDevice()">Assign Logger Device</button>
 
 </mat-card>
