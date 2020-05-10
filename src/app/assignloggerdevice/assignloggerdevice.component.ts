@@ -17,7 +17,7 @@ export class AssignLoggerDeviceComponent implements OnInit {
   form: any;
   dataSource: MatTableDataSource<any>;
   isLoadingResults = true;
-  displayedColumns = ['id', 'serialNumber'];
+  displayedColumns: string [] = ['id', 'serialNumber'];
   id: number;
   userid: any
 

@@ -5,33 +5,34 @@
     <mat-list class>
         <mat-list-item>
             <mat-icon mat-list-icon>person</mat-icon>
-            <div mat-line>Name: {{name}}</div>
+            <div mat-line> <strong>Name:</strong> {{name}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>perm_identity</mat-icon>
-            <div mat-line> Username: {{username}}</div>
+            <div mat-line> <strong>Username:</strong> {{username}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>phone_android</mat-icon>
-            <div mat-line> PhoneNumber: {{phoneNumber}}</div>
+            <div mat-line> <strong>PhoneNumber:</strong> {{phoneNumber}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>alternate_email</mat-icon>
-            <div mat-line> Email: {{email}}</div>
+            <div mat-line> <strong>Email:</strong> {{email}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>credit_card</mat-icon>
-            <div mat-line> CardId: {{cardId}}</div>
+            <div mat-line>
+                <strong>CardId:</strong> {{cardId}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>supervisor_account</mat-icon>
             <div>
-                <span> &nbsp;&nbsp;&nbsp; Roles: &nbsp; </span>
+                <span> &nbsp;&nbsp;&nbsp; <strong>Roles: </strong>&nbsp; </span>
             </div>
             <div *ngFor="let role of roles"> {{role.name.substring(5)}} &nbsp; </div>
         </mat-list-item>

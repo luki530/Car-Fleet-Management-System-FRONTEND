@@ -10,3 +10,8 @@ mat-card {
     top: 50%;
     left: 50%;
 }
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}

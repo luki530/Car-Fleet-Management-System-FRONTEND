@@ -30,3 +30,8 @@ mat-form-field {
 .prompt {
     color: red;
 }
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}

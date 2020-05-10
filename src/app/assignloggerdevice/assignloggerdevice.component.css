@@ -37,3 +37,8 @@ table {
     font-size: 14px;
     width: 100%;
 }
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}

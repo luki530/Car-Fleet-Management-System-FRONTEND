@@ -8,3 +8,8 @@ mat-card {
 mat-form-field {
     display: block;
 }
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}

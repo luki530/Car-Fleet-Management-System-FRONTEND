@@ -6,10 +6,8 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
-import { Observable } from 'rxjs';
 import { FormGroup, FormGroupDirective, FormControl } from '@angular/forms';
-import { ResetPasswordComponent } from '../resetpassword/resetpassword.component';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-assignroles',
@@ -18,12 +16,13 @@ import { ResetPasswordComponent } from '../resetpassword/resetpassword.component
 })
 export class AssignRolesComponent implements OnInit {
   form: any;
-  dataSource: MatTableDataSource<any>;
   isLoadingResults = true;
-  displayedColumns = ['id', 'name', 'assign'];
+  dataSource: MatTableDataSource<any>;
+  displayedColumns: string [] = ['id', 'name', 'empty', 'select'];
   id: number;
-  name: Array<string>;
   userId: any;
+  objectArray: object[];
+  roles: any = [];
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -31,10 +30,6 @@ export class AssignRolesComponent implements OnInit {
       Authorization: 'Bearer' + this.tokenStorage.getToken()
     })
   };
-
-  newOffersForm: FormGroup;
-  @ViewChild('formDirective') formDirective: FormGroupDirective;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
   // tslint:disable-next-line: max-line-length
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private snackBar: MatSnackBar, private dialogref: MatDialogRef<AssignRolesComponent>, private activatedRoute: ActivatedRoute) { }
 
@@ -43,27 +38,28 @@ export class AssignRolesComponent implements OnInit {
       (response: any) => {
         console.log(response);
         this.dataSource = new MatTableDataSource(response);
-        this.dataSource.sort = this.sort;
         this.isLoadingResults = false;
-        this.activatedRoute.queryParams.subscribe(params => {
-        this.name = params.name;
-        });
       },
       err => {
         this.isLoadingResults = false;
-      }),
-      this.newOffersForm = new FormGroup({
-        isActive: new FormControl(false)
       }),
       this.activatedRoute.queryParams.subscribe(params => {
         this.userId = params.id;
       });
   }
 
+  updateSelected(value: string) {
+    if (this.roles.includes(value)) {
+      this.roles.splice(this.roles.indexOf(value));
+    } else {
+      this.roles.push(value);
+    }
+  }
+
   assignRoles() {
     this.http.put<any>('https://backend.carfleetmanagementsystem.pl:443/roles', {
         userId: this.userId,
-        name: this.name
+        roles: this.roles
     }, this.httpOptions)
       .subscribe(
         (response: any) => {

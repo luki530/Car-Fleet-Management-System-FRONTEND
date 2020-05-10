@@ -143,3 +143,8 @@ mat-sidenav-container {
         }
     }
 }
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
