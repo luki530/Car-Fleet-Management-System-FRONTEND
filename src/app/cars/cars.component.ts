@@ -14,6 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./cars.component.css']
 })
 export class CarsComponent implements OnInit {
+
   form: any;
   dataSource: MatTableDataSource<any>;
   dataSource1: MatTableDataSource<any>;
@@ -48,19 +49,19 @@ export class CarsComponent implements OnInit {
         },
         err => {
           this.isLoadingResults = false;
-        }),
-      this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
-        .subscribe(
-          (response: any) => {
-            console.log(response);
-            this.dataSource1 = new MatTableDataSource(response);
-            this.dataSource1.sort = this.sort;
-            this.dataSource1.paginator = this.paginator;
-            this.isLoadingResults = false;
-          },
-          err => {
-            this.isLoadingResults = false;
-          });
+        });
+    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
+      .subscribe(
+        (response: any) => {
+          console.log(response);
+          this.dataSource1 = new MatTableDataSource(response);
+          this.dataSource1.sort = this.sort;
+          this.dataSource1.paginator = this.paginator;
+          this.isLoadingResults = false;
+        },
+        err => {
+          this.isLoadingResults = false;
+        });
   }
 
   btnClick(newValue: number) {

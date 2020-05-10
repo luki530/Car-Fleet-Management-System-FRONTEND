@@ -51,6 +51,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { SettingsComponent } from './settings/settings.component';
 import { ConnectionService } from './_services/connection.service';
 import { CarsComponent } from './cars/cars.component';
@@ -60,6 +62,9 @@ import { DeleteuserComponent } from './deleteuser/deleteuser.component';
 import { DeleteloggerdeviceComponent } from './deleteloggerdevice/deleteloggerdevice.component';
 import { DeletecarComponent } from './deletecar/deletecar.component';
 import { CarProfileComponent } from './carprofile/carprofile.component';
+import { CarLogsComponent } from './carlogs/carlogs.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -88,7 +93,8 @@ import { CarProfileComponent } from './carprofile/carprofile.component';
     DeleteuserComponent,
     DeleteloggerdeviceComponent,
     DeletecarComponent,
-    CarProfileComponent
+    CarProfileComponent,
+    CarLogsComponent
   ],
   entryComponents: [AddCardComponent],
 
@@ -126,9 +132,13 @@ import { CarProfileComponent } from './carprofile/carprofile.component';
     MatSnackBarModule,
     FontAwesomeModule,
     MDBBootstrapModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleMapsModule,
+    NgxMaterialTimepickerModule.setLocale('pl-PL'),
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
-  providers: [authInterceptorProviders, CookieService, ConnectionService],
+  providers: [authInterceptorProviders, CookieService, ConnectionService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 
