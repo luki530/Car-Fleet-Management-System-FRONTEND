@@ -8,8 +8,3 @@ mat-card {
 :host /deep/ .mat-card-header-text {
     margin: auto;
 }
-
-.scrolling-element {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-}

@@ -47,8 +47,3 @@ table {
 .cdk-global-scrollblock {
     overflow-y: hidden;
 }
-
-.scrolling-element {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-}

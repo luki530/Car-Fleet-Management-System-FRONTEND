@@ -11,6 +11,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { MyHammerConfig } from './my-gesture-config';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -145,7 +147,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
     MatGridListModule
   ],
-  providers: [authInterceptorProviders, CookieService, ConnectionService, MatDatepickerModule],
+  providers: [authInterceptorProviders, CookieService, ConnectionService, MatDatepickerModule, {
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig
+  }],
   bootstrap: [AppComponent],
   entryComponents: [AssignLoggerDeviceComponent, AssignRolesComponent,
     DeleteCarComponent,

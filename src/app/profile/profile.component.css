@@ -23,8 +23,3 @@ button {
     -webkit-border-radius: 100%;
     border-radius: 100%;
 }
-
-.scrolling-element {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-}
