@@ -1,0 +1,8 @@
+.rolesTable {
+    width: 10%;
+}
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}

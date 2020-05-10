@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-header>
+        <img mat-card-avatar id="profile-img" src="https://1001freedownloads.s3.amazonaws.com/vector/thumb/315495/766c3ac5602e36c95df81e89b085dc8a-luxury-racing-car-lamborghini.png" class="profile-img-card" />
+    </mat-card-header>
+    <mat-list class>
+        <mat-list-item>
+            <mat-icon mat-list-icon>directions_car</mat-icon>
+            <div mat-line> <strong>Model:</strong> {{model}} </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>crop_7_5</mat-icon>
+            <div mat-line> <strong>Plate Number:</strong> {{plateNumber}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>block</mat-icon>
+            <div mat-line> <strong>Blocked:</strong> {{blocked}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>looks_5</mat-icon>
+            <div mat-line> <strong>Serial Number:</strong> {{serialNumber}}</div>
+        </mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" class="buttonDelete" (click)="openDialog()">Delete Car</button>
+    <button *ngIf="serialNumber != null" mat-raised-button color="primary" class="buttonAssign" (click)="assignLoggerDevice()">Assign Logger Device</button>
+
+</mat-card>

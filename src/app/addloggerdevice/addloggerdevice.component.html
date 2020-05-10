@@ -1,0 +1,22 @@
+<mat-card>
+    <mat-card-content>
+        <form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Model" [(ngModel)]="form.serialNumber" name="serialNumber" required #serialNumber="ngModel">
+                <mat-error>
+                    Please provide a valid serial number
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Plate Number" [(ngModel)]="form.simCardNumber" name="simCardNumber" required #simCardNumber="ngModel">
+                <mat-error>
+                    Please provide a valid sim card number
+                </mat-error>
+            </mat-form-field>
+            <mat-dialog-actions>
+                <button mat-stroked-button mat-dialog-close>Cancel</button>
+                <button mat-raised-button>Add Logger Device</button>
+            </mat-dialog-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

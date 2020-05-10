@@ -1,9 +1,6 @@
-/* Structure */
-
 mat-card {
-    padding: 40px 40px;
     margin: 2em auto;
-    width: 800px;
+    width: 50%;
 }
 
 .example-container {
@@ -45,4 +42,13 @@ table {
 .mat-form-field {
     font-size: 14px;
     width: 100%;
+}
+
+.cdk-global-scrollblock {
+    overflow-y: hidden;
+}
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 }

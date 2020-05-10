@@ -4,11 +4,29 @@ mat-card {
     margin: 0 auto;
 }
 
-button {
+:host /deep/ .mat-card-header-text {
+    margin: 0;
+}
+
+.buttonRoles {
     margin: -20px -50px;
     position: relative;
     top: 50%;
-    left: 50%;
+    left: 22%;
+}
+
+.buttonCard {
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 82%;
+}
+
+.buttonDelete {
+    margin: -20px -50px;
+    position: relative;
+    top: 50%;
+    left: 52%;
 }
 
 .profile-img-card {
@@ -19,4 +37,9 @@ button {
     -moz-border-radius: 100%;
     -webkit-border-radius: 100%;
     border-radius: 100%;
+}
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 }

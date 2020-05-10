@@ -21,3 +21,8 @@
 img {
     margin: 2px 10px 0 0;
 }
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,17 @@
+mat-list,
+mat-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.buttonDelete {
+    margin: -10px -50px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+}
