@@ -153,7 +153,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     DeleteUserComponent,
     AddCardComponent,
     AddLoggerDeviceComponent,
-  AddCarComponent]
+    AddCarComponent]
 })
 
 export class AppModule { }
