@@ -48,7 +48,8 @@ table {
     margin: 0 auto;
 }
 
-.scrolling-element {
+
+/* .scrolling-element {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
-}
+} */
