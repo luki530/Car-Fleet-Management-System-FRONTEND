@@ -2,23 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DeleteCarComponent } from '../deletecar/deletecar.component';
-import { MatDialog } from '@angular/material/dialog';
-import { AssignLoggerDeviceComponent } from '../assignloggerdevice/assignloggerdevice.component';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { DeleteLoggerDeviceComponent } from '../deleteloggerdevice/deleteloggerdevice.component';
 
 @Component({
-  selector: 'app-carprofile',
-  templateUrl: './carprofile.component.html',
-  styleUrls: ['./carprofile.component.css']
+  selector: 'app-loggerdevicedetails',
+  templateUrl: './loggerdevicedetails.component.html',
+  styleUrls: ['./loggerdevicedetails.component.css']
 })
-export class CarProfileComponent implements OnInit {
+export class LoggerDeviceDetailsComponent implements OnInit {
   form: any;
   isLoggedIn = false;
-  plateNumber: string;
-  model: string;
-  blocked: boolean;
+  simCardNumber: string;
   serialNumber: string;
-  carId: any;
+  roles = [];
+  loggerDeviceId: any;
 
   // tslint:disable-next-line: max-line-length
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
@@ -33,15 +31,13 @@ export class CarProfileComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
-      this.carId = params.id;
+      this.loggerDeviceId = params.id;
     });
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars/' + this.carId, this.httpOptions)
+    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices/' + this.loggerDeviceId, this.httpOptions)
       .subscribe(
         (data: any) => {
-          this.model = data.model;
-          this.plateNumber = data.plateNumber;
+          this.simCardNumber = data.simCardNumber;
           this.serialNumber = data.serialNumber;
-          this.blocked = data.blocked;
           if (!(data.loggerDevice == null)) {
             this.serialNumber = data.loggerDevice.serialNumber;
           }
@@ -51,19 +47,12 @@ export class CarProfileComponent implements OnInit {
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(DeleteCarComponent, {
+    let dialogRef = this.dialog.open(DeleteLoggerDeviceComponent, {
     });
 
     dialogRef.afterClosed().subscribe(result => {
     });
   }
 
-  assignLoggerDevice(): void {
-    let dialogRef = this.dialog.open(AssignLoggerDeviceComponent, {
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-    });
-  }
 
 }

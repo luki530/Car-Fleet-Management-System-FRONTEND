@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-list class>
+        <mat-list-item>
+            <mat-icon mat-list-icon>sim_card</mat-icon>
+            <div mat-line>Sim Card Number: {{simCardNumber}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>looks_3</mat-icon>
+            <div mat-line>Serial Number: {{serialNumber}}</div>
+        </mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" class="buttonDelete" (click)="openDialog()">Delete Logger Device</button>
+</mat-card>

@@ -21,6 +21,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { CarsComponent } from './cars/cars.component';
 import { CarProfileComponent } from './carprofile/carprofile.component';
 import { CarLogsComponent } from './carlogs/carlogs.component';
+import { LoggerDeviceDetailsComponent } from './loggerdevicedetails/loggerdevicedetails.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -35,13 +36,14 @@ const routes: Routes = [
   { path: 'resetpassword', component: ResetPasswordComponent },
   { path: 'changepassword', component: ChangePasswordComponent },
   { path: 'listofusers', component: ListOfUsersComponent },
-  { path: 'userprofile', component: UserProfileComponent },
-  { path: 'logoutpage', component: LogoutPageComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'cars', component: CarsComponent },
-  { path: 'carprofile', component: CarProfileComponent },
+  { path: 'userprofile', component: UserProfileComponent},
+  { path: 'logoutpage', component: LogoutPageComponent},
+  { path: 'about', component: AboutComponent},
+  { path: 'contact', component: ContactComponent},
+  { path: 'settings', component: SettingsComponent},
+  { path: 'cars', component: CarsComponent},
+  { path: 'carprofile', component: CarProfileComponent},
+  { path: 'loggerdevicedetails', component: LoggerDeviceDetailsComponent},
   { path: 'carlogs', component: CarLogsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

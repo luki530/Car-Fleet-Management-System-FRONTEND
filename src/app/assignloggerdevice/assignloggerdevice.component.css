@@ -1,6 +1,5 @@
 mat-card {
-    margin: 2em auto;
-    width: 50%;
+    width: 100%;
 }
 
 .example-container {
@@ -23,12 +22,7 @@ table {
 
 .mat-column-number,
 .mat-column-state {
-    max-width: 64px;
-}
-
-.mat-column-created {
-    max-width: 124px;
-    min-width: 80px;
+    max-width: 100px;
 }
 
 .mat-row {

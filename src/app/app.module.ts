@@ -56,15 +56,18 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { SettingsComponent } from './settings/settings.component';
 import { ConnectionService } from './_services/connection.service';
 import { CarsComponent } from './cars/cars.component';
-import { AddcarComponent } from './addcar/addcar.component';
+import { AddCarComponent } from './addcar/addcar.component';
 import { AddLoggerDeviceComponent } from './addloggerdevice/addloggerdevice.component';
-import { DeleteuserComponent } from './deleteuser/deleteuser.component';
-import { DeleteloggerdeviceComponent } from './deleteloggerdevice/deleteloggerdevice.component';
-import { DeletecarComponent } from './deletecar/deletecar.component';
 import { CarProfileComponent } from './carprofile/carprofile.component';
 import { CarLogsComponent } from './carlogs/carlogs.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { LoggerDeviceDetailsComponent } from './loggerdevicedetails/loggerdevicedetails.component';
+import { DeleteUserComponent } from './deleteuser/deleteuser.component';
+import { DeleteCarComponent } from './deletecar/deletecar.component';
+import { DeleteLoggerDeviceComponent } from './deleteloggerdevice/deleteloggerdevice.component';
+import { AssignRolesComponent } from './assignroles/assignroles.component';
+import { AssignLoggerDeviceComponent } from './assignloggerdevice/assignloggerdevice.component';
 
 @NgModule({
   declarations: [
@@ -88,15 +91,10 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     AboutComponent,
     SettingsComponent,
     CarsComponent,
-    AddcarComponent,
+    AddCarComponent,
     AddLoggerDeviceComponent,
-    DeleteuserComponent,
-    DeleteloggerdeviceComponent,
-    DeletecarComponent,
-    CarProfileComponent,
-    CarLogsComponent
+
   ],
-  entryComponents: [AddCardComponent],
 
   imports: [
     BrowserModule,

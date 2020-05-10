@@ -4,16 +4,23 @@ mat-card {
     margin: 0 auto;
 }
 
-button {
-    margin: -20px -50px;
+.buttonDelete {
+    margin: -10px -50px;
     position: relative;
     top: 50%;
-    left: 50%;
+    left: 30%;
+}
+
+.buttonAssign {
+    margin: -10px -50px;
+    position: relative;
+    top: 50%;
+    left: 60%;
 }
 
 .profile-img-card {
-    width: 125px;
-    height: 125px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
     display: block;
     -moz-border-radius: 100%;
