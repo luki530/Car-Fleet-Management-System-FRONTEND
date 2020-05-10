@@ -93,6 +93,14 @@ import { AssignLoggerDeviceComponent } from './assignloggerdevice/assignloggerde
     CarsComponent,
     AddCarComponent,
     AddLoggerDeviceComponent,
+    DeleteCarComponent,
+    DeleteLoggerDeviceComponent,
+    DeleteUserComponent,
+    LoggerDeviceDetailsComponent,
+    AssignRolesComponent,
+    AssignLoggerDeviceComponent,
+    CarLogsComponent,
+    CarProfileComponent
 
   ],
 
@@ -137,7 +145,14 @@ import { AssignLoggerDeviceComponent } from './assignloggerdevice/assignloggerde
     MatNativeDateModule
   ],
   providers: [authInterceptorProviders, CookieService, ConnectionService, MatDatepickerModule],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AssignLoggerDeviceComponent, AssignRolesComponent,
+    DeleteCarComponent,
+    DeleteLoggerDeviceComponent,
+    DeleteUserComponent,
+    AddCardComponent,
+    AddLoggerDeviceComponent,
+    AddCarComponent]
 })
 
 export class AppModule { }

@@ -22,7 +22,7 @@ export class AssignRolesComponent implements OnInit {
   isLoadingResults = true;
   displayedColumns = ['id', 'name', 'assign'];
   id: number;
-  name: any;
+  name: Array<string>;
   userId: any;
 
   httpOptions = {
@@ -45,9 +45,8 @@ export class AssignRolesComponent implements OnInit {
         this.dataSource = new MatTableDataSource(response);
         this.dataSource.sort = this.sort;
         this.isLoadingResults = false;
-        this.name = response.name;
         this.activatedRoute.queryParams.subscribe(params => {
-          this.name = params.name;
+        this.name = params.name;
         });
       },
       err => {
