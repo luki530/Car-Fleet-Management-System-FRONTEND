@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -19,12 +19,12 @@ export class ChangePasswordComponent implements OnInit {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   form: any = {};
 
   ngOnInit() {
-      this.form.token = this.route.snapshot.queryParamMap.get('token');
+    this.form.token = this.route.snapshot.queryParamMap.get('token');
   }
 
   onSubmit() {
@@ -35,7 +35,7 @@ export class ChangePasswordComponent implements OnInit {
         this.isSuccessful = true;
       },
       err => {
-        this.errorMessage = err.error.message;
+        // this.errorMessage = err.error.message;
         this.isFailed = true;
       }
     );

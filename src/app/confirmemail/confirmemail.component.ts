@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
-import { MatAlert } from '@lhn/mat-alert';
 
 @Component({
   selector: 'app-confirmemail',
@@ -12,7 +11,7 @@ import { MatAlert } from '@lhn/mat-alert';
 
 export class ConfirmEmailComponent implements OnInit {
 
-  constructor(private authService: AuthService, private http: HttpClient, private route: ActivatedRoute, public alert: MatAlert) { }
+  constructor(private authService: AuthService, private http: HttpClient, private route: ActivatedRoute) { }
 
   token: string = '';
 
@@ -21,8 +20,4 @@ export class ConfirmEmailComponent implements OnInit {
     this.authService.confirmemail(this.token).subscribe();
   }
 
-  public showAlert() {
-    this.alert.show('Congratulations!', 'Your email has been confirmed!', {
-    });
-  }
 }
