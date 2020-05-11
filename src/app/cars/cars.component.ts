@@ -93,7 +93,7 @@ export class CarsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
     });
-  } 
+  }
 
   addLoggerDevice(): void {
     let dialogRef = this.dialog.open(AddLoggerDeviceComponent, {
@@ -102,7 +102,7 @@ export class CarsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();
     });
-  } 
+  }
 
 }
 
