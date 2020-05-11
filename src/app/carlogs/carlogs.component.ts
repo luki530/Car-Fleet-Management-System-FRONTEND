@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'carlogs',
@@ -40,10 +41,18 @@ export class CarLogsComponent implements OnInit {
   minutes: string;
   logs: any = [];
   markers: any = [];
+  min: number;
+  max: number;
+  step: number;
+  logSelect: number;
+
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.min = 0;
+    this.max = 0;
+    this.step = 1;
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars', this.httpOptions)
       .subscribe(
         (data: any) => {
@@ -51,7 +60,6 @@ export class CarLogsComponent implements OnInit {
         },
         err => {
         });
-    // this.form.startDate = new Date();
   }
 
   onSubmit() {
@@ -62,7 +70,9 @@ export class CarLogsComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.logs = data;
-          this.addMarker(this.logs[0].gpsLocation.latitude, this.logs[0].gpsLocation.longitude, this.logs[0].gpsLocation.address);
+          this.max = data.length - 1;
+          this.isSuccesful = true;
+          this.printMarker(0);
         },
         err => {
         });
@@ -82,11 +92,20 @@ export class CarLogsComponent implements OnInit {
         lng: longitude,
       },
       label: {
-        color: 'red',
-        text: 'Marker label ' + title,
+        color: 'Green',
+        text: title,
       },
-      title: 'Marker title ' + title,
+      title: '' + title,
       options: { animation: google.maps.Animation.BOUNCE },
     });
+  }
+
+  printMarker(index) {
+    this.markers = [];
+    this.addMarker(this.logs[index].gpsLocation.latitude, this.logs[index].gpsLocation.longitude, this.logs[index].gpsLocation.address);
+  }
+
+  onInputChange(event: MatSliderChange) {
+    this.printMarker(event.value);
   }
 }

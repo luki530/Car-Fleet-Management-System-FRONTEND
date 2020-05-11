@@ -1,61 +1,76 @@
 <mat-card>
-    <mat-card-content>
-        <form *ngIf="!isSuccesful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-            <mat-form-field>
-                <mat-select placeholder="Choose car: " [(ngModel)]="form.car" name="car">
-                    <mat-option *ngFor="let car of cars" [value]="car">
-                        {{car.model + ' ' + car.plateNumber}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <mat-label>Start date</mat-label>
-                <input matInput [matDatepicker]="startdate" [(ngModel)]="form.startDate" name="startDate">
-                <mat-datepicker-toggle matSuffix [for]="startdate"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" matDatepickerToggleIcon>
+  <mat-card-content>
+    <form *ngIf="!isSuccesful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <mat-form-field>
+        <mat-select placeholder="Choose car: " [(ngModel)]="form.car" name="car">
+          <mat-option *ngFor="let car of cars" [value]="car">
+            {{car.model + ' ' + car.plateNumber}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <mat-label>Start date</mat-label>
+        <input matInput [matDatepicker]="startdate" [(ngModel)]="form.startDate" name="startDate">
+        <mat-datepicker-toggle matSuffix [for]="startdate"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+            height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" matDatepickerToggleIcon>
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg></mat-datepicker-toggle>
-                <mat-datepicker #startdate></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input matInput placeholder="Start time" [ngxTimepicker]="starttime" [format]="24" [(ngModel)]="form.startTime" name="startTime">
-                <ngx-material-timepicker-toggle matSuffix [for]="starttime">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ngxMaterialTimepickerToggleIcon>
+        <mat-datepicker #startdate></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Start time" [ngxTimepicker]="starttime" [format]="24" [(ngModel)]="form.startTime"
+          name="startTime">
+        <ngx-material-timepicker-toggle matSuffix [for]="starttime">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            ngxMaterialTimepickerToggleIcon>
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 16 14"></polyline>
           </svg>
-                </ngx-material-timepicker-toggle>
-                <ngx-material-timepicker #starttime [theme]="darkTheme"></ngx-material-timepicker>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <mat-label>End date</mat-label>
-                <input matInput [matDatepicker]="enddate" [(ngModel)]="form.endDate" name="endDate">
-                <mat-datepicker-toggle matSuffix [for]="enddate"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" matDatepickerToggleIcon>
+        </ngx-material-timepicker-toggle>
+        <ngx-material-timepicker #starttime [theme]="darkTheme"></ngx-material-timepicker>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <mat-label>End date</mat-label>
+        <input matInput [matDatepicker]="enddate" [(ngModel)]="form.endDate" name="endDate">
+        <mat-datepicker-toggle matSuffix [for]="enddate"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" matDatepickerToggleIcon>
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg></mat-datepicker-toggle>
-                <mat-datepicker #enddate></mat-datepicker>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input matInput placeholder="End time" [ngxTimepicker]="endtime" [format]="24" [(ngModel)]="form.endTime" name="endTime">
-                <ngx-material-timepicker-toggle matSuffix [for]="endtime">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ngxMaterialTimepickerToggleIcon>
+        <mat-datepicker #enddate></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="End time" [ngxTimepicker]="endtime" [format]="24" [(ngModel)]="form.endTime"
+          name="endTime">
+        <ngx-material-timepicker-toggle matSuffix [for]="endtime">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            ngxMaterialTimepickerToggleIcon>
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 16 14"></polyline>
           </svg>
-                </ngx-material-timepicker-toggle>
-                <ngx-material-timepicker #endtime [theme]="darkTheme"></ngx-material-timepicker>
-            </mat-form-field>
-            <button mat-raised-button color="primary">Find logs</button>
-        </form>
+        </ngx-material-timepicker-toggle>
+        <ngx-material-timepicker #endtime [theme]="darkTheme"></ngx-material-timepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Find logs</button>
+    </form>
 
-        <google-map>
-            <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label" [title]="marker.title" [options]="marker.options">
-            </map-marker>
-        </google-map>
-    </mat-card-content>
+    <mat-slider *ngIf="isSuccesful" [max]="max" [min]="min" [step]="step" [(ngModel)]="logSelect"
+      (input)="onInputChange($event)">
+    </mat-slider>
+
+    <google-map *ngIf="isSuccesful">
+      <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label"
+        [title]="marker.title" [options]="marker.options">
+      </map-marker>
+    </google-map>
+  </mat-card-content>
 </mat-card>

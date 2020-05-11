@@ -67,7 +67,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatAlertModule } from '@lhn/mat-alert';
+import { MatSliderModule } from '@angular/material/slider';
 
 
 @NgModule({
@@ -145,7 +145,7 @@ import { MatAlertModule } from '@lhn/mat-alert';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
-    MatAlertModule
+    MatSliderModule
   ],
   providers: [authInterceptorProviders, CookieService, ConnectionService, MatDatepickerModule],
   bootstrap: [AppComponent],
