@@ -33,7 +33,7 @@ export class AddCarComponent implements OnInit {
         plateNumber: this.form.plateNumber
     }, this.httpOptions)
       .subscribe(
-        (response: any) => { 
+        (response: any) => {
         },
         err => {
         });
