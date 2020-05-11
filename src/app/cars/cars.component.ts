@@ -27,8 +27,8 @@ export class CarsComponent implements OnInit {
   id: number;
   // serialNumber: any = '';
 
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
 
   // tslint:disable-next-line: max-line-length

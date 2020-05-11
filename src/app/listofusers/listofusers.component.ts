@@ -21,8 +21,8 @@ export class ListOfUsersComponent implements OnInit {
   displayedColumns = ['id', 'username', 'email'];
   id: number;
 
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   // tslint:disable-next-line: max-line-length
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute) { }
