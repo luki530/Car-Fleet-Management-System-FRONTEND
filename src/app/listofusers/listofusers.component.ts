@@ -20,6 +20,7 @@ export class ListOfUsersComponent implements OnInit {
   isLoadingResults = true;
   displayedColumns = ['id', 'username', 'email'];
   id: number;
+  users: any = [];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -44,6 +45,7 @@ export class ListOfUsersComponent implements OnInit {
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.isLoadingResults = false;
+          this.users = data;
         },
         err => {
           this.isLoadingResults = false;

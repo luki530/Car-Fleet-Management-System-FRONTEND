@@ -25,6 +25,8 @@ export class CarsComponent implements OnInit {
   displayedColumns = ['id', 'model', 'plateNumber', 'blocked', 'loggerDevice'];
   displayedColumns2 = ['id', 'serialNumber', 'simCardNumber'];
   id: number;
+  cars: any = [];
+  loggerDevices: any = [];
   // serialNumber: any = '';
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -50,6 +52,7 @@ export class CarsComponent implements OnInit {
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.isLoadingResults = false;
+          this.cars = data;
         },
         err => {
           this.isLoadingResults = false;
@@ -62,6 +65,7 @@ export class CarsComponent implements OnInit {
           this.dataSource1.sort = this.sort;
           this.dataSource1.paginator = this.paginator;
           this.isLoadingResults = false;
+          this.loggerDevices = response;
         },
         err => {
           this.isLoadingResults = false;
