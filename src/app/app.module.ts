@@ -43,6 +43,7 @@ import { AddLoggerDeviceComponent } from './addloggerdevice/addloggerdevice.comp
 import { CarProfileComponent } from './carprofile/carprofile.component';
 import { CarLogsComponent } from './carlogs/carlogs.component';
 
+
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -68,6 +69,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
+import { AnimationsComponent } from './animations/animations.component';
 
 
 @NgModule({
@@ -101,8 +103,8 @@ import { MatSliderModule } from '@angular/material/slider';
     AssignRolesComponent,
     AssignLoggerDeviceComponent,
     CarLogsComponent,
-    CarProfileComponent
-
+    CarProfileComponent,
+    AnimationsComponent
   ],
 
   imports: [
