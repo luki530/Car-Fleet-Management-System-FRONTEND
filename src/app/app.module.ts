@@ -33,7 +33,6 @@ import { DeleteLoggerDeviceComponent } from './deleteloggerdevice/deleteloggerde
 import { AssignRolesComponent } from './assignroles/assignroles.component';
 import { AssignLoggerDeviceComponent } from './assignloggerdevice/assignloggerdevice.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
-import { SettingsComponent } from './settings/settings.component';
 import { CarsComponent } from './cars/cars.component';
 import { AddCarComponent } from './addcar/addcar.component';
 import { AddLoggerDeviceComponent } from './addloggerdevice/addloggerdevice.component';
@@ -66,7 +65,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
-import { AnimationsComponent } from './animations/animations.component';
 
 
 @NgModule({
@@ -86,7 +84,6 @@ import { AnimationsComponent } from './animations/animations.component';
     LogoutPageComponent,
     ContactComponent,
     AboutComponent,
-    SettingsComponent,
     CarsComponent,
     AddCarComponent,
     AddLoggerDeviceComponent,
@@ -97,8 +94,7 @@ import { AnimationsComponent } from './animations/animations.component';
     AssignRolesComponent,
     AssignLoggerDeviceComponent,
     CarLogsComponent,
-    CarProfileComponent,
-    AnimationsComponent
+    CarProfileComponent
   ],
 
   imports: [
