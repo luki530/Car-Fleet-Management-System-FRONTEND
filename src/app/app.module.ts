@@ -16,9 +16,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
@@ -78,9 +75,6 @@ import { AnimationsComponent } from './animations/animations.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    BoardAdminComponent,
-    BoardUserComponent,
-    BoardModeratorComponent,
     ProfileComponent,
     ConfirmEmailComponent,
     ConfirmPhoneNumberComponent,

@@ -5,9 +5,6 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { ConfirmEmailComponent } from './confirmemail/confirmemail.component';
 import { ConfirmPhoneNumberComponent } from './confirmphonenumber/confirmphonenumber.component';
 import { ResetPasswordComponent } from './resetpassword/resetpassword.component';
@@ -28,22 +25,19 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'user', component: BoardUserComponent },
-  { path: 'mod', component: BoardModeratorComponent },
-  { path: 'admin', component: BoardAdminComponent },
   { path: 'confirmemail', component: ConfirmEmailComponent },
   { path: 'confirmphonenumber', component: ConfirmPhoneNumberComponent },
   { path: 'resetpassword', component: ResetPasswordComponent },
   { path: 'changepassword', component: ChangePasswordComponent },
   { path: 'listofusers', component: ListOfUsersComponent },
-  { path: 'userprofile', component: UserProfileComponent},
-  { path: 'logoutpage', component: LogoutPageComponent},
-  { path: 'about', component: AboutComponent},
-  { path: 'contact', component: ContactComponent},
-  { path: 'settings', component: SettingsComponent},
-  { path: 'cars', component: CarsComponent},
-  { path: 'carprofile', component: CarProfileComponent},
-  { path: 'loggerdevicedetails', component: LoggerDeviceDetailsComponent},
+  { path: 'userprofile', component: UserProfileComponent },
+  { path: 'logoutpage', component: LogoutPageComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'settings', component: SettingsComponent },
+  { path: 'cars', component: CarsComponent },
+  { path: 'carprofile', component: CarProfileComponent },
+  { path: 'loggerdevicedetails', component: LoggerDeviceDetailsComponent },
   { path: 'carlogs', component: CarLogsComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
