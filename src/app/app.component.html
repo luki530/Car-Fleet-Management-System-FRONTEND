@@ -1,11 +1,13 @@
 <div *ngIf="showApp">
-    <mat-sidenav-container [ngStyle]="{background: 'url(https://steamuserimages-a.akamaihd.net/ugc/915792633192065337/AA45141969D321AF88400C6C3778D1DF3E315638/)'}">
-        <mat-sidenav #sidenav mode="push">
-            <div class="branding"><img [src]="logo" [alt]="logo" />
-                <span>{{'Abbr' | translate }}</span></div>
-            <mat-nav-list>
-                <ng-container *ngFor="let item of navigation">
-                    <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]" routerLinkActive="active">
+  <mat-sidenav-container
+    [ngStyle]="{background: 'url(https://steamuserimages-a.akamaihd.net/ugc/915792633192065337/AA45141969D321AF88400C6C3778D1DF3E315638/)'}">
+    <mat-sidenav #sidenav mode="push">
+      <div class="branding"><img [src]="logo" [alt]="logo" />
+        <span>{{'Abbr' | translate }}</span></div>
+      <mat-nav-list>
+        <ng-container *ngFor="let item of navigation">
+          <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]"
+            routerLinkActive="active">
 
             {{item.label}}
           </a>
@@ -28,9 +30,9 @@
 
           <span routerLink="" class="branding spacer center d-inline d-sm-none">
             <img [src]="logo" [alt]="logo" /></span>
-                    <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
+          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
               [alt]="logo" />{{'Abbr' | translate }}</span>
-                    <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo"
+          <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo"
               [alt]="logo" />{{'Title' | translate}}</span>
 
           <span class="d-none d-md-inline">
@@ -43,19 +45,20 @@
 
           </span>
 
-                    <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
+          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
             {{'Login' | translate }}
           </button>
-                    <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
+          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
             {{'Register' | translate }}
           </button>
 
 
-                    <mat-select [value]="translate.currentLang" placeholder="EN" #selectedLang (selectionChange)="switchLang(selectedLang.value)">
-                        <mat-option *ngFor="let language of translate.getLangs()" [value]="language">
-                            {{ language.toUpperCase() }}
-                        </mat-option>
-                    </mat-select>
+          <mat-select [value]="translate.currentLang" placeholder="EN" #selectedLang
+            (selectionChange)="switchLang(selectedLang.value)">
+            <mat-option *ngFor="let language of translate.getLangs()" [value]="language">
+              {{ language.toUpperCase() }}
+            </mat-option>
+          </mat-select>
 
           <mat-icon class="icon" [matMenuTriggerFor]="menu">
             palette
@@ -106,26 +109,24 @@
           </a>
         </mat-toolbar>
       </div>
-            <div class="content">
-                <router-outlet (activate)="reloadContext()"></router-outlet>
-            </div>
-            <div class="footer">
-                <div class="row">
-                    <div class="col-sm-12 links">
-                        <a target="_blank" rel="noopener noreferrer">
-                            <fa-icon [icon]="faInfo" routerLink="about"></fa-icon>
-                            <span routerLink="about">{{'About Us' | translate }}</span>
-                        </a>
-                        <a target="_blank" rel="noopener noreferrer">
-                            <fa-icon [icon]="faBell" routerLink="contact"></fa-icon>
-                            <span routerLink="contact">{{'Contact' | translate }}</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <div class="content">
+        <router-outlet (activate)="reloadContext()"></router-outlet>
+      </div>
+      <div class="footer">
+        <div class="row">
+          <div class="col-sm-12 links">
+            <a target="_blank" rel="noopener noreferrer">
+              <fa-icon [icon]="faInfo" routerLink="about"></fa-icon>
+              <span routerLink="about">{{'About Us' | translate }}</span>
+            </a>
+            <a target="_blank" rel="noopener noreferrer">
+              <fa-icon [icon]="faBell" routerLink="contact"></fa-icon>
+              <span routerLink="contact">{{'Contact' | translate }}</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    </mat-sidenav-container>
+  </mat-sidenav-container>
 </div>
