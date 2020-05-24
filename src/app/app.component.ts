@@ -64,13 +64,14 @@ export class AppComponent implements OnInit {
   faInfo = faInfo;
   Abbr: string;
   Title: string;
-  selected:string;
+  selected: string;
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
 
-  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router,public translate: TranslateService,private themeService: ThemeService ) {
-    translate.addLangs(['en', 'pl','de']);
+
+  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService) {
+    translate.addLangs(['en', 'pl', 'de']);
     translate.setDefaultLang('en');
   }
 
