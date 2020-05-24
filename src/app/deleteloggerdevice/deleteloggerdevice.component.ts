@@ -37,7 +37,7 @@ export class DeleteLoggerDeviceComponent implements OnInit {
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices/' + this.loggerDeviceId, this.httpOptions).subscribe(() => {
       console.log('success');
       this.router.navigate(['/cars']);
-      this.translate.stream('Logger device has been deleted !').subscribe((text:string) => {
+      this.translate.getStreamOnTranslationChange('Logger device has been deleted !').subscribe((text:string) => {
       this.snackBar.open(text, '', {
         duration: 5000,
         panelClass: ['prompt']

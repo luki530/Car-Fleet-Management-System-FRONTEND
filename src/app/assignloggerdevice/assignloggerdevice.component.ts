@@ -52,7 +52,6 @@ form: any = {};
         err => {
         });
     this.dialogref.close();
-    this.ngOnInit();
   }
 
 }

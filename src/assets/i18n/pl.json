@@ -94,5 +94,9 @@
     "Message has been sent!": "Wiadomośc została wysłana!",
     "Your phone number has been confirmed!": "Twój numer telefonu został potwierdzony!",
     "Wrong code has been provided!": "Wprowadzony kod jest niepoprawny!",
-    "Feedback": "ko"
+    "Feedback": "Informacja zwrotna",
+    "Report a bug": "Zgłoś błąd",
+    "Feature a request": "Zgłoś propozycję",
+    "Users": "Użytkownicy",
+    "Car Logs": "Logi Aut"
 }

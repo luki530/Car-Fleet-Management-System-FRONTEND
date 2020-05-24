@@ -142,7 +142,6 @@ import { MatSliderModule } from '@angular/material/slider';
     MatNativeDateModule,
     MatGridListModule,
     MatSliderModule,
-    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

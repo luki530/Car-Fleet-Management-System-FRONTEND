@@ -54,7 +54,7 @@ export class CarProfileComponent implements OnInit {
     let dialogRef = this.dialog.open(DeleteCarComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
     });
   }
 
@@ -62,7 +62,8 @@ export class CarProfileComponent implements OnInit {
     let dialogRef = this.dialog.open(AssignLoggerDeviceComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
+      this.ngOnInit();
     });
   }
 

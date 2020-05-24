@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.translate.stream('Signed In!').subscribe((text:string) => {
+        this.translate.getStreamOnTranslationChange('Signed In!').subscribe((text:string) => {
         this._snackBar.open(text, '', {
           duration: 5000,
           panelClass: ['advice']
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         this.isLoginFailed = true;
-        this.translate.stream('Unauthorized').subscribe((text:string) => {
+        this.translate.getStreamOnTranslationChange('Unauthorized').subscribe((text:string) => {
         this._snackBar.open(text, 'Close', {
           duration: 5000,
           panelClass: ['prompt']

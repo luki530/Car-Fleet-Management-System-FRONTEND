@@ -33,8 +33,6 @@ export class AppComponent implements OnInit {
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
-  navigation = [];
-
 
   constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router,public translate: TranslateService) {
     translate.addLangs(['en', 'pl','de']);
@@ -68,11 +66,7 @@ export class AppComponent implements OnInit {
       this.username = user.username;
     }
 
-    this.navigation = [
-      { link: 'listofusers', label: 'Users', show: this.showUsersBoard },
-      { link: 'cars', label: 'Cars', show: this.showCarsBoard },
-      { link: 'carlogs', label: 'Car Logs', show: this.showCarLogsBoard }
-    ];
+
   }
 
   logout() {

@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       },
       err => {
         this.isSignUpFailed = true;
-        this.translate.stream('Something went wrong!').subscribe((text: string) => {
+        this.translate.getStreamOnTranslationChange('Something went wrong!').subscribe((text: string) => {
         this._snackBar.open(text, '', {
           duration: 5000,
           panelClass: ['prompt']

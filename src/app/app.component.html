@@ -4,11 +4,7 @@
             <div class="branding"><img [src]="logo" [alt]="logo" />
                 <span>{{'Abbr' | translate }}</span></div>
             <mat-nav-list>
-                <ng-container *ngFor="let item of navigation">
-                    <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]" routerLinkActive="active">
-            {{item.label}}
-          </a>
-                </ng-container>
+
                 <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
           Github
         </a>
@@ -32,10 +28,18 @@
               [alt]="logo" />{{'Title' | translate}}</span>
 
                     <span class="d-none d-md-inline">
-            <ng-container *ngFor="let item of navigation">
-              <button mat-button class="nav-button" *ngIf="item.show" [routerLink]="[item.link]"
+            <ng-container>
+              <button mat-button class="nav-button" routerLink="listofusers"
                 routerLinkActive="active">
-                {{item.label}}
+                {{'Users' | translate}}
+              </button>
+              <button mat-button class="nav-button" routerLink="cars"
+                routerLinkActive="active">
+                {{'Cars' | translate}}
+              </button>
+              <button mat-button class="nav-button" routerLink="carlogs"
+                routerLinkActive="active">
+                {{'Car Logs' | translate}}
               </button>
             </ng-container>
 
@@ -47,7 +51,6 @@
                     <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
             {{'Register' | translate }}
           </button>
-
 
                     <mat-select [value]="translate.currentLang" placeholder="EN" #selectedLang (selectionChange)="switchLang(selectedLang.value)">
                         <mat-option *ngFor="let language of translate.getLangs()" [value]="language">

@@ -93,5 +93,10 @@
     "Logger device has been deleted!": "Logger-Gerät wurde gelöscht!",
     "Message has been sent!": "Meldung wurde gesendet!",
     "Your phone number has been confirmed!": "Ihre Handynummer wurde bestätigt!",
-    "Wrong code has been provided!": "Es wurde ein falscher Code angegeben!"
+    "Wrong code has been provided!": "Es wurde ein falscher Code angegeben!",
+    "Feedback": "Reaktion",
+    "Report a bug": "Melde einen technischen Fehler",
+    "Feature a request": "Geben Sie eine Anfrage an",
+    "Users": "Benutzer",
+    "Car Logs": "Auto Protokolle"
 }

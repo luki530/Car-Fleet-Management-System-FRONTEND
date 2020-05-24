@@ -37,7 +37,7 @@ export class DeleteUserComponent implements OnInit {
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/userprofile/' + this.userId, this.httpOptions).subscribe(() => {
       console.log('success');
       this.router.navigate(['/listofusers']);
-      this.translate.stream('User has been deleted!').subscribe((text:string) => {
+      this.translate.getStreamOnTranslationChange('User has been deleted!').subscribe((text:string) => {
       this.snackBar.open(text, '', {
         duration: 5000,
         panelClass: ['prompt']

@@ -50,7 +50,7 @@ export class LoggerDeviceDetailsComponent implements OnInit {
     let dialogRef = this.dialog.open(DeleteLoggerDeviceComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
     });
   }
 

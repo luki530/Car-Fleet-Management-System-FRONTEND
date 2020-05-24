@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { DeleteUserComponent } from '../deleteuser/deleteuser.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +20,7 @@ export class ProfileComponent implements OnInit {
   cardId: string;
   roles = [];
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private dialog: MatDialog) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -44,6 +46,14 @@ export class ProfileComponent implements OnInit {
         },
         err => {
         });
+  }
+
+  openDialog(): void {
+    let dialogRef = this.dialog.open(DeleteUserComponent, {
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+    });
   }
 }
 

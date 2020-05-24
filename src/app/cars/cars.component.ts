@@ -53,6 +53,7 @@ export class CarsComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.isLoadingResults = false;
           this.cars = data;
+          console.log(this.cars.length)
         },
         err => {
           this.isLoadingResults = false;
@@ -94,7 +95,7 @@ export class CarsComponent implements OnInit {
     let dialogRef = this.dialog.open(AddCarComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit();
     });
   }
@@ -103,7 +104,7 @@ export class CarsComponent implements OnInit {
     let dialogRef = this.dialog.open(AddLoggerDeviceComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit();
     });
   }

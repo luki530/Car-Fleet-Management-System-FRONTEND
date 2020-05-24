@@ -34,7 +34,7 @@ export class DeleteCarComponent implements OnInit {
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars/' + this.carId, this.httpOptions).subscribe(() => {
       console.log('success');
       this.router.navigate(['/cars']);
-      this.translate.stream('Car has been deleted!').subscribe((text:string) => {
+      this.translate.getStreamOnTranslationChange('Car has been deleted!').subscribe((text:string) => {
       this.snackBar.open(text, '', {
         duration: 5000,
         panelClass: ['prompt']

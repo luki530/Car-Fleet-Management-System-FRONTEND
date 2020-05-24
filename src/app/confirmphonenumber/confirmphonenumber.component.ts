@@ -26,7 +26,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
       console.log(response),
       this.isSuccessful = true,
       this.isCodeInvalid = false,
-      this.translate.stream('Your phone number has been confirmed!').subscribe((text:string) => {
+      this.translate.getStreamOnTranslationChange('Your phone number has been confirmed!').subscribe((text:string) => {
       this._snackBar.open(text, '', {
         duration: 5000,
         panelClass: ['advice']
@@ -35,7 +35,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
     }
       , err => {
         this.isCodeInvalid = true;
-        this.translate.stream('Wrong code has been provided!').subscribe((text:string) => {
+        this.translate.getStreamOnTranslationChange('Wrong code has been provided!').subscribe((text:string) => {
         this._snackBar.open(text, '', {
           duration: 5000,
           panelClass: ['prompt']

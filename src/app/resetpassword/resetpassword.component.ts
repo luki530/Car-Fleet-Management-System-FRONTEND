@@ -26,7 +26,7 @@ export class ResetPasswordComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isFailed = false;
-        this.translate.stream('Email for password reset has been sent to your email!').subscribe((text: string) => {
+        this.translate.getStreamOnTranslationChange('Email for password reset has been sent to your email!').subscribe((text: string) => {
           this._snackBar.open(text, 'Close', {
             duration: 5000,
             panelClass: ['advice']
@@ -35,7 +35,7 @@ export class ResetPasswordComponent implements OnInit {
       },
       err => {
         this.isFailed = true;
-        this.translate.stream('User not found!','Close').subscribe((text: string) => {
+        this.translate.getStreamOnTranslationChange('User not found!','Close').subscribe((text: string) => {
           this._snackBar.open(text, '',{
             duration: 5000,
             panelClass: ['prompt']
