@@ -60,7 +60,7 @@ export class UserProfileComponent implements OnInit {
     let dialogRef = this.dialog.open(AddCardComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit();
     });
   }
@@ -69,7 +69,7 @@ export class UserProfileComponent implements OnInit {
     let dialogRef = this.dialog.open(AssignRolesComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit();
     });
   }
@@ -79,7 +79,6 @@ export class UserProfileComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.ngOnInit();
     });
   }
 }

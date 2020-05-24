@@ -35,39 +35,15 @@ import { DeleteLoggerDeviceComponent } from './deleteloggerdevice/deleteloggerde
 import { AssignRolesComponent } from './assignroles/assignroles.component';
 import { AssignLoggerDeviceComponent } from './assignloggerdevice/assignloggerdevice.component';
 import { LogoutPageComponent } from './logout-page/logout-page.component';
-import { SettingsComponent } from './settings/settings.component';
 import { CarsComponent } from './cars/cars.component';
 import { AddCarComponent } from './addcar/addcar.component';
 import { AddLoggerDeviceComponent } from './addloggerdevice/addloggerdevice.component';
 import { CarProfileComponent } from './carprofile/carprofile.component';
 import { CarLogsComponent } from './carlogs/carlogs.component';
 
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatOptionModule } from '@angular/material/core';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatSliderModule } from '@angular/material/slider';
-
+import { AppMaterialModule } from "./app-material.module";
+import { ThemeService } from './theme.service';
+import { StyleManagerService } from './style-manager.service';
 
 @NgModule({
   declarations: [
@@ -86,7 +62,6 @@ import { MatSliderModule } from '@angular/material/slider';
     LogoutPageComponent,
     ContactComponent,
     AboutComponent,
-    SettingsComponent,
     CarsComponent,
     AddCarComponent,
     AddLoggerDeviceComponent,
@@ -98,7 +73,6 @@ import { MatSliderModule } from '@angular/material/slider';
     AssignLoggerDeviceComponent,
     CarLogsComponent,
     CarProfileComponent
-
   ],
 
   imports: [
@@ -106,51 +80,22 @@ import { MatSliderModule } from '@angular/material/slider';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatSortModule,
     BrowserAnimationsModule,
-    MatPaginatorModule,
-    MatTabsModule,
-    MatDialogModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTableModule,
-    MatDividerModule,
-    MatSlideToggleModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatProgressSpinnerModule,
-    MatCheckboxModule,
-    MatSnackBarModule,
     FontAwesomeModule,
     MDBBootstrapModule.forRoot(),
     ReactiveFormsModule,
     GoogleMapsModule,
     NgxMaterialTimepickerModule.setLocale('pl-PL'),
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatGridListModule,
-    MatSliderModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: httpTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    AppMaterialModule
   ],
-  providers: [authInterceptorProviders, CookieService, ConnectionService, MatDatepickerModule],
+  providers: [authInterceptorProviders, CookieService, ConnectionService, ThemeService, StyleManagerService],
   bootstrap: [AppComponent],
   entryComponents: [AssignLoggerDeviceComponent, AssignRolesComponent,
     DeleteCarComponent,
