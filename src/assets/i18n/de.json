@@ -1,4 +1,6 @@
 {
+    "Abbr": "CFMS",
+    "Title": "Car Fleet Management System",
     "Login": "Anmelden",
     "Register": "Registieren",
     "Logout": "Abmelden",
@@ -8,7 +10,6 @@
     "Reset Password": "Passwort zurücksetzen",
     "errorResetPassword": "Bitte tragen Sie einen gültigen Benutzernamen ein",
     "errorMessageResetPassword": "Benutzer wurde nicht gefunden",
-    "messageResetPassword": "E-Mail zum Zurücksetzen des Passworts wurde gesendet",
     "Username": "Nutzername",
     "Name": "Vorname",
     "Password": "Passwort",
@@ -91,6 +92,7 @@
     "User has been deleted!": "Benutzer wurde gelöscht!",
     "Car has been deleted!": "Auto wurde gelöscht!",
     "Logger device has been deleted!": "Logger-Gerät wurde gelöscht!",
+    "Close": "Schließen!",
     "Message has been sent!": "Meldung wurde gesendet!",
     "Your phone number has been confirmed!": "Ihre Handynummer wurde bestätigt!",
     "Wrong code has been provided!": "Es wurde ein falscher Code angegeben!",
