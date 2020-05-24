@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       err => {
         this.isLoginFailed = true;
         this.translate.getStreamOnTranslationChange('Unauthorized').subscribe((text:string) => {
-        this._snackBar.open(text, 'Close', {
+        this._snackBar.open(text, '', {
           duration: 5000,
           panelClass: ['prompt']
         });

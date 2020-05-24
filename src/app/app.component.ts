@@ -7,9 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-
 import { Observable } from "rxjs";
-
 import { Option } from "./option.model";
 import { ThemeService } from "./theme.service";
 
@@ -71,7 +69,7 @@ export class AppComponent implements OnInit {
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
 
-  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router,public translate: TranslateService) {
+  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router,public translate: TranslateService,private themeService: ThemeService ) {
     translate.addLangs(['en', 'pl','de']);
     translate.setDefaultLang('en');
   }
