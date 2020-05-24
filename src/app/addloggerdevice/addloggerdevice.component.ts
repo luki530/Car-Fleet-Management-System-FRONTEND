@@ -12,6 +12,8 @@ export class AddLoggerDeviceComponent implements OnInit {
   form: any = {};
   simCardNumber: any;
   serialNumber: any;
+  errorSimCardNumber: string;
+  errorSerialNumber: string;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -32,7 +34,7 @@ export class AddLoggerDeviceComponent implements OnInit {
         serialNumber: this.form.serialNumber
     }, this.httpOptions)
       .subscribe(
-        (response: any) => { 
+        (response: any) => {
         },
         err => {
         });

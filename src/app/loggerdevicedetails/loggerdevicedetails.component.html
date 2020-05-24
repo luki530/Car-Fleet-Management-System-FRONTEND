@@ -2,13 +2,13 @@
     <mat-list class>
         <mat-list-item>
             <mat-icon mat-list-icon>sim_card</mat-icon>
-            <div mat-line> <strong>Sim Card Number:</strong> {{simCardNumber}}</div>
+            <div mat-line> <strong>{{'Sim Card Number' | translate}}:</strong> {{simCardNumber}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>looks_3</mat-icon>
-            <div mat-line> <strong>Serial Number:</strong> {{serialNumber}}</div>
+            <div mat-line> <strong>{{'Serial Number' | translate}}:</strong> {{serialNumber}}</div>
         </mat-list-item>
     </mat-list>
-    <button mat-raised-button color="primary" class="buttonDelete" (click)="openDialog()">Delete Logger Device</button>
+    <button mat-raised-button color="primary" class="buttonDelete" (click)="openDialog()">{{'Delete Logger Device' | translate}}</button>
 </mat-card>

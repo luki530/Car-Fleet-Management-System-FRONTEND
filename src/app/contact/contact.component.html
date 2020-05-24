@@ -2,35 +2,37 @@
     <mat-card-content>
         <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
 
-            <p class="h4 mb-4">Contact us</p>
+            <p class="h4 mb-4">{{'Contact us' | translate }}</p>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Name" [(ngModel)]="form.name" name="name" required #name="ngModel">
+                <input matInput placeholder="{{'Name' | translate}}" [(ngModel)]="form.name" name="name" required #name="ngModel">
                 <mat-error>
-                    Please provide a valid username
+                    {{'errorUsername' | translate}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Email" [(ngModel)]="form.email" name="email" required pattern="([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})" #email="ngModel">
+                <input matInput placeholder="{{'Email Address' | translate}}" [(ngModel)]="form.email" name="email" required pattern="([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})" #email="ngModel">
                 <mat-error>
-                    Please provide a valid email address
+                    {{'errorEmail' | translate}}
                 </mat-error>
             </mat-form-field>
 
             <mat-form-field class="full-width-input">
-                <mat-select placeholder="Subject" [(ngModel)]="form.subject" name="subject">
+                <mat-select placeholder="{{'Subject' | translate}}" [(ngModel)]="form.subject" name="subject" required>
                     <mat-option disabled>--</mat-option>
                     <mat-option *ngFor="let subject of subjects " [value]="subject">
                         {{subject}}
                     </mat-option>
                 </mat-select>
-                <mat-error>Please choose a subject</mat-error>
+                <mat-error>
+                    {{'errorSubject' | translate}}
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>Message</mat-label>
+                <mat-label>{{'Message' | translate}}</mat-label>
                 <textarea matInput [(ngModel)]="form.message" name="message" required #message="ngModel"></textarea>
                 <mat-error>
-                    Please provide a message
+                    {{'errorMessage' | translate}}
                 </mat-error>
             </mat-form-field>
 
@@ -38,7 +40,7 @@
                 <mat-checkbox class="example-margin" [(ngModel)]="form.isChecked" name="copy">Send me a copy of this message
                 </mat-checkbox>
             </div> -->
-            <button mat-raised-button color="primary">Send</button>
+            <button mat-raised-button color="primary">{{'Send' | translate}}</button>
         </form>
     </mat-card-content>
 </mat-card>

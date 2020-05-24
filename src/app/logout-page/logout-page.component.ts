@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logout-page.component.css']
 })
 export class LogoutPageComponent implements OnInit {
+  logutTitle: string;
+  logoutSubtitle: string;
 
   constructor() { }
 

@@ -1,18 +1,16 @@
 <mat-card>
-  <mat-card-content>
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
-      <mat-card-header>
-        <img mat-card-avatar id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          class="profile-img-card" />
-      </mat-card-header>
-      <mat-form-field class="full-width-input">
-        <input matInput placeholder="Verification code" [(ngModel)]="form.code" name="code" required pattern="[0-9]{4}"
-          #code="ngModel">
-        <mat-error>
-          Please provide a valid confirmation code.
-        </mat-error>
-      </mat-form-field>
-      <button mat-raised-button color="primary">Confirm phone number</button>
-    </form>
-  </mat-card-content>
+    <mat-card-content>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <mat-card-header>
+                <img mat-card-avatar id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+            </mat-card-header>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="{{'Verification Code' | translate}}" [(ngModel)]="form.code" name="code" required pattern="[0-9]{4}" #code="ngModel">
+                <mat-error>
+                    {{'errorVerificationCode' | translate}}
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary">{{'Confirm Phone Number' | translate}}</button>
+        </form>
+    </mat-card-content>
 </mat-card>

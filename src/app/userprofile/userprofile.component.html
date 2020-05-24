@@ -5,39 +5,39 @@
     <mat-list class>
         <mat-list-item>
             <mat-icon mat-list-icon>person</mat-icon>
-            <div mat-line> <strong>Name:</strong> {{name}}</div>
+            <div mat-line> <strong>{{'Name' | translate}}:</strong> {{name}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>perm_identity</mat-icon>
-            <div mat-line> <strong>Username:</strong> {{username}}</div>
+            <div mat-line> <strong>{{'Username' | translate}}:</strong> {{username}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>phone_android</mat-icon>
-            <div mat-line> <strong>PhoneNumber:</strong> {{phoneNumber}}</div>
+            <div mat-line> <strong>{{'Phone Number' | translate}}:</strong> {{phoneNumber}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>alternate_email</mat-icon>
-            <div mat-line> <strong>Email:</strong> {{email}}</div>
+            <div mat-line> <strong>{{'Email Address' | translate}}:</strong> {{email}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>credit_card</mat-icon>
             <div mat-line>
-                <strong>CardId:</strong> {{cardId}}</div>
+                <strong>{{'Card ID' | translate}}:</strong> {{cardId}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
             <mat-icon mat-list-icon>supervisor_account</mat-icon>
             <div>
-                <span> &nbsp;&nbsp;&nbsp; <strong>Roles: </strong>&nbsp; </span>
+                <span> &nbsp;&nbsp;&nbsp; <strong>{{'Roles' | translate}}:</strong>&nbsp; </span>
             </div>
             <div *ngFor="let role of roles"> {{role.name.substring(5)}} &nbsp; </div>
         </mat-list-item>
     </mat-list>
-    <button mat-raised-button color="primary" class="buttonCard" (click)="addCard()">Add Card</button>
-    <button mat-raised-button color="primary" class="buttonRoles" (click)="assignRoles()">Assign Roles</button>
-    <button mat-raised-button color="primary" class="buttonDelete" (click)="deleteUser()">Delete User</button>
+    <button mat-raised-button color="primary" class="buttonCard" (click)="addCard()">{{'Add Card' | translate}}</button>
+    <button mat-raised-button color="primary" class="buttonRoles" (click)="assignRoles()">{{'Assign Roles' | translate}}</button>
+    <button mat-raised-button color="primary" class="buttonDelete" (click)="deleteUser()">{{'Delete User' | translate}}</button>
 </mat-card>
