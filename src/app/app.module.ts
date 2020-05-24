@@ -89,7 +89,7 @@ import { StyleManagerService } from './style-manager.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: httpTranslateLoader,
+        useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
     }),
@@ -108,6 +108,6 @@ import { StyleManagerService } from './style-manager.service';
 
 export class AppModule { }
 
-export function httpTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
