@@ -89,7 +89,7 @@ import { StyleManagerService } from './style-manager.service';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
     }),

@@ -7,8 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from "rxjs";
-import { Option } from "./option.model";
 import { ThemeService } from "./theme.service";
 
 @Component({
