@@ -1,37 +1,40 @@
 <div *ngIf="showApp">
-    <mat-sidenav-container [ngStyle]="{background: 'url(https://steamuserimages-a.akamaihd.net/ugc/915792633192065337/AA45141969D321AF88400C6C3778D1DF3E315638/)'}">
-        <mat-sidenav #sidenav mode="push">
-            <div class="branding"><img [src]="logo" [alt]="logo" />
-                <span>CFMS</span></div>
-            <mat-nav-list>
-                <ng-container *ngFor="let item of navigation">
-                    <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]" routerLinkActive="active">
+  <mat-sidenav-container
+    [ngStyle]="{background: 'url(https://steamuserimages-a.akamaihd.net/ugc/915792633192065337/AA45141969D321AF88400C6C3778D1DF3E315638/)'}">
+    <mat-sidenav #sidenav mode="push">
+      <div class="branding"><img [src]="logo" [alt]="logo" />
+        <span>CFMS</span></div>
+      <mat-nav-list>
+        <ng-container *ngFor="let item of navigation">
+          <a mat-list-item *ngIf="item.show" (click)="sidenav.close()" [routerLink]="[item.link]"
+            routerLinkActive="active">
             {{item.label}}
           </a>
-                </ng-container>
-                <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
+        </ng-container>
+        <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
+          rel="noopener noreferrer">
           Github
         </a>
-            </mat-nav-list>
-        </mat-sidenav>
+      </mat-nav-list>
+    </mat-sidenav>
 
-        <div class="wrapper">
+    <div class="wrapper">
 
-            <div class="toolbar">
-                <mat-toolbar color="primary">
-                    <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
+      <div class="toolbar">
+        <mat-toolbar color="primary">
+          <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
             <mat-icon>menu</mat-icon>
 
           </button>
 
-                    <span routerLink="" class="branding spacer center d-inline d-sm-none">
+          <span routerLink="" class="branding spacer center d-inline d-sm-none">
             <img [src]="logo" [alt]="logo" /></span>
-                    <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
+          <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
               [alt]="logo" />CFMS</span>
-                    <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo" [alt]="logo" />Car Fleet
+          <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo" [alt]="logo" />Car Fleet
             Management System</span>
 
-                    <span class="d-none d-md-inline">
+          <span class="d-none d-md-inline">
             <ng-container *ngFor="let item of navigation">
               <button mat-button class="nav-button" *ngIf="item.show" [routerLink]="[item.link]"
                 routerLinkActive="active">
@@ -41,57 +44,87 @@
 
           </span>
 
-                    <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
+          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
             Login
           </button>
-                    <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
+          <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
             Register
           </button>
-                    <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
+          <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
             <fa-icon [icon]="faCog"></fa-icon>
           </button>
 
-                    <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
+          <mat-icon class="icon" [matMenuTriggerFor]="menu">
+            palette
+          </mat-icon>
+          <mat-menu #menu="matMenu">
+            <button *ngFor="let option of options$ | async" mat-menu-item (click)="changeTheme(option.value)">
+              <mat-icon role="img" svgicon="theme-example" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+                  height="100%" viewBox="0 0 80 80" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+                  <defs>
+                    <path
+                      d="M77.87 0C79.05 0 80 .95 80 2.13v75.74c0 1.17-.95 2.13-2.13 2.13H2.13C.96 80 0 79.04 0 77.87V2.13C0 .95.96 0 2.13 0h75.74z"
+                      id="a">
+                    </path>
+                    <path
+                      d="M54 40c3.32 0 6 2.69 6 6 0 1.2 0-1.2 0 0 0 3.31-2.68 6-6 6H26c-3.31 0-6-2.69-6-6 0-1.2 0 1.2 0 0 0-3.31 2.69-6 6-6h28z"
+                      id="b">
+                    </path>
+                    <path d="M0 0h80v17.24H0V0z" id="c"></path>
+                  </defs>
+                  <use xlink:href="#a" [attr.fill]="option.backgroundColor"></use>
+                  <use xlink:href="#b" [attr.fill]="option.buttonColor"></use>
+                  <use xlink:href="#c" [attr.fill]="option.headingColor"></use>
+                </svg>
+              </mat-icon>
+              <span>{{ option.label }}</span>
+            </button>
+          </mat-menu>
+
+          <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
             <mat-icon>person</mat-icon>
           </button>
-                    <mat-menu #toolbarUserMenu="matMenu">
-                        <button mat-menu-item routerLink="profile">
+          <mat-menu #toolbarUserMenu="matMenu">
+            <button mat-menu-item routerLink="profile">
               <mat-icon>person</mat-icon>
               <span>My Profile</span>
             </button>
-                        <button mat-menu-item (click)="logout()">
+            <button mat-menu-item (click)="logout()">
               <mat-icon>power_settings_new</mat-icon>
               <span>Logout</span>
             </button>
-                    </mat-menu>
+          </mat-menu>
 
-                    <a mat-icon-button class="link d-none d-sm-inline" href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
-                        <mat-icon>code</mat-icon>
-                    </a>
-                </mat-toolbar>
-            </div>
+          <a mat-icon-button class="link d-none d-sm-inline"
+            href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank"
+            rel="noopener noreferrer">
+            <mat-icon>code</mat-icon>
+          </a>
+        </mat-toolbar>
+      </div>
 
 
 
-            <div class="content">
-                <router-outlet (activate)="reloadContext()"></router-outlet>
-            </div>
-            <div class="footer">
-                <div class="row">
-                    <div class="col-sm-12 links">
-                        <a routerLink="about" target="_blank" rel="noopener noreferrer">
-                            <fa-icon [icon]="faInfo"></fa-icon>
-                            <span>About Us</span>
-                        </a>
-                        <a routerLink="contact" target="_blank" rel="noopener noreferrer">
-                            <fa-icon [icon]="faBell"></fa-icon>
-                            <span>Contact</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <div class="content">
+        <router-outlet (activate)="reloadContext()"></router-outlet>
+      </div>
+      <div class="footer">
+        <div class="row">
+          <div class="col-sm-12 links">
+            <a routerLink="about" target="_blank" rel="noopener noreferrer">
+              <fa-icon [icon]="faInfo"></fa-icon>
+              <span>About Us</span>
+            </a>
+            <a routerLink="contact" target="_blank" rel="noopener noreferrer">
+              <fa-icon [icon]="faBell"></fa-icon>
+              <span>Contact</span>
+            </a>
+          </div>
         </div>
+      </div>
+    </div>
 
 
-    </mat-sidenav-container>
+  </mat-sidenav-container>
 </div>
