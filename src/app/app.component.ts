@@ -8,12 +8,49 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 
+import { Observable } from "rxjs";
+
+import { Option } from "./option.model";
+import { ThemeService } from "./theme.service";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  options = [
+    {
+      "backgroundColor": "#fff",
+      "buttonColor": "#ffc107",
+      "headingColor": "#673ab7",
+      "label": "Deep Purple & Amber",
+      "value": "deeppurple-amber"
+    },
+    {
+      "backgroundColor": "#fff",
+      "buttonColor": "#ff4081",
+      "headingColor": "#3f51b5",
+      "label": "Indigo & Pink",
+      "value": "indigo-pink"
+    },
+    {
+      "backgroundColor": "#303030",
+      "buttonColor": "#607d8b",
+      "headingColor": "#e91e63",
+      "label": "Pink & Blue Grey",
+      "value": "pink-bluegrey"
+    },
+    {
+      "backgroundColor": "#303030",
+      "buttonColor": "#4caf50",
+      "headingColor": "#9c27b0",
+      "label": "Purple & Green",
+      "value": "purple-green"
+    }
+  ];
+
   private roles: string[];
   isLoggedIn = false;
   showAdminBoard = false;
@@ -45,8 +82,9 @@ export class AppComponent implements OnInit {
     this.translate.use(lang);
   }
 
-
   ngOnInit() {
+
+    // this.themeService.setTheme("deeppurple-amber");
 
     if (!!this.tokenStorageService.getTokenLocal()) {
       this.tokenStorageService.saveToken(this.tokenStorageService.getTokenLocal());
@@ -73,6 +111,10 @@ export class AppComponent implements OnInit {
       { link: 'cars', label: 'Cars', show: this.showCarsBoard },
       { link: 'carlogs', label: 'Car Logs', show: this.showCarLogsBoard }
     ];
+  }
+
+  changeTheme(themeToSet) {
+    this.themeService.setTheme(themeToSet);
   }
 
   logout() {
