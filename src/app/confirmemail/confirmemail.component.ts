@@ -10,7 +10,8 @@ import { AuthService } from '../_services/auth.service';
 })
 
 export class ConfirmEmailComponent implements OnInit {
-
+  emailConfirmationMessage: string;
+  loginMessage: string;
   constructor(private authService: AuthService, private http: HttpClient, private route: ActivatedRoute) { }
 
   token: string = '';

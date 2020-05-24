@@ -1,6 +1,6 @@
-<h2 mat-dialog-title>WARNING!</h2>
-<p>Are you sure about deleting this logger device?</p>
+<h2 mat-dialog-title>{{'WARNING' | translate}}!</h2>
+<p>{{'warningMessageLoggerDevice' | translate}}</p>
 <mat-dialog-actions>
-    <button mat-stroked-button mat-dialog-close>Cancel</button>
-    <button mat-stroked-button color="warn" (click)="deleteLoggerDevice()">Delete</button>
+    <button mat-stroked-button mat-dialog-close>{{'Cancel' | translate}}</button>
+    <button mat-stroked-button color="warn" (click)="deleteLoggerDevice()">{{'Delete' | translate}}</button>
 </mat-dialog-actions>

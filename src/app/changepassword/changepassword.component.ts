@@ -13,7 +13,9 @@ export class ChangePasswordComponent implements OnInit {
   isFailed = false;
   isSuccessful = false;
   errorMessage = '';
-  successMessage = '';
+  successMessage: string;
+  errorPassword: string;
+  errorConfirmPassword: string;
 
   public httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

@@ -14,6 +14,7 @@ export class AddCardComponent implements OnInit {
   form: any = {};
   cardId: any;
   userId: any;
+  errorCardId: string;
 
   httpOptions = {
     headers: new HttpHeaders({

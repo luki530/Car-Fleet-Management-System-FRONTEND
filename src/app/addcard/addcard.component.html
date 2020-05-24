@@ -1,14 +1,14 @@
 <form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
-    <h2 mat-dialog-title>Add card</h2>
+    <h2 mat-dialog-title>{{'Add Card' | translate}}</h2>
     <mat-form-field class="full-width-input">
-        <input matInput placeholder="Card ID" [(ngModel)]="form.cardId" name="cardId" required pattern="^[0-9]*$" minlength="8" maxlength="8" #cardId="ngModel">
+        <input matInput placeholder="{{'Card ID' | translate}}" [(ngModel)]="form.cardId" name="cardId" required pattern="^[0-9]*$" minlength="8" maxlength="8" #cardId="ngModel">
         <mat-error>
-            Please provide a valid card id
+            {{'errorCardId' | translate}}
         </mat-error>
     </mat-form-field>
 
     <mat-dialog-actions>
-        <button mat-stroked-button mat-dialog-close>Cancel</button>
-        <button mat-raised-button>Save</button>
+        <button mat-stroked-button mat-dialog-close>{{'Cancel' | translate}}</button>
+        <button mat-raised-button>{{'Add' | translate}}</button>
     </mat-dialog-actions>
 </form>

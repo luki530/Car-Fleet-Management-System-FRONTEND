@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
@@ -63,13 +64,23 @@ export class AppComponent implements OnInit {
   faBell = faBell;
   faCog = faCog;
   faInfo = faInfo;
+  Abbr: string;
+  Title: string;
+  selected:string;
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
   navigation = [];
 
 
-  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, private readonly themeService: ThemeService) { }
+  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router,public translate: TranslateService) {
+    translate.addLangs(['en', 'pl','de']);
+    translate.setDefaultLang('en');
+  }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
+  }
 
   ngOnInit() {
 

@@ -1,36 +1,36 @@
 <mat-card>
     <mat-card-content>
         <mat-tab-group dynamicHeight>
-            <mat-tab label="Cars">
+            <mat-tab label="{{'Cars' | translate}}">
                 <div class="example-table-container">
 
                     <mat-form-field>
                         <mat-label>Filter</mat-label>
-                        <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+                        <input matInput (keyup)="applyFilter($event)" placeholder="{{'Search' | translate}}">
                     </mat-form-field>
 
                     <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
                         <ng-container class="ng" matColumnDef="id">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
                             <td mat-cell *matCellDef="let row">{{row.id}}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="model">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Model' | translate}}</th>
                             <td mat-cell *matCellDef="let row">{{row.model}}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="plateNumber">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Plate Number</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Plate Number' | translate}}</th>
                             <td mat-cell *matCellDef="let row">{{row.plateNumber}}</td>
                         </ng-container>
                         <ng-container matColumnDef="blocked">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Blocked</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Blocked' | translate}}</th>
                             <td mat-cell *matCellDef="let row">{{row.blocked}}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="loggerDevice">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Logger Device</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Logger Device' | translate}}</th>
                             <td mat-cell *matCellDef="let row"><span *ngIf="row.loggerDevice != null">
                                     {{row.loggerDevice.serialNumber}}</span></td>
                         </ng-container>
@@ -42,7 +42,7 @@
                     </table>
                     <mat-list>
                         <div>
-                            <button mat-raised-button color="primary" class="buttonAssign" (click)="addCar()">Add Car</button>
+                            <button mat-raised-button color="primary" class="buttonAssign" (click)="addCar()">{{'Add Car' | translate}}</button>
                         </div>
                     </mat-list>
 
@@ -53,27 +53,27 @@
                 </div>
                 <mat-paginator [length]="100" [pageSize]="5"></mat-paginator>
             </mat-tab>
-            <mat-tab label="Logger Devices">
+            <mat-tab label="{{'Logger Devices' | translate}}">
                 <div class="example-table-container">
 
                     <mat-form-field>
                         <mat-label>Filter</mat-label>
-                        <input matInput (keyup)="applyFilter1($event)" placeholder="Search">
+                        <input matInput (keyup)="applyFilter1($event)" placeholder="{{'Search' | translate}}">
                     </mat-form-field>
 
                     <table mat-table [dataSource]="dataSource1" multiTemplateDataRows matSort>
                         <ng-container class="ng" matColumnDef="id">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
                             <td mat-cell *matCellDef="let row">{{row.id}}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="serialNumber">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Serial Number</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Serial Number' | translate}}</th>
                             <td mat-cell *matCellDef="let row">{{row.serialNumber}}</td>
                         </ng-container>
 
                         <ng-container matColumnDef="simCardNumber">
-                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Sim Card Number</th>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Sim Card Number' | translate}}</th>
                             <td mat-cell *matCellDef="let row">{{row.simCardNumber}}</td>
                         </ng-container>
 
@@ -86,7 +86,7 @@
 
                     <mat-list>
                         <div>
-                            <button mat-raised-button color="primary" class="buttonAssign" (click)="addLoggerDevice()">Add Logger Device</button>
+                            <button mat-raised-button color="primary" class="buttonAssign" (click)="addLoggerDevice()">{{'Add Logger Device' | translate}}</button>
                         </div>
                     </mat-list>
 

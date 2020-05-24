@@ -5,23 +5,23 @@
                 <img mat-card-avatar id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
             </mat-card-header>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Username" [(ngModel)]="form.username" name="username" required #username="ngModel">
+                <input matInput placeholder="{{'Username' | translate}}" [(ngModel)]="form.username" name="username" required #username="ngModel">
                 <mat-error>
-                    Please provide a valid username
+                    {{'errorUsername' | translate}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput type="password" placeholder="Password" [(ngModel)]="form.password" name="password" required minlength="6" #password="ngModel">
+                <input matInput type="password" placeholder="{{'Password' | translate}}" [(ngModel)]="form.password" name="password" required minlength="6" #password="ngModel">
                 <mat-error>
-                    Please provide a valid password
+                    {{'errorPassword' | translate}}
                 </mat-error>
             </mat-form-field>
             <div>
-                <mat-checkbox class="example-margin" [(ngModel)]="form.isChecked" name="remember">Remember me</mat-checkbox>
+                <mat-checkbox class="example-margin" [(ngModel)]="form.isChecked" name="remember">{{'Remember Me' | translate}}</mat-checkbox>
             </div>
-            <button mat-raised-button color="primary">Login</button>
+            <button mat-raised-button color="primary">{{'Login' | translate}}</button>
             <mat-card-actions>
-                <a class=float-right routerLink="/resetpassword"> Forget Password? </a>
+                <a class=float-right routerLink="/resetpassword"> {{'Forgot Password' | translate}}? </a>
             </mat-card-actions>
         </form>
     </mat-card-content>

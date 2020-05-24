@@ -14,12 +14,9 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./assignloggerdevice.component.css']
 })
 export class AssignLoggerDeviceComponent implements OnInit {
-  form: any;
-  dataSource: MatTableDataSource<any>;
-  isLoadingResults = true;
-  displayedColumns: string [] = ['id', 'serialNumber'];
-  id: number;
-  userid: any
+form: any = {};
+  loggerDevices: any = [];
+  carId: any;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -28,32 +25,34 @@ export class AssignLoggerDeviceComponent implements OnInit {
     })
   };
 
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private snackBar: MatSnackBar, private dialogref: MatDialogRef<AssignLoggerDeviceComponent>) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private dialogref: MatDialogRef<AssignLoggerDeviceComponent>, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices/', this.httpOptions).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.dataSource = new MatTableDataSource(response);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-        this.isLoadingResults = false;
-      },
-      err => {
-        this.isLoadingResults = false;
-      });
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.carId = params.id;
+    });
+    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
+      .subscribe(
+        (data: any) => {
+          this.loggerDevices = data;
+        },
+        err => {
+        });
   }
 
-  assignLoggerDevice(): void {
-  }
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  save(){
+    this.http.put<any>('https://backend.carfleetmanagementsystem.pl:443/assignloggerdevice', {
+        serialNumber: this.form.loggerDevice.serialNumber,
+        carId: this.carId,
+    }, this.httpOptions)
+      .subscribe(
+        (response: any) => {
+        },
+        err => {
+        });
+    this.dialogref.close();
+    this.ngOnInit();
   }
 
 }

@@ -5,42 +5,42 @@
                 <img mat-card-avatar id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
             </mat-card-header>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Name" [(ngModel)]="form.name" name="name" required #name="ngModel">
+                <input matInput placeholder="{{'Name' | translate}}" [(ngModel)]="form.name" name="name" required #name="ngModel">
                 <mat-error>
-                    Please provide a valid name
+                    {{'errorName' | translate}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Username" [(ngModel)]="form.username" name="username" required #username="ngModel">
+                <input matInput placeholder="{{'Username' | translate}}" [(ngModel)]="form.username" name="username" required #username="ngModel">
                 <mat-error>
-                    Please provide a valid username
+                    {{'errorUsername' | translate}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Email" [(ngModel)]="form.email" name="email" required pattern="([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})" #email="ngModel">
+                <input matInput placeholder="{{'Email Address' | translate}}" [(ngModel)]="form.email" name="email" required pattern="([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})" #email="ngModel">
                 <mat-error>
-                    Please provide a valid email address
+                    {{'errorEmail' | translate}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput placeholder="Phone number" [(ngModel)]="form.phoneNumber" name="phoneNumber" required pattern="(\+48|0)[0-9]{9}" #phoneNumber="ngModel">
+                <input matInput placeholder="{{'Phone Number' | translate}}" [(ngModel)]="form.phoneNumber" name="phoneNumber" required pattern="(\+48|0)[0-9]{9}" #phoneNumber="ngModel">
                 <mat-error>
-                    Please provide a valid phone number
+                    {{'errorPhoneNumber' | translate}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput type="password" placeholder="Password" [(ngModel)]="form.password" name="password" required minlength="6" #password="ngModel">
+                <input matInput type="password" placeholder="{{'Password' | translate}}" [(ngModel)]="form.password" name="password" required minlength="6" #password="ngModel">
                 <mat-error>
-                    Please provide a valid password
+                    {{'errorPassword' | translate}}
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width-input">
-                <input matInput type="password" placeholder="Confirm password" [(ngModel)]="form.confirmPassword" name="confirmPassword" required minlength="6" #confirmPassword="ngModel">
+                <input matInput type="password" placeholder="{{'Confirm Password' | translate}}" [(ngModel)]="form.confirmPassword" name="confirmPassword" required minlength="6" #confirmPassword="ngModel">
                 <mat-error>
-                    Please provide a valid password
+                    {{'errorConfirmPassword' | translate}}
                 </mat-error>
             </mat-form-field>
-            <button mat-raised-button color="primary">Register</button>
+            <button mat-raised-button color="primary">{{'Register' | translate}}</button>
         </form>
     </mat-card-content>
 </mat-card>

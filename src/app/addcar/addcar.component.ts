@@ -13,6 +13,8 @@ export class AddCarComponent implements OnInit {
   model: any;
   blocked: boolean;
   plateNumber: any;
+  errorModel: string;
+  errorPlatenumber: string;
 
   httpOptions = {
     headers: new HttpHeaders({

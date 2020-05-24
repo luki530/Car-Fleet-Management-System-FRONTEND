@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   username: string;
   phoneNumber: string;
   email: string;
+  cardId: string;
   roles = [];
 
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
@@ -36,6 +37,9 @@ export class ProfileComponent implements OnInit {
           this.phoneNumber = data.phoneNumber;
           this.email = data.email;
           this.roles = data.roles;
+          if (!(data.card == null)) {
+            this.cardId = data.card.cardId;
+          }
           console.log(this.roles);
         },
         err => {

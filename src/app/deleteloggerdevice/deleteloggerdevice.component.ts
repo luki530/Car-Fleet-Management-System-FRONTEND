@@ -4,6 +4,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DeleteLoggerDeviceComponent implements OnInit {
   loggerDeviceId: any;
+  warningMessageLoggerDevice: string;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -21,7 +23,7 @@ export class DeleteLoggerDeviceComponent implements OnInit {
   };
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, public dialogref: MatDialogRef<DeleteLoggerDeviceComponent>) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, public dialogref: MatDialogRef<DeleteLoggerDeviceComponent>, private translate: TranslateService) { }
 
 
   ngOnInit(): void {
@@ -35,11 +37,13 @@ export class DeleteLoggerDeviceComponent implements OnInit {
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices/' + this.loggerDeviceId, this.httpOptions).subscribe(() => {
       console.log('success');
       this.router.navigate(['/cars']);
-      this.snackBar.open('Logger Device has been deleted !', 'Close', {
+      this.translate.stream('Logger device has been deleted !').subscribe((text:string) => {
+      this.snackBar.open(text, '', {
         duration: 5000,
         panelClass: ['prompt']
       });
       this.dialogref.close();
+    });
     });
   }
 }
