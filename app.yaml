@@ -17,20 +17,16 @@ handlers:
   static_files: dist/CarFleetManagementSystem/\1
   mime_type: text/css
   upload: dist/CarFleetManagementSystem/.*\.css
+- url: /(.*\.json)
+  secure: always
+  redirect_http_response_code: 301
+  static_files: dist/CarFleetManagementSystem/\1
+  mime_type: application/json
+  upload: dist/CarFleetManagementSystem/.*\.json  
 - url: /.*
   secure: always
   static_files: dist/CarFleetManagementSystem/index.html
   upload: dist/CarFleetManagementSystem/.*
-- url: /(.*\.png)
-  secure: always
-  redirect_http_response_code: 301
-  static_files: dist/CarFleetManagementSystem/\1
-  upload: dist/CarFleetManagementSystem/.*\.png
-- url: /(.*\.json)
-  secure: always
-  redirect_http_response_code: 301
-  static_files: dist/CarFleetManagementSystem/assets/\1
-  upload: dist/CarFleetManagementSystem/assets/.*\.json 
 skip_files:
  - e2e/
  - node_modules/
