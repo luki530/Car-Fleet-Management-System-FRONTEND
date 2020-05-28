@@ -93,10 +93,7 @@
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
                         "assets": [
-                            "src/assets",
-                            "src/assets/i18n/en.json",
-                            "src/assets/i18n/pl.json",
-                            "src/assets/i18n/de.json"
+                            "src/assets"
                         ],
                         "styles": [
                             "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
