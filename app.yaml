@@ -25,12 +25,15 @@ handlers:
   secure: always
   static_files: dist/CarFleetManagementSystem/\1
   upload: dist/CarFleetManagementSystem/.*\.png
+- url: /(.*\.json)
+  secure: always
+  static_files: dist/CarFleetManagementSystem/\1
+  upload: dist/CarFleetManagementSystem/.*\.json 
 skip_files:
  - e2e/
  - node_modules/
  - src/
  - ^(.*/)?\..*$
- - ^(.*/)?.*\.json$
  - ^(.*/)?.*\.md$
  - ^(.*/)?.*\.yaml$
  - ^LICENSE
