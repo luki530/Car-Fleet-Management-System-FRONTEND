@@ -8,6 +8,7 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from "./theme.service";
+import { layer } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-root',
@@ -100,7 +101,6 @@ export class AppComponent implements OnInit {
 
       this.username = user.username;
     }
-
 
   }
 

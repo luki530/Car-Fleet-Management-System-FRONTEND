@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Injectable()
@@ -26,7 +27,7 @@ export class ListOfUsersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -37,6 +38,9 @@ export class ListOfUsersComponent implements OnInit {
 
 
   ngOnInit() {
+    this.translate.stream('Items per page:').subscribe((text: string) => {
+      this.paginator._intl.itemsPerPageLabel = text;
+    });
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofusers', this.httpOptions)
       .subscribe(
         (data: any) => {

@@ -86,7 +86,7 @@
     "Add Car": "Dodaj Auto",
     "Signed In!": "Zalogowano!",
     "Unauthorized": "Nie uwierzytelniono",
-    "Email for password reset has been sent to your email!": "Email resetujący hasło został wysłany!",
+    "emailResetMessage": "Email resetujący hasło został wysłany!",
     "User not found!": "Użytkownik nie znaleziony!",
     "Something went wrong!": "Coś poszło nie tak!",
     "User has been deleted!": "Użytkownik został usunięty!",
@@ -100,5 +100,6 @@
     "Report a bug": "Zgłoś błąd",
     "Feature a request": "Zgłoś propozycję",
     "Users": "Użytkownicy",
-    "Car Logs": "Logi Aut"
+    "Car Logs": "Logi Aut",
+    "Items per page:": "Przedmioty na stronę:"
 }

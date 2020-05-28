@@ -86,7 +86,7 @@
     "Add Car": "Add Car",
     "Signed In!": "Signed In!",
     "Unauthorized": "Unauthorized",
-    "Email for password reset has been sent to your email!": "Email for password reset has been sent to your email!",
+    "emailResetMessage": "Email for password reset has been sent to your email!",
     "User not found!": "User not found!",
     "Something went wrong!": "Something went wrong!",
     "User has been deleted!": "User has been deleted!",
@@ -100,5 +100,6 @@
     "Report a bug": "Report a bug",
     "Feature a request": "Feature a request",
     "Users": "Users",
-    "Car Logs": "Car Logs"
+    "Car Logs": "Car Logs",
+    "Items per page:": "Items per page:"
 }

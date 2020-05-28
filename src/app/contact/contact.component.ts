@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.translate.getStreamOnTranslationChange(['Feedback', 'Report a bug', 'Feature a request']).subscribe((text: string[]) => {
+    this.translate.stream(['Feedback', 'Report a bug', 'Feature a request']).subscribe((text: string[]) => {
       this.subjects = [
         text['Feedback'],
         text['Report a bug'],
