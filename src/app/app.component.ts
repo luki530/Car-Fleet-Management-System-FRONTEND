@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
-  showUsersBoard = false;
+  showUsersBoard: boolean;
   showCarsBoard = false;
   showCarLogsBoard = false;
   username: string;
@@ -62,9 +62,6 @@ export class AppComponent implements OnInit {
   faInfo = faInfo;
   Abbr: string;
   Title: string;
-  selected: string;
-  currentLanguage: string;
-  admin: boolean;
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
@@ -102,7 +99,6 @@ export class AppComponent implements OnInit {
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.roles = user.roles;
-
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
       this.showUsersBoard = this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_EMPLOYEE') ? true : this.roles.includes('ROLE_BOSS') ? true : this.roles.includes('ROLE_ADMIN');
@@ -112,7 +108,6 @@ export class AppComponent implements OnInit {
 
       this.username = user.username;
     }
-
   }
 
   changeTheme(themeToSet) {
@@ -123,17 +118,20 @@ export class AppComponent implements OnInit {
   logout() {
     this.tokenStorageService.signOut();
     this.reloadContext();
-    this.router.navigate(['logoutpage']);
-  }
-
-  reloadContext() {
     this.showApp = false;
-    this.ngOnInit();
     this.showAdminBoard = false;
     this.showModeratorBoard = false;
     this.showUsersBoard = false;
     this.showCarsBoard = false;
     this.showCarLogsBoard = false;
+    this.router.navigate(['logoutpage']);
+  }
+
+  reloadContext() {
+    console.log('lps')
+
+    this.ngOnInit();
     this.showApp = true;
+
   }
 }

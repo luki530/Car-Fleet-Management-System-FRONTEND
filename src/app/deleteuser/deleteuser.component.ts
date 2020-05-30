@@ -35,7 +35,6 @@ export class DeleteUserComponent implements OnInit {
   deleteUser(): void {
     // tslint:disable-next-line: max-line-length
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/userprofile/' + this.userId, this.httpOptions).subscribe(() => {
-      console.log('success');
       this.router.navigate(['/listofusers']);
       this.translate.getStreamOnTranslationChange('User has been deleted!').subscribe((text:string) => {
       this.snackBar.open(text, '', {

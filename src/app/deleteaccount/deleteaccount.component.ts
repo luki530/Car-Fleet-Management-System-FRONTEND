@@ -14,12 +14,6 @@ import { TranslateService } from '@ngx-translate/core';
 export class DeleteAccountComponent implements OnInit {
   userId: any;
   warningMessage: string;
-  showAdminBoard = false;
-  showModeratorBoard = false;
-  showUsersBoard = false;
-  showCarsBoard = false;
-  showCarLogsBoard = false;
-  showApp = true;
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -42,20 +36,14 @@ export class DeleteAccountComponent implements OnInit {
   }
 
   reloadContext() {
-    this.showApp = false;
     this.ngOnInit();
-    this.showAdminBoard = false;
-    this.showModeratorBoard = false;
-    this.showUsersBoard = false;
-    this.showCarsBoard = false;
-    this.showCarLogsBoard = false;
-    this.showApp = true;
   }
 
   deleteAccount(): void {
     // tslint:disable-next-line: max-line-length
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/myprofile', this.httpOptions).subscribe(() => {
       console.log('success');
+      this.return();
       this.translate.getStreamOnTranslationChange('Your account has been deleted!').subscribe((text:string) => {
       this.snackBar.open(text, '', {
         duration: 5000,
