@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
+const LANG_KEY = 'language';
+const THEME_KEY = 'theme';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +35,6 @@ export class TokenStorageService {
   public getUser() {
     return JSON.parse(sessionStorage.getItem(USER_KEY));
   }
-
   public saveUserLocal(user: any) {
     window.localStorage.removeItem(USER_KEY);
     window.localStorage.setItem(USER_KEY, JSON.stringify(user));
@@ -49,5 +51,23 @@ export class TokenStorageService {
 
   public getUserLocal() {
     return JSON.parse(localStorage.getItem(USER_KEY));
+  }
+
+  public getLangLocal(){
+    return localStorage.getItem(LANG_KEY);
+  }
+
+  public saveLangLocal(lang: string){
+    window.localStorage.removeItem(LANG_KEY);
+    window.localStorage.setItem(LANG_KEY, lang);
+  }
+
+  public getThemeLocal(){
+    return localStorage.getItem(THEME_KEY);
+  }
+
+  public saveThemeLocal(theme: string){
+    window.localStorage.removeItem(THEME_KEY);
+    window.localStorage.setItem(THEME_KEY, theme);
   }
 }

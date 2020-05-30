@@ -6,13 +6,13 @@
             <mat-nav-list>
 
                 <ng-container>
-                    <a mat-list-item *ngIf="isLoggedIn" (click)="sidenav.close()" routerLink="listofusers" routerLinkActive="active">
+                    <a mat-list-item *ngIf="isLoggedIn && showUsersBoard" (click)="sidenav.close()" routerLink="listofusers" routerLinkActive="active">
             {{'Users' | translate}}
           </a>
-                    <a mat-list-item *ngIf="isLoggedIn" (click)="sidenav.close()" routerLink="cars" routerLinkActive="active">
+                    <a mat-list-item *ngIf="isLoggedIn && showCarsBoard" (click)="sidenav.close()" routerLink="cars" routerLinkActive="active">
             {{'Cars' | translate}}
           </a>
-                    <a mat-list-item *ngIf="isLoggedIn" (click)="sidenav.close()" routerLink="carlogs" routerLinkActive="active">
+                    <a mat-list-item *ngIf="isLoggedIn && showCarLogsBoard" (click)="sidenav.close()" routerLink="carlogs" routerLinkActive="active">
             {{'Car Logs' | translate}}
           </a>
                 </ng-container>
@@ -42,14 +42,14 @@
 
                     <span class="d-none d-md-inline">
             <ng-container>
-              <button mat-button class="nav-button" *ngIf="isLoggedIn" routerLink="listofusers"
+              <button mat-button class="nav-button" *ngIf="isLoggedIn && showUsersBoard" routerLink="listofusers"
                 routerLinkActive="active">
                 {{'Users' | translate}}
               </button>
-              <button mat-button class="nav-button" *ngIf="isLoggedIn" routerLink="cars" routerLinkActive="active">
+              <button mat-button class="nav-button" *ngIf="isLoggedIn && showCarsBoard" routerLink="cars" routerLinkActive="active">
                 {{'Cars' | translate}}
               </button>
-              <button mat-button class="nav-button" *ngIf="isLoggedIn" routerLink="carlogs" routerLinkActive="active">
+              <button mat-button class="nav-button" *ngIf="isLoggedIn && showCarLogsBoard" routerLink="carlogs" routerLinkActive="active">
                 {{'Car Logs' | translate}}
               </button>
             </ng-container>
@@ -63,7 +63,7 @@
             {{'Register' | translate }}
           </button>
 
-                    <mat-select [value]="translate.currentLang" placeholder="EN" #selectedLang (selectionChange)="switchLang(selectedLang.value)">
+                    <mat-select [value]="translate.currentLang" #selectedLang (selectionChange)="switchLang(selectedLang.value)">
                         <mat-option *ngFor="let language of translate.getLangs()" [value]="language">
                             {{ language.toUpperCase() }}
                         </mat-option>
@@ -121,14 +121,14 @@
             </div>
             <div class="footer">
                 <div class="row">
-                    <div class="col-sm-12 links">
-                        <a target="_blank" rel="noopener noreferrer">
-                            <fa-icon [icon]="faInfo" routerLink="about"></fa-icon>
-                            <span routerLink="about">{{'About Us' | translate }}</span>
+                    <div class="col-sm-12 links ">
+                        <a target="_blank " rel="noopener noreferrer ">
+                            <fa-icon [icon]="faInfo " routerLink="about "></fa-icon>
+                            <span routerLink="about ">{{'About Us' | translate }}</span>
                         </a>
-                        <a target="_blank" rel="noopener noreferrer">
-                            <fa-icon [icon]="faBell" routerLink="contact"></fa-icon>
-                            <span routerLink="contact">{{'Contact' | translate }}</span>
+                        <a target="_blank " rel="noopener noreferrer ">
+                            <fa-icon [icon]="faBell " routerLink="contact "></fa-icon>
+                            <span routerLink="contact ">{{'Contact' | translate }}</span>
                         </a>
                     </div>
                 </div>

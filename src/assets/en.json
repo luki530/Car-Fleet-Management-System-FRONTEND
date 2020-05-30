@@ -101,5 +101,7 @@
     "Feature a request": "Feature a request",
     "Users": "Users",
     "Car Logs": "Car Logs",
-    "Items per page:": "Items per page:"
+    "Items per page:": "Items per page:",
+    "warningMessageAccount": "Are you sure about deleting your account?",
+    "Your account has been deleted!": "Your account has been deleted!"
 }

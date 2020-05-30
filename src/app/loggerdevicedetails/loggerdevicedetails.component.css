@@ -4,9 +4,16 @@ mat-card {
     margin: 0 auto;
 }
 
-.buttonDelete {
-    margin: -10px -50px;
+.buttons button {
+    padding: 8px;
+    border: none;
+    background-color: lightgrey;
+    font-weight: 500;
+    font-size: 13px;
     position: relative;
-    top: 50%;
-    left: 30%;
+    text-align: center;
+}
+
+.btn-space {
+    margin-right: 5px;
 }

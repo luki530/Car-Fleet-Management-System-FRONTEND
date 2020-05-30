@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { DeleteUserComponent } from '../deleteuser/deleteuser.component';
+import { DeleteAccountComponent } from '../deleteaccount/deleteaccount.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(DeleteUserComponent, {
+    let dialogRef = this.dialog.open(DeleteAccountComponent, {
     });
 
     dialogRef.afterClosed().subscribe(() => {

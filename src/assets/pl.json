@@ -101,5 +101,7 @@
     "Feature a request": "Zgłoś propozycję",
     "Users": "Użytkownicy",
     "Car Logs": "Logi Aut",
-    "Items per page:": "Przedmioty na stronę:"
+    "Items per page:": "Przedmioty na stronę:",
+    "warningMessageAccount": "Czy na pewno chcesz usunąć swoje konto?",
+    "Your account has been deleted!": "Twoje konto zostało usunięte!"
 }

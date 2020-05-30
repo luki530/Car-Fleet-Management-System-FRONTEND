@@ -44,6 +44,7 @@ import { CarLogsComponent } from './carlogs/carlogs.component';
 import { AppMaterialModule } from "./app-material.module";
 import { ThemeService } from './theme.service';
 import { StyleManagerService } from './style-manager.service';
+import { DeleteAccountComponent } from './deleteaccount/deleteaccount.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { StyleManagerService } from './style-manager.service';
     AssignRolesComponent,
     AssignLoggerDeviceComponent,
     CarLogsComponent,
-    CarProfileComponent
+    CarProfileComponent,
+    DeleteAccountComponent
   ],
 
   imports: [
@@ -97,8 +99,10 @@ import { StyleManagerService } from './style-manager.service';
   ],
   providers: [authInterceptorProviders, CookieService, ConnectionService, ThemeService, StyleManagerService],
   bootstrap: [AppComponent],
-  entryComponents: [AssignLoggerDeviceComponent, AssignRolesComponent,
+  entryComponents: [AssignLoggerDeviceComponent,
+    AssignRolesComponent,
     DeleteCarComponent,
+    DeleteAccountComponent,
     DeleteLoggerDeviceComponent,
     DeleteUserComponent,
     AddCardComponent,

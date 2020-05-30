@@ -8,7 +8,6 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from "./theme.service";
-import { layer } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-root',
@@ -64,6 +63,8 @@ export class AppComponent implements OnInit {
   Abbr: string;
   Title: string;
   selected: string;
+  currentLanguage: string;
+  admin: boolean;
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
@@ -72,15 +73,25 @@ export class AppComponent implements OnInit {
   constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService) {
     translate.addLangs(['en', 'pl', 'de']);
     translate.setDefaultLang('en');
+    themeService.setTheme("purple-green")
   }
 
   switchLang(lang: string) {
     this.translate.use(lang);
+    this.tokenStorageService.saveLangLocal(lang);
   }
 
   ngOnInit() {
 
-    // this.themeService.setTheme("deeppurple-amber");
+    if (!!this.tokenStorageService.getLangLocal()) {
+      this.switchLang(this.tokenStorageService.getLangLocal());
+    } else {
+      this.switchLang('en');
+    }
+
+    if (!!this.tokenStorageService.getThemeLocal()) {
+      this.changeTheme(this.tokenStorageService.getThemeLocal());
+    }
 
     if (!!this.tokenStorageService.getTokenLocal()) {
       this.tokenStorageService.saveToken(this.tokenStorageService.getTokenLocal());
@@ -106,6 +117,7 @@ export class AppComponent implements OnInit {
 
   changeTheme(themeToSet) {
     this.themeService.setTheme(themeToSet);
+    this.tokenStorageService.saveThemeLocal(themeToSet)
   }
 
   logout() {

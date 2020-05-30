@@ -101,5 +101,7 @@
     "Feature a request": "Geben Sie eine Anfrage an",
     "Users": "Benutzer",
     "Car Logs": "Auto Protokolle",
-    "Items per page:": "Objekte pro Seite:"
+    "Items per page:": "Objekte pro Seite:",
+    "warningMessageAccount": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?",
+    "Your account has been deleted!": "Dein Account wurde gelöscht!"
 }
