@@ -35,6 +35,12 @@ handlers:
   static_files: dist/CarFleetManagementSystem/\1
   mime_type: image/jpeg
   upload: dist/CarFleetManagementSystem/.*\.jpg  
+- url: /(.*\.ico)
+  secure: always
+  redirect_http_response_code: 301
+  static_files: dist/CarFleetManagementSystem/\1
+  mime_type: image/x-icon
+  upload: dist/CarFleetManagementSystem/.*\.ico  
 - url: /.*
   secure: always
   static_files: dist/CarFleetManagementSystem/index.html
