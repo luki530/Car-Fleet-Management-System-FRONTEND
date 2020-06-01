@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild} from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -9,6 +9,9 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from "./theme.service";
 import { slideInAnimation } from './route-animation';
+
+import * as Hammer from 'hammerjs';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
@@ -67,12 +70,21 @@ export class AppComponent implements OnInit {
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
+  @ViewChild(MatSidenav)
+  public sidenav: MatSidenav;
 
-
-  constructor(private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService) {
+  constructor(public elementRef: ElementRef, private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService) {
     translate.addLangs(['en', 'pl', 'de']);
     translate.setDefaultLang('en');
-    themeService.setTheme("purple-green")
+    themeService.setTheme("purple-green");
+
+    const hammertime = new Hammer(elementRef.nativeElement, {});
+        hammertime.on('panright', () => {
+            this.sidenav.open();
+        });
+        hammertime.on('panleft', () => {
+            this.sidenav.close();
+        });
   }
 
   switchLang(lang: string) {

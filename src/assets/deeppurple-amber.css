@@ -2806,3 +2806,7 @@ td.mat-footer-cell {
     background: #673ab7;
     color: #fff
 }
+
+svg {
+    stroke: black;
+}

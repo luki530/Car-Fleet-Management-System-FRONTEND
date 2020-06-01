@@ -1,6 +1,6 @@
 <mat-card>
-    <mat-card-content>
-        <form *ngIf="!isSuccesful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <mat-card-content *ngIf="!isSuccesful">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <mat-form-field>
                 <mat-select placeholder="{{'Choose Car' | translate}}: " [(ngModel)]="form.car" name="car">
                     <mat-option *ngFor="let car of cars" [value]="car">
@@ -53,10 +53,12 @@
             <button mat-raised-button color="primary">{{'Find Logs' | translate}}</button>
         </form>
 
-        <mat-slider *ngIf="isSuccesful" [max]="max" [min]="min" [step]="step" [(ngModel)]="logSelect" (input)="onInputChange($event)">
-        </mat-slider>
 
-        <google-map *ngIf="isSuccesful">
+    </mat-card-content>
+    <mat-card-content *ngIf="isSuccesful">
+        <mat-slider [max]="max" [min]="min" [step]="step" [(ngModel)]="logSelect" (input)="onInputChange($event)">
+        </mat-slider>
+        <google-map>
             <map-marker *ngFor="let marker of markers" [position]="marker.position" [label]="marker.label" [title]="marker.title" [options]="marker.options">
             </map-marker>
         </google-map>
