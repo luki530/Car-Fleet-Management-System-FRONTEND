@@ -13,25 +13,10 @@ mat-form-field {
     margin: 0;
 }
 
-.profile-img-card {
-    width: 125px;
-    height: 125px;
-    margin: 0 auto;
-    display: block;
-    -moz-border-radius: 100%;
-    -webkit-border-radius: 100%;
-    border-radius: 100%;
-}
-
 .example-margin {
     margin: 0 10px;
 }
 
 .prompt {
     color: red;
-}
-
-.scrolling-element {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
 }

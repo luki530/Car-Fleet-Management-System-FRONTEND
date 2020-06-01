@@ -1,3 +1,8 @@
+mat-card {
+    margin: 2em auto;
+    width: 50%;
+}
+
 .example-container {
     position: relative;
     min-height: 200px;
@@ -40,7 +45,12 @@ table {
     margin: 0 auto;
 }
 
-.scrolling-element {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
+.cdk-global-scrollblock {
+    overflow-y: hidden;
+}
+
+@media (max-width: 800px) {
+    mat-card {
+        min-width: 40rem;
+    }
 }

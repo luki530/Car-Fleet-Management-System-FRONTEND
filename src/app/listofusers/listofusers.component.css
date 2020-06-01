@@ -42,3 +42,14 @@ table {
 .cdk-global-scrollblock {
     overflow-y: hidden;
 }
+
+@media (max-width: 800px) {
+    mat-card {
+        min-width: 40rem;
+    }
+}
+
+mat-card {
+    margin: 2em auto;
+    width: 50%;
+}
