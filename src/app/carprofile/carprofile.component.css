@@ -1,7 +1,7 @@
 mat-list,
 mat-card {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 2em auto;
 }
 
 :host /deep/ .mat-card-header-text {
@@ -21,14 +21,6 @@ mat-card {
 .btn-space {
     margin-right: 5px;
 }
-
-
-/* .buttonAssign {
-    margin: -10px -50px;
-    position: relative;
-    top: 50%;
-    left: 60%;
-} */
 
 .profile-img-card {
     width: 100px;
