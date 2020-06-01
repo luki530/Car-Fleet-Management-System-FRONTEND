@@ -56,10 +56,11 @@ mat-sidenav-container {
         bottom: 0;
         display: flex;
         flex-direction: column;
+        overflow-x: scroll;
         .content {
             flex: 1 0 auto;
             margin-top: 64px;
-            overflow: hidden;
+            overflow: scroll;
         }
         .footer {
             flex: 0 0 auto;
@@ -141,4 +142,9 @@ mat-sidenav-container {
             padding-top: 0;
         }
     }
+}
+
+.scrolling-element {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
 }
