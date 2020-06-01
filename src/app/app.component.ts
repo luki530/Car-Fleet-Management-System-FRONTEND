@@ -12,6 +12,7 @@ import { slideInAnimation } from './route-animation';
 
 import * as Hammer from 'hammerjs';
 import { MatSidenav } from '@angular/material/sidenav';
+import { DateAdapter } from '@angular/material/core';
 
 @Component({
   selector: 'app-root',
@@ -21,36 +22,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent implements OnInit {
 
-  options = [
-    {
-      "backgroundColor": "#fff",
-      "buttonColor": "#ffc107",
-      "headingColor": "#673ab7",
-      "label": "Deep Purple & Amber",
-      "value": "deeppurple-amber"
-    },
-    {
-      "backgroundColor": "#fff",
-      "buttonColor": "#ff4081",
-      "headingColor": "#3f51b5",
-      "label": "Indigo & Pink",
-      "value": "indigo-pink"
-    },
-    {
-      "backgroundColor": "#303030",
-      "buttonColor": "#607d8b",
-      "headingColor": "#e91e63",
-      "label": "Pink & Blue Grey",
-      "value": "pink-bluegrey"
-    },
-    {
-      "backgroundColor": "#303030",
-      "buttonColor": "#4caf50",
-      "headingColor": "#9c27b0",
-      "label": "Purple & Green",
-      "value": "purple-green"
-    }
-  ];
+
 
   private roles: string[];
   isLoggedIn = false;
@@ -67,13 +39,14 @@ export class AppComponent implements OnInit {
   faInfo = faInfo;
   Abbr: string;
   Title: string;
+  options;
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
   @ViewChild(MatSidenav)
   public sidenav: MatSidenav;
 
-  constructor(public elementRef: ElementRef, private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService) {
+  constructor(public elementRef: ElementRef, private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService,private dateAdapter: DateAdapter<Date>) {
     translate.addLangs(['en', 'pl', 'de']);
     translate.setDefaultLang('en');
     themeService.setTheme("purple-green");
@@ -93,9 +66,43 @@ export class AppComponent implements OnInit {
   switchLang(lang: string) {
     this.translate.use(lang);
     this.tokenStorageService.saveLangLocal(lang);
+    this.dateAdapter.setLocale(lang);
   }
 
   ngOnInit() {
+    this.translate.stream(['Deep Purple & Amber', 'Indigo & Pink', 'Pink & Blue Grey','Purple & Green']).subscribe((text: string[]) => {
+      this.options = [
+        {
+          "backgroundColor": "#fff",
+          "buttonColor": "#ffc107",
+          "headingColor": "#673ab7",
+          "label": text['Deep Purple & Amber'],
+          "value": "deeppurple-amber"
+        },
+        {
+          "backgroundColor": "#fff",
+          "buttonColor": "#ff4081",
+          "headingColor": "#3f51b5",
+          "label": text['Indigo & Pink'],
+          "value": "indigo-pink"
+        },
+        {
+          "backgroundColor": "#303030",
+          "buttonColor": "#607d8b",
+          "headingColor": "#e91e63",
+          "label": text['Pink & Blue Grey'],
+          "value": "pink-bluegrey"
+        },
+        {
+          "backgroundColor": "#303030",
+          "buttonColor": "#4caf50",
+          "headingColor": "#9c27b0",
+          "label": text['Purple & Green'],
+          "value": "purple-green"
+        }
+      ];
+
+    });
 
     if (!!this.tokenStorageService.getLangLocal()) {
       this.switchLang(this.tokenStorageService.getLangLocal());

@@ -27,7 +27,14 @@
             <polyline points="12 6 12 12 16 14"></polyline>
           </svg>
                 </ngx-material-timepicker-toggle>
-                <ngx-material-timepicker #starttime [theme]="darkTheme"></ngx-material-timepicker>
+                <ngx-material-timepicker #starttime [theme]="darkTheme" [cancelBtnTmpl]="cancelBtn" [confirmBtnTmpl]="confirmBtn">
+                </ngx-material-timepicker>
+                <ng-template #cancelBtn>
+                    <button mat-button style="margin-right: 10px; color:#ffffff">{{'CANCEL' | translate}}</button>
+                </ng-template>
+                <ng-template #confirmBtn>
+                    <button mat-button style="color:#ffffff;">OK</button>
+                </ng-template>
             </mat-form-field>
             <mat-form-field class="full-width-input">
                 <mat-label>{{'End Date' | translate}}</mat-label>
@@ -44,11 +51,19 @@
                 <input matInput placeholder="{{'End Time' | translate}}" [ngxTimepicker]="endtime" [format]="24" [(ngModel)]="form.endTime" name="endTime">
                 <ngx-material-timepicker-toggle matSuffix [for]="endtime">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ngxMaterialTimepickerToggleIcon>
+
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 16 14"></polyline>
           </svg>
                 </ngx-material-timepicker-toggle>
-                <ngx-material-timepicker #endtime [theme]="darkTheme"></ngx-material-timepicker>
+                <ngx-material-timepicker #endtime [theme]="darkTheme" [cancelBtnTmpl]="cancelBtn" [confirmBtnTmpl]="confirmBtn"> </ngx-material-timepicker>
+                <ng-template #cancelBtn>
+                    <button mat-button style="margin-right: 10px; color:#ffffff">{{'CANCEL' | translate}}</button>
+                </ng-template>
+                <ng-template #confirmBtn>
+                    <button mat-button style="color:#ffffff;">OK</button>
+                </ng-template>
+
             </mat-form-field>
             <button mat-raised-button color="primary">{{'Find Logs' | translate}}</button>
         </form>

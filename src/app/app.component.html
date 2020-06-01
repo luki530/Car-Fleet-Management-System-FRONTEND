@@ -7,26 +7,26 @@
 
                 <ng-container>
                     <a mat-list-item *ngIf="showUsersBoard" (click)="sidenav.close()" routerLink="listofusers" routerLinkActive="active">
-            {{'Users' | translate}}
-          </a>
+              {{'Users' | translate}}
+            </a>
                     <a mat-list-item *ngIf="showCarsBoard" (click)="sidenav.close()" routerLink="cars" routerLinkActive="active">
-            {{'Cars' | translate}}
-          </a>
+              {{'Cars' | translate}}
+            </a>
                     <a mat-list-item *ngIf="showCarLogsBoard" (click)="sidenav.close()" routerLink="carlogs" routerLinkActive="active">
-            {{'Car Logs' | translate}}
-          </a>
+              {{'Car Logs' | translate}}
+            </a>
                 </ng-container>
 
                 <a mat-list-item color="accent" *ngIf="!isLoggedIn" (click)="sidenav.close()" routerLink="login">
-          {{'Login' | translate }}
-        </a>
+            {{'Login' | translate }}
+          </a>
                 <a mat-list-item color="accent" *ngIf="!isLoggedIn" (click)="sidenav.close()" routerLink="register">
-          {{'Register' | translate }}
-        </a>
+            {{'Register' | translate }}
+          </a>
 
                 <a mat-list-item href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
-          Github
-        </a>
+            Github
+          </a>
 
             </mat-nav-list>
         </mat-sidenav>
@@ -36,42 +36,42 @@
             <div class="toolbar">
                 <mat-toolbar color="primary">
                     <button mat-icon-button class="d-md-none" (click)="sidenav.open()">
-            <mat-icon>menu</mat-icon>
+              <mat-icon>menu</mat-icon>
 
-          </button>
+            </button>
 
                     <span routerLink="" class="branding spacer center d-inline d-sm-none">
-            <img [src]="logo" [alt]="logo" /></span>
+              <img [src]="logo" [alt]="logo" /></span>
                     <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none"><img [src]="logo"
-              [alt]="logo" />{{'abbr' | translate }}</span>
+                [alt]="logo" />{{'abbr' | translate }}</span>
                     <span routerLink="" class="branding spacer d-none d-md-inline"><img [src]="logo"
-              [alt]="logo" />{{"Title" | translate}}</span>
+                [alt]="logo" />{{"Title" | translate}}</span>
 
                     <span class="d-none d-md-inline">
-            <ng-container>
-              <button mat-button class="nav-button" *ngIf="showUsersBoard" routerLink="listofusers"
-                routerLinkActive="active">
-                {{'Users' | translate}}
+              <ng-container>
+                <button mat-button class="nav-button" *ngIf="showUsersBoard" routerLink="listofusers"
+                  routerLinkActive="active">
+                  {{'Users' | translate}}
+                </button>
+                <button mat-button class="nav-button" *ngIf="showCarsBoard" routerLink="cars" routerLinkActive="active">
+                  {{'Cars' | translate}}
+                </button>
+                <button mat-button class="nav-button" *ngIf="showCarLogsBoard" routerLink="carlogs"
+                  routerLinkActive="active">
+                  {{'Car Logs' | translate}}
+                </button>
+              </ng-container>
+
+
+
+              <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
+                {{'Login' | translate }}
               </button>
-              <button mat-button class="nav-button" *ngIf="showCarsBoard" routerLink="cars" routerLinkActive="active">
-                {{'Cars' | translate}}
+              <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
+                {{'Register' | translate }}
               </button>
-              <button mat-button class="nav-button" *ngIf="showCarLogsBoard" routerLink="carlogs"
-                routerLinkActive="active">
-                {{'Car Logs' | translate}}
-              </button>
-            </ng-container>
 
-
-
-            <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
-              {{'Login' | translate }}
-            </button>
-            <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
-              {{'Register' | translate }}
-            </button>
-
-          </span>
+            </span>
                     <mat-select [value]="translate.currentLang" #selectedLang (selectionChange)="switchLang(selectedLang.value)">
                         <mat-option *ngFor="let language of translate.getLangs()" [value]="language">
                             {{ language.toUpperCase() }}
@@ -83,41 +83,41 @@
                     </mat-icon>
                     <mat-menu #menu="matMenu">
                         <button *ngFor="let option of options" mat-menu-item (click)="changeTheme(option.value)">
-              <mat-icon role="img" svgicon="theme-example" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
-                  height="100%" viewBox="0 0 80 80" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
-                  <defs>
-                    <path
-                      d="M77.87 0C79.05 0 80 .95 80 2.13v75.74c0 1.17-.95 2.13-2.13 2.13H2.13C.96 80 0 79.04 0 77.87V2.13C0 .95.96 0 2.13 0h75.74z"
-                      id="a">
-                    </path>
-                    <path
-                      d="M54 40c3.32 0 6 2.69 6 6 0 1.2 0-1.2 0 0 0 3.31-2.68 6-6 6H26c-3.31 0-6-2.69-6-6 0-1.2 0 1.2 0 0 0-3.31 2.69-6 6-6h28z"
-                      id="b">
-                    </path>
-                    <path d="M0 0h80v17.24H0V0z" id="c"></path>
-                  </defs>
-                  <use xlink:href="#a" [attr.fill]="option.backgroundColor"></use>
-                  <use xlink:href="#b" [attr.fill]="option.buttonColor"></use>
-                  <use xlink:href="#c" [attr.fill]="option.headingColor"></use>
-                </svg>
-              </mat-icon>
-              <span>{{ option.label }}</span>
-            </button>
+                <mat-icon role="img" svgicon="theme-example" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+                    height="100%" viewBox="0 0 80 80" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+                    <defs>
+                      <path
+                        d="M77.87 0C79.05 0 80 .95 80 2.13v75.74c0 1.17-.95 2.13-2.13 2.13H2.13C.96 80 0 79.04 0 77.87V2.13C0 .95.96 0 2.13 0h75.74z"
+                        id="a">
+                      </path>
+                      <path
+                        d="M54 40c3.32 0 6 2.69 6 6 0 1.2 0-1.2 0 0 0 3.31-2.68 6-6 6H26c-3.31 0-6-2.69-6-6 0-1.2 0 1.2 0 0 0-3.31 2.69-6 6-6h28z"
+                        id="b">
+                      </path>
+                      <path d="M0 0h80v17.24H0V0z" id="c"></path>
+                    </defs>
+                    <use xlink:href="#a" [attr.fill]="option.backgroundColor"></use>
+                    <use xlink:href="#b" [attr.fill]="option.buttonColor"></use>
+                    <use xlink:href="#c" [attr.fill]="option.headingColor"></use>
+                  </svg>
+                </mat-icon>
+                <span>{{ option.label }}</span>
+              </button>
                     </mat-menu>
 
                     <button *ngIf="isLoggedIn" mat-icon-button [matMenuTriggerFor]="toolbarUserMenu">
-            <mat-icon>person</mat-icon>
-          </button>
+              <mat-icon>person</mat-icon>
+            </button>
                     <mat-menu #toolbarUserMenu="matMenu">
                         <button mat-menu-item routerLink="profile">
-              <mat-icon>person</mat-icon>
-              <span>{{'My Profile' | translate }}</span>
-            </button>
+                <mat-icon>person</mat-icon>
+                <span>{{'My Profile' | translate }}</span>
+              </button>
                         <button mat-menu-item (click)="logout()">
-              <mat-icon>power_settings_new</mat-icon>
-              <span>{{'Logout' | translate }}</span>
-            </button>
+                <mat-icon>power_settings_new</mat-icon>
+                <span>{{'Logout' | translate }}</span>
+              </button>
                     </mat-menu>
 
                     <a mat-icon-button class="link d-none d-sm-inline" href="https://github.com/luki530/Car-Fleet-Management-System-FRONTEND" target="_blank" rel="noopener noreferrer">
@@ -131,7 +131,7 @@
                     <router-outlet (activate)="reloadContext()" #o="outlet"></router-outlet>
                 </div>
             </div>
-            <div class="footer">
+            <div class="footer" ng-controller="myCtrl">
                 <div class="row">
                     <div class="col-sm-12 links">
                         <a target="_blank" rel="noopener noreferrer">
