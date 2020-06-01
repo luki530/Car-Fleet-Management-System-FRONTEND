@@ -8,6 +8,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AddCarComponent } from '../addcar/addcar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddLoggerDeviceComponent } from '../addloggerdevice/addloggerdevice.component';
+import { TranslateService } from '@ngx-translate/core';
+import { CarProfileComponent } from '../carprofile/carprofile.component';
 
 
 @Injectable()
@@ -27,14 +29,13 @@ export class CarsComponent implements OnInit {
   id: number;
   cars: any = [];
   loggerDevices: any = [];
-  // serialNumber: any = '';
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog, private translate: TranslateService) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -44,6 +45,9 @@ export class CarsComponent implements OnInit {
   };
 
   ngOnInit() {
+    this.translate.getStreamOnTranslationChange('Items per page:').subscribe((text: string) => {
+      this.paginator._intl.itemsPerPageLabel = text;
+    });
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars', this.httpOptions)
       .subscribe(
         (data: any) => {

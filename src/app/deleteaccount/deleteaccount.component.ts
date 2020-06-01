@@ -31,13 +31,10 @@ export class DeleteAccountComponent implements OnInit {
 
   return() {
     this.tokenStorage.signOut();
-    this.reloadContext();
     this.router.navigate(['home']);
   }
 
-  reloadContext() {
-    this.ngOnInit();
-  }
+
 
   deleteAccount(): void {
     // tslint:disable-next-line: max-line-length

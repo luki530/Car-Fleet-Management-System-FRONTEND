@@ -78,7 +78,7 @@ export class UserProfileComponent implements OnInit {
     let dialogRef = this.dialog.open(DeleteUserComponent, {
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
     });
   }
 }
