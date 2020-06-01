@@ -79,12 +79,15 @@ export class AppComponent implements OnInit {
     themeService.setTheme("purple-green");
 
     const hammertime = new Hammer(elementRef.nativeElement, {});
+    hammertime.get('pan').set({direction: Hammer.DIRECTION_ALL});
         hammertime.on('panright', () => {
             this.sidenav.open();
         });
         hammertime.on('panleft', () => {
             this.sidenav.close();
         });
+        hammertime.on('panup', () => false);
+        hammertime.on('pandown', () => false);
   }
 
   switchLang(lang: string) {
