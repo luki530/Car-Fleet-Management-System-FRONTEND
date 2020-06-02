@@ -13,6 +13,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AgmCoreModule } from '@agm/core';
 
 
 import { AppComponent } from './app.component';
@@ -96,7 +97,10 @@ import { DeleteAccountComponent } from './deleteaccount/deleteaccount.component'
         deps: [HttpClient]
       }
     }),
-    AppMaterialModule
+    AppMaterialModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyApDDIA2gMKalimFGbxbKQXXcjrgHTnd9Q'
+    }),
   ],
   providers: [authInterceptorProviders, CookieService, ConnectionService, ThemeService, StyleManagerService],
   bootstrap: [AppComponent],

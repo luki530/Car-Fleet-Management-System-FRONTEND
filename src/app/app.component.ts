@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild} from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -13,6 +13,8 @@ import { slideInAnimation } from './route-animation';
 import * as Hammer from 'hammerjs';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DateAdapter } from '@angular/material/core';
+
+import { AgmMap, MouseEvent, MapsAPILoader } from '@agm/core';
 
 @Component({
   selector: 'app-root',
@@ -38,27 +40,40 @@ export class AppComponent implements OnInit {
   Abbr: string;
   Title: string;
   options;
+  zoom
+  lat
+  lng
+  getAddress
+  longitude
+  latitude
+  currentLocation: string;
+  today: number = Date.now();
 
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
 
   @ViewChild(MatSidenav)
   public sidenav: MatSidenav;
 
-  constructor(public elementRef: ElementRef, private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService,private dateAdapter: DateAdapter<Date>) {
+  @ViewChild(AgmMap, { static: true }) public agmMap: AgmMap;
+
+
+  constructor(private apiloader: MapsAPILoader, public elementRef: ElementRef, private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService, private dateAdapter: DateAdapter<Date>) {
     translate.addLangs(['en', 'pl', 'de']);
     translate.setDefaultLang('en');
     themeService.setTheme("purple-green");
 
     const hammertime = new Hammer(elementRef.nativeElement, {});
-    hammertime.get('pan').set({direction: Hammer.DIRECTION_ALL});
-        hammertime.on('panright', () => {
-            this.sidenav.open();
-        });
-        hammertime.on('panleft', () => {
-            this.sidenav.close();
-        });
-        hammertime.on('panup', () => false);
-        hammertime.on('pandown', () => false);
+    hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+    hammertime.on('panright', () => {
+      this.sidenav.open();
+    });
+    hammertime.on('panleft', () => {
+      this.sidenav.close();
+    });
+    hammertime.on('panup', () => false);
+    hammertime.on('pandown', () => false);
+
+    setInterval(() => { this.today = Date.now() }, 1);
   }
 
   switchLang(lang: string) {
@@ -67,8 +82,70 @@ export class AppComponent implements OnInit {
     this.dateAdapter.setLocale(lang);
   }
 
+  get() {
+
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position: Position) => {
+        if (position) {
+          this.lat = position.coords.latitude;
+          this.lng = position.coords.longitude;
+          this.getAddress = (this.lat, this.lng)
+          console.log(position)
+
+          this.apiloader.load().then(() => {
+            let geocoder = new google.maps.Geocoder;
+            let latlng = { lat: this.lat, lng: this.lng };
+
+            geocoder.geocode({ 'location': latlng }, function (results) {
+              if (results[0]) {
+                this.currentLocation = results[0].formatted_address;
+
+                console.log(this.assgin);
+              } else {
+                console.log('Not found');
+              }
+
+
+            });
+          });
+
+
+        }
+      })
+    }
+
+  }
+
+  mapClicked($event: MouseEvent) {
+
+
+    this.latitude = $event.coords.lat,
+      this.longitude = $event.coords.lng
+
+
+    this.apiloader.load().then(() => {
+      let geocoder = new google.maps.Geocoder;
+      let latlng = { lat: this.latitude, lng: this.longitude };
+
+      geocoder.geocode({ 'location': latlng }, function (results) {
+        if (results[0]) {
+          this.currentLocation = results[0].formatted_address;
+          console.log(this.currentLocation);
+        } else {
+          console.log('Not found');
+        }
+      });
+    });
+  }
+
   ngOnInit() {
-    this.translate.stream(['Deep Purple & Amber', 'Indigo & Pink', 'Pink & Blue Grey','Purple & Green']).subscribe((text: string[]) => {
+
+    this.get()
+    this.agmMap.triggerResize(true);
+    this.zoom = 1;
+
+    this.translate.stream(['Deep Purple & Amber', 'Indigo & Pink', 'Pink & Blue Grey', 'Purple & Green']).subscribe((text: string[]) => {
       this.options = [
         {
           "backgroundColor": "#fff",

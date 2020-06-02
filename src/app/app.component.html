@@ -29,9 +29,18 @@
           </a>
 
             </mat-nav-list>
+            <p class="time">{{today | date:'fullDate'}} </p>
+            <p class="time">{{today | date:'h:mm:ss a'}}</p>
+
+            <agm-map style="height: 300px;" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [scrollwheel]="null" [zoomControl]="true" (mapClick)="mapClicked($event)" #AgmMap>
+                <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
+            </agm-map>
+
+
         </mat-sidenav>
 
         <div class="wrapper">
+
 
             <div class="toolbar">
                 <mat-toolbar color="primary">
@@ -126,6 +135,7 @@
                 </mat-toolbar>
             </div>
             <div class="content">
+
                 <div [@routeAnimations]="o && o.activatedRouteData
       && o.activatedRouteData['animation']">
                     <router-outlet (activate)="reloadContext()" #o="outlet"></router-outlet>
