@@ -1,3 +1,6 @@
+<head>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApDDIA2gMKalimFGbxbKQXXcjrgHTnd9Q&callback=initMap" type="text/javascript"></script>
+</head>
 <div *ngIf="showApp">
     <mat-sidenav-container [ngStyle]="{background: 'url(https://steamuserimages-a.akamaihd.net/ugc/915792633192065337/AA45141969D321AF88400C6C3778D1DF3E315638/)'}">
         <mat-sidenav #sidenav mode="push">
@@ -32,14 +35,15 @@
             <p class="time">{{today | date:'fullDate'}} </p>
             <p class="time">{{today | date:'h:mm:ss a'}}</p>
 
-            <agm-map style="height: 300px;" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [scrollwheel]="null" [zoomControl]="true" (mapClick)="mapClicked($event)" #AgmMap>
-                <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
-            </agm-map>
 
+            <agm-map style="height: 300px;" [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false" [scrollwheel]="null" [zoomControl]="true" (mapClick)="mapClicked($event)" #AgmMap>
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
 
         </mat-sidenav>
 
         <div class="wrapper">
+
 
 
             <div class="toolbar">

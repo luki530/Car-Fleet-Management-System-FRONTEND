@@ -142,7 +142,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     this.get()
-    this.agmMap.triggerResize(true);
+    // this.agmMap.triggerResize(true);
     this.zoom = 1;
 
     this.translate.stream(['Deep Purple & Amber', 'Indigo & Pink', 'Pink & Blue Grey', 'Purple & Green']).subscribe((text: string[]) => {
