@@ -22,8 +22,6 @@ import { DateAdapter } from '@angular/material/core';
 })
 export class AppComponent implements OnInit {
 
-
-
   private roles: string[];
   isLoggedIn = false;
   showAdminBoard = false;
