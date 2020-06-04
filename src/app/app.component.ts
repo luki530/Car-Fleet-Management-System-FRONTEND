@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { TokenStorageService } from './_services/token-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -48,8 +48,9 @@ export class AppComponent implements OnInit {
   latitude
   currentLocation: string;
   today: number = Date.now();
-
   logo = 'https://i.ibb.co/p0wGs3w/logo.png';
+  public innerWidth: any;
+  hammertime = new Hammer(this.elementRef.nativeElement, {});
 
   @ViewChild(MatSidenav)
   public sidenav: MatSidenav;
@@ -62,16 +63,8 @@ export class AppComponent implements OnInit {
     translate.setDefaultLang('en');
     themeService.setTheme("purple-green");
 
-    const hammertime = new Hammer(elementRef.nativeElement, {});
-    hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-    hammertime.on('panright', () => {
-      this.sidenav.open();
-    });
-    hammertime.on('panleft', () => {
-      this.sidenav.close();
-    });
-    hammertime.on('panup', () => false);
-    hammertime.on('pandown', () => false);
+
+
 
     setInterval(() => { this.today = Date.now() }, 1);
   }
@@ -90,8 +83,7 @@ export class AppComponent implements OnInit {
         if (position) {
           this.lat = position.coords.latitude;
           this.lng = position.coords.longitude;
-          this.getAddress = (this.lat, this.lng)
-          console.log(position)
+          this.getAddress = (this.lat, this.lng);
 
           this.apiloader.load().then(() => {
             let geocoder = new google.maps.Geocoder;
@@ -101,12 +93,7 @@ export class AppComponent implements OnInit {
               if (results[0]) {
                 this.currentLocation = results[0].formatted_address;
 
-                console.log(this.assgin);
-              } else {
-                console.log('Not found');
               }
-
-
             });
           });
 
@@ -119,10 +106,8 @@ export class AppComponent implements OnInit {
 
   mapClicked($event: MouseEvent) {
 
-
-    this.latitude = $event.coords.lat,
-      this.longitude = $event.coords.lng
-
+    this.latitude = $event.coords.lat;
+    this.longitude = $event.coords.lng;
 
     this.apiloader.load().then(() => {
       let geocoder = new google.maps.Geocoder;
@@ -131,19 +116,37 @@ export class AppComponent implements OnInit {
       geocoder.geocode({ 'location': latlng }, function (results) {
         if (results[0]) {
           this.currentLocation = results[0].formatted_address;
-          console.log(this.currentLocation);
-        } else {
-          console.log('Not found');
         }
       });
     });
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+
+    this.innerWidth = window.innerWidth;
+
+    if (this.innerWidth < 764) {
+      // this.hammertime.get('pan').set({ direction: Hammer.DIRECTION_VERTICAL });
+      this.hammertime.on('panright', () => {
+        this.sidenav.open();
+      });
+      this.hammertime.on('panleft', () => {
+        this.sidenav.close();
+      });
+
+    } else {
+      this.hammertime.on('panright', () => false);
+      this.hammertime.on('panleft', () => false);
+      console.log("dupa")
+    }
+  }
+
   ngOnInit() {
 
-    this.get()
-    // this.agmMap.triggerResize(true);
+    this.get();
     this.zoom = 1;
+    this.hammertime;
 
     this.translate.stream(['Deep Purple & Amber', 'Indigo & Pink', 'Pink & Blue Grey', 'Purple & Green']).subscribe((text: string[]) => {
       this.options = [
@@ -227,7 +230,6 @@ export class AppComponent implements OnInit {
   }
 
   reloadContext() {
-    console.log('lps')
 
     this.ngOnInit();
     this.showApp = true;
