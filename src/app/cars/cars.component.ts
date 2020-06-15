@@ -51,13 +51,11 @@ export class CarsComponent implements OnInit {
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars', this.httpOptions)
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
           this.isLoadingResults = false;
           this.cars = data;
-          console.log(this.cars.length)
         },
         err => {
           this.isLoadingResults = false;
@@ -65,7 +63,6 @@ export class CarsComponent implements OnInit {
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
       .subscribe(
         (response: any) => {
-          console.log(response);
           this.dataSource1 = new MatTableDataSource(response);
           this.dataSource1.sort = this.sort;
           this.dataSource1.paginator = this.paginator;

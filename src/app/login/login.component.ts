@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: max-line-length
   constructor(private authService: AuthService, private router: Router, private tokenStorage: TokenStorageService, private cookieService: CookieService, private _snackBar: MatSnackBar, private translate: TranslateService) {
-    translate.stream('Signed In!').subscribe((text:string) => {console.log(text)});
   }
 
   ngOnInit() {

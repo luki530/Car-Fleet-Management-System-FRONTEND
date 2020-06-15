@@ -5,6 +5,7 @@ const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 const LANG_KEY = 'language';
 const THEME_KEY = 'theme';
+const ROLES_KEY = 'roles';
 
 @Injectable({
   providedIn: 'root'
@@ -70,4 +71,5 @@ export class TokenStorageService {
     window.localStorage.removeItem(THEME_KEY);
     window.localStorage.setItem(THEME_KEY, theme);
   }
+
 }

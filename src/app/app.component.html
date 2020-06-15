@@ -29,13 +29,13 @@
           </a>
 
             </mat-nav-list>
-            <p class="time">{{today | date:'fullDate'}} </p>
+            <p class="date">{{today | date:'fullDate'}} </p>
             <p class="time">{{today | date:'h:mm:ss a'}}</p>
 
 
-            <agm-map style="height: 300px;" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [scrollwheel]="null" [zoomControl]="true" (mapClick)="mapClicked($event)" #AgmMap>
+            <!-- <agm-map style="height: 300px;" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [scrollwheel]="null" [zoomControl]="true" (mapClick)="mapClicked($event)" #AgmMap>
                 <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-            </agm-map>
+            </agm-map> -->
 
         </mat-sidenav>
 
@@ -59,14 +59,14 @@
 
                     <span class="d-none d-md-inline">
               <ng-container>
-                <button mat-button class="nav-button" *ngIf="showUsersBoard" routerLink="listofusers"
+                <button mat-button class="nav-button" *ngIf="showUsersBoard && !close" routerLink="listofusers"
                   routerLinkActive="active">
                   {{'Users' | translate}}
                 </button>
-                <button mat-button class="nav-button" *ngIf="showCarsBoard" routerLink="cars" routerLinkActive="active">
+                <button mat-button class="nav-button" *ngIf="showCarsBoard && !close" routerLink="cars" routerLinkActive="active">
                   {{'Cars' | translate}}
                 </button>
-                <button mat-button class="nav-button" *ngIf="showCarLogsBoard" routerLink="carlogs"
+                <button mat-button class="nav-button" *ngIf="showCarLogsBoard && !close" routerLink="carlogs"
                   routerLinkActive="active">
                   {{'Car Logs' | translate}}
                 </button>
@@ -74,10 +74,10 @@
 
 
 
-              <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="login">
+              <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn && !close" routerLink="login">
                 {{'Login' | translate }}
               </button>
-              <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn" routerLink="register">
+              <button mat-button mat-stroked-button color="accent" *ngIf="!isLoggedIn && !close" routerLink="register">
                 {{'Register' | translate }}
               </button>
 
@@ -135,12 +135,10 @@
                     </a>
                 </mat-toolbar>
             </div>
-            <div class="content">
 
-                <div [@routeAnimations]="o && o.activatedRouteData
+            <div class="content" [@routeAnimations]="o && o.activatedRouteData
       && o.activatedRouteData['animation']">
-                    <router-outlet (activate)="reloadContext()" #o="outlet"></router-outlet>
-                </div>
+                <router-outlet (activate)="reloadContext()" #o="outlet"></router-outlet>
             </div>
             <div class="footer" ng-controller="myCtrl">
                 <div class="row">

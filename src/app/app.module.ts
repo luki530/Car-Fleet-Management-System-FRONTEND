@@ -97,10 +97,7 @@ import { DeleteAccountComponent } from './deleteaccount/deleteaccount.component'
         deps: [HttpClient]
       }
     }),
-    AppMaterialModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyApDDIA2gMKalimFGbxbKQXXcjrgHTnd9Q'
-    }),
+    AppMaterialModule
   ],
   providers: [authInterceptorProviders, CookieService, ConnectionService, ThemeService, StyleManagerService],
   bootstrap: [AppComponent],

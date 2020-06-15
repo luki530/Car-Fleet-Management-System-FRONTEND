@@ -25,6 +25,7 @@ export class UserProfileComponent implements OnInit {
   roles = [];
   userId: any;
   cardId: string;
+  names: any = [];
 
   // tslint:disable-next-line: max-line-length
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
@@ -51,6 +52,7 @@ export class UserProfileComponent implements OnInit {
           if (!(data.card == null)) {
             this.cardId = data.card.cardId;
           }
+          console.log(data)
         },
         err => {
         });
@@ -66,7 +68,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   assignRoles(): void {
-    let dialogRef = this.dialog.open(AssignRolesComponent, {
+    let dialogRef = this.dialog.open(AssignRolesComponent, { data: {
+      'roles': this.roles
+    }
     });
 
     dialogRef.afterClosed().subscribe(() => {

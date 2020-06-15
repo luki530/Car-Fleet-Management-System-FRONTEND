@@ -23,7 +23,6 @@ export class ResetPasswordComponent implements OnInit {
   onSubmit() {
     this.authService.resetpassword(this.form).subscribe(
       data => {
-        console.log(data);
         this.isSuccessful = true;
         this.isFailed = false;
         this.translate.getStreamOnTranslationChange('emailResetMessage').subscribe((text: string) => {

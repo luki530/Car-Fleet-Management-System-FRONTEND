@@ -1,43 +1,15 @@
 <mat-card>
     <mat-card-content>
-        <div class="example-table-container">
-            <table mat-table [dataSource]="dataSource" multiTemplateDataRows matSort>
-                <ng-container class="ng" matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-                    <td mat-cell *matCellDef="let element">{{element.id}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="name">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'Role' | translate}}</th>
-                    <td mat-cell *matCellDef="let element">{{element.name}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="empty">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-                    <td mat-cell *matCellDef="let element"></td>
-                </ng-container>
-
-                <ng-container matColumnDef="select">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-                    <td mat-cell *matCellDef="let row">
-                        <mat-checkbox (change)="updateSelected(row.name)" name="select" value="name"></mat-checkbox>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="pointerCursor">
-                </tr>
-            </table>
-            <mat-list>
-                <div>
-                    <button mat-stroked-button mat-dialog-close class="btn-space">{{'Cancel' | translate}}</button>
-                    <button mat-raised-button color="primary" class="btn-space" (click)="assignRoles()">{{'Assign' | translate}}</button>
-                </div>
-            </mat-list>
-            <mat-card *ngIf="isLoadingResults" style="display: flex; justify-content: center; align-items: center">
-                <mat-spinner color="primary" mode="indeterminate">
-                </mat-spinner>
-            </mat-card>
+        <div *ngFor="let role of roles">
+            <mat-checkbox [value]="role.name" [(ngModel)]="role.hasRole" [checked]="role.hasRole">
+                {{role.name}}
+            </mat-checkbox>
         </div>
+        <mat-list>
+            <div>
+                <button mat-stroked-button mat-dialog-close class="btn-space">{{'Cancel' | translate}}</button>
+                <button mat-raised-button color="primary" class="btn-space" (click)="assignRoles()">{{'Assign' | translate}}</button>
+            </div>
+        </mat-list>
     </mat-card-content>
 </mat-card>

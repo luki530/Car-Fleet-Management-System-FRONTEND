@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../_services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-confirmphonenumber',
@@ -21,9 +22,8 @@ export class ConfirmPhoneNumberComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     this.authService.confirmphonenumber(this.form).subscribe(response => {
-      console.log(response),
       this.isSuccessful = true,
       this.isCodeInvalid = false,
       this.translate.getStreamOnTranslationChange('Your phone number has been confirmed!').subscribe((text:string) => {
@@ -32,6 +32,7 @@ export class ConfirmPhoneNumberComponent implements OnInit {
         panelClass: ['advice']
       });
     });
+    form.resetForm();
     }
       , err => {
         this.isCodeInvalid = true;

@@ -59,14 +59,17 @@ mat-sidenav-container {
         .content {
             flex: 1 0 auto;
             margin-top: 64px;
-            overflow: scroll;
         }
         .footer {
             flex: 0 0 auto;
             padding: 0 15px;
             text-align: center;
             .row {
-                padding: 10px 0;
+                padding: 8px 0;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
                 .links {
                     a {
                         transition: padding 0.5s;
@@ -137,6 +140,20 @@ mat-sidenav-container {
                 top: 3px;
             }
         }
+        .date {
+            margin-bottom: 0px;
+            flex: 0 0 auto;
+            padding: 0 15px;
+            position: absolute;
+            bottom: 0;
+        }
+        .time {
+            margin-bottom: 0px;
+            flex: 0 0 auto;
+            padding: 0 15px;
+            position: absolute;
+            bottom: 20px;
+        }
         .mat-nav-list {
             padding-top: 0;
         }
@@ -146,16 +163,11 @@ mat-sidenav-container {
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
-}
-
-.hide-scrollbar {
-    overflow: auto;
     -ms-overflow-style: none;
     /* IE 11 */
     scrollbar-width: none;
-    /* Firefox 64 */
 }
 
-.time {
-    margin-bottom: 0px;
+.page-wrap {
+    position: relative;
 }

@@ -1,8 +1,9 @@
 mat-card {
     max-width: 600px;
-    padding: 40px 40px;
+    padding: 30px 30px;
     margin: 2em auto;
     text-align: center;
+    max-height: 600px;
 }
 
 mat-form-field {
@@ -14,8 +15,8 @@ mat-form-field {
 }
 
 .profile-img-card {
-    width: 125px;
-    height: 125px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto;
     display: block;
     -moz-border-radius: 100%;

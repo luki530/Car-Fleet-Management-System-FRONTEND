@@ -35,6 +35,6 @@
             </div>
             <div *ngFor="let role of roles"> {{role.name.substring(5)}} &nbsp; </div>
         </mat-list-item>
+        <button mat-raised-button color="primary" class="button btn-space" (click)="openDialog()">{{'Delete Account' | translate}}</button>
     </mat-list>
-    <button mat-raised-button color="primary" (click)="openDialog()">{{'Delete Account' | translate}}</button>
 </mat-card>

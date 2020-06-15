@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-content>
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
             <mat-card-header>
                 <img mat-card-avatar id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
             </mat-card-header>

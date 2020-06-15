@@ -1,11 +1,26 @@
 mat-list,
 mat-card {
     max-width: 600px;
-    margin: 2em auto;
+    margin: 20px auto;
 }
 
 :host /deep/ .mat-card-header-text {
     margin: 0;
+}
+
+.buttons button {
+    padding: 4px;
+    border: none;
+    background-color: lightgrey;
+    font-weight: 500;
+    font-size: 13px;
+    position: relative;
+    text-align: center;
+}
+
+.btn-space {
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .profile-img-card {

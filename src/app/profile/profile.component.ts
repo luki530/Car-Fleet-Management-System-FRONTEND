@@ -42,7 +42,6 @@ export class ProfileComponent implements OnInit {
           if (!(data.card == null)) {
             this.cardId = data.card.cardId;
           }
-          console.log(this.roles);
         },
         err => {
         });

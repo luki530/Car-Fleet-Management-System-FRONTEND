@@ -36,7 +36,8 @@
             </div>
             <div *ngFor="let role of roles"> {{role.name.substring(5)}} &nbsp; </div>
         </mat-list-item>
-        <button mat-raised-button color="primary" class="button btn-space" (click)="addCard()">{{'Add Card' | translate}}</button>
+        <button *ngIf="!cardId" mat-raised-button color="primary" class="button btn-space" (click)="addCard()">{{'Add Card' | translate}}</button>
+        <button *ngIf="cardId" mat-raised-button color="primary" class="button btn-space" (click)="addCard()">{{'Change Card' | translate}}</button>
         <button mat-raised-button color="primary" class="button btn-space" (click)="assignRoles()">{{'Assign Roles' | translate}}</button>
         <button mat-raised-button color="primary" class="button btn-space" (click)="deleteUser()">{{'Delete User' | translate}}</button>
     </mat-list>

@@ -44,7 +44,6 @@ export class ListOfUsersComponent implements OnInit {
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofusers', this.httpOptions)
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;

@@ -35,7 +35,6 @@ export class DeleteLoggerDeviceComponent implements OnInit {
   deleteLoggerDevice(): void {
     // tslint:disable-next-line: max-line-length
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices/' + this.loggerDeviceId, this.httpOptions).subscribe(() => {
-      console.log('success');
       this.router.navigate(['/cars']);
       this.translate.getStreamOnTranslationChange('Logger device has been deleted !').subscribe((text:string) => {
       this.snackBar.open(text, '', {

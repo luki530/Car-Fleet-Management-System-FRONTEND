@@ -39,7 +39,6 @@ export class DeleteAccountComponent implements OnInit {
   deleteAccount(): void {
     // tslint:disable-next-line: max-line-length
     this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/myprofile', this.httpOptions).subscribe(() => {
-      console.log('success');
       this.return();
       this.translate.getStreamOnTranslationChange('Your account has been deleted!').subscribe((text:string) => {
       this.snackBar.open(text, '', {
