@@ -34,13 +34,12 @@ export class AddLoggerDeviceComponent implements OnInit {
         serialNumber: this.form.serialNumber
     }, this.httpOptions)
       .subscribe(
-        (response: any) => {
+        () => {
+          this.dialogref.close();
         },
-        err => {
+        () => {
         });
-    this.dialogref.close();
   }
-
 }
 
 

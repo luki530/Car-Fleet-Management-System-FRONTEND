@@ -36,6 +36,7 @@ export class AddCarComponent implements OnInit {
     }, this.httpOptions)
       .subscribe(
         (response: any) => {
+          this.dialogref.close();
         },
         err => {
         });

@@ -461,7 +461,7 @@ input.mat-input-element {
 .mat-tab-link {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 14px;
-    font-weight: 500
+    font-weight: 500;
 }
 
 .mat-toolbar,
@@ -2509,7 +2509,7 @@ td.mat-footer-cell {
 
 .mat-tab-label,
 .mat-tab-link {
-    color: rgba(0, 0, 0, .87)
+    color: #ffffff;
 }
 
 .mat-tab-label.mat-tab-disabled,

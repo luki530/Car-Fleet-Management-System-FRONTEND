@@ -59,6 +59,7 @@ mat-sidenav-container {
         .content {
             flex: 1 0 auto;
             margin-top: 64px;
+            z-index: 2;
         }
         .footer {
             flex: 0 0 auto;

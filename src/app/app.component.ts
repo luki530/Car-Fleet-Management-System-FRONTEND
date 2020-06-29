@@ -8,7 +8,7 @@ import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { ThemeService } from "./theme.service";
-import { rotateAnimation } from './route-animation';
+import { slideInAnimation } from './route-animation';
 
 import * as Hammer from 'hammerjs';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -19,8 +19,8 @@ import { AgmMap } from '@agm/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss',],
-  animations: [rotateAnimation]
+  styleUrls: ['./app.component.scss'],
+  animations: [slideInAnimation]
 })
 export class AppComponent implements OnInit {
 
@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
 
 
   constructor(public elementRef: ElementRef, private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService, private dateAdapter: DateAdapter<Date>) {
-    translate.addLangs(['en', 'pl', 'de','ja']);
+    translate.addLangs(['en', 'pl', 'de', 'ja']);
     translate.setDefaultLang('en');
     themeService.setTheme("purple-green");
 

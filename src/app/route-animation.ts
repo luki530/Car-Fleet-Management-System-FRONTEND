@@ -8,7 +8,7 @@ import {
   keyframes,
   state
 } from '@angular/animations';
-export const rotateAnimation =
+export const slideInAnimation =
   // trigger('routeAnimations', [
   // w prawo ( mozna dac Home => Login itp)
   // transition('* => *', [

@@ -40,10 +40,10 @@ export class AddCardComponent implements OnInit {
     }, this.httpOptions)
       .subscribe(
         (response: any) => {
+          this.dialogref.close();
         },
         err => {
         });
-    this.dialogref.close();
   }
 
 }

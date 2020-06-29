@@ -59,14 +59,14 @@
 
                     <span class="d-none d-md-inline">
               <ng-container>
-                <button mat-button class="nav-button" *ngIf="showUsersBoard && !close" routerLink="listofusers"
+                <button mat-button class="nav-button" color="accent" *ngIf="showUsersBoard && !close" routerLink="listofusers"
                   routerLinkActive="active">
                   {{'Users' | translate}}
                 </button>
-                <button mat-button class="nav-button" *ngIf="showCarsBoard && !close" routerLink="cars" routerLinkActive="active">
+                <button mat-button class="nav-button" color="accent" *ngIf="showCarsBoard && !close" routerLink="cars" routerLinkActive="active">
                   {{'Cars' | translate}}
                 </button>
-                <button mat-button class="nav-button" *ngIf="showCarLogsBoard && !close" routerLink="carlogs"
+                <button mat-button class="nav-button" color="accent" *ngIf="showCarLogsBoard && !close" routerLink="carlogs"
                   routerLinkActive="active">
                   {{'Car Logs' | translate}}
                 </button>
