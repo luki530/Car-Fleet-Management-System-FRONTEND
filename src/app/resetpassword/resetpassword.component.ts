@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../_services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-resetpassword',
@@ -15,7 +16,9 @@ export class ResetPasswordComponent implements OnInit {
   isSuccessful = false;
   isFailed = false;
 
-  constructor(private authService: AuthService, private http: HttpClient, private _snackBar: MatSnackBar, public translate: TranslateService) { }
+  constructor(private title: Title, private authService: AuthService, private http: HttpClient, private _snackBar: MatSnackBar, public translate: TranslateService) {
+    title.setTitle("Reset Password")
+   }
 
   ngOnInit() {
   }

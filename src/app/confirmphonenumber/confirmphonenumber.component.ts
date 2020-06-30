@@ -4,6 +4,7 @@ import { AuthService } from '../_services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-confirmphonenumber',
@@ -16,7 +17,9 @@ export class ConfirmPhoneNumberComponent implements OnInit {
   isCodeInvalid = false;
   errorVerificationCode: string;
 
-  constructor(private http: HttpClient, private authService: AuthService, private _snackBar: MatSnackBar, private translate: TranslateService) { }
+  constructor(private title: Title,private http: HttpClient, private authService: AuthService, private _snackBar: MatSnackBar, private translate: TranslateService) {
+    title.setTitle('Confirm Phone Number')
+   }
 
 
   ngOnInit() {

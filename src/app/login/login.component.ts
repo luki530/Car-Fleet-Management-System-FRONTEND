@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from "@angular/platform-browser"
 
 @Component({
   selector: 'app-login',
@@ -24,13 +25,15 @@ export class LoginComponent implements OnInit {
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private authService: AuthService, private router: Router, private tokenStorage: TokenStorageService, private cookieService: CookieService, private _snackBar: MatSnackBar, private translate: TranslateService) {
+  constructor(private title: Title, private authService: AuthService, private router: Router, private tokenStorage: TokenStorageService, private cookieService: CookieService, private _snackBar: MatSnackBar, private translate: TranslateService) {
+    title.setTitle('Login')
   }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+
     }
   }
 

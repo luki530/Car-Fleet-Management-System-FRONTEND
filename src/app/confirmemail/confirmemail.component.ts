@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-confirmemail',
@@ -12,7 +13,9 @@ import { AuthService } from '../_services/auth.service';
 export class ConfirmEmailComponent implements OnInit {
   emailConfirmationMessage: string;
   loginMessage: string;
-  constructor(private authService: AuthService, private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private title: Title, private authService: AuthService, private http: HttpClient, private route: ActivatedRoute) {
+    title.setTitle('Confirm Email')
+   }
 
   token: string = '';
 

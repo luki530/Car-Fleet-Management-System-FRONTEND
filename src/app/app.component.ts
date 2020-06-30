@@ -156,7 +156,7 @@ export class AppComponent implements OnInit {
     // this.zoom = 1;
     // this.hammertime;
 
-    this.translate.stream(['Deep Purple & Amber', 'Indigo & Pink', 'Pink & Blue Grey', 'Purple & Green']).subscribe((text: string[]) => {
+    this.translate.stream(['Deep Purple & Amber', 'Indigo & Pink', 'Pink & Blue Grey', 'Purple & Green', 'Cyan & Yellow']).subscribe((text: string[]) => {
       this.options = [
         {
           "backgroundColor": "#fff",
@@ -185,6 +185,13 @@ export class AppComponent implements OnInit {
           "headingColor": "#9c27b0",
           "label": text['Purple & Green'],
           "value": "purple-green"
+        },
+        {
+          "backgroundColor": "#303030",
+          "buttonColor": "#ffff00",
+          "headingColor": "#00ffff",
+          "label": text['Cyan & Yellow'],
+          "value": "cyan-yellow"
         }
       ];
 

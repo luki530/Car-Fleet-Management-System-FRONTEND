@@ -3,6 +3,7 @@ import { AuthService } from '../_services/auth.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,9 @@ export class RegisterComponent implements OnInit {
   errorPassword: string;
   errorConfirmPassword: string;
 
-  constructor(private authService: AuthService, private router: Router, private _snackBar: MatSnackBar, public translate: TranslateService) { }
+  constructor(private title: Title, private authService: AuthService, private router: Router, private _snackBar: MatSnackBar, public translate: TranslateService) {
+    title.setTitle('Sign Up')
+   }
 
   ngOnInit() {
   }

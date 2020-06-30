@@ -4,6 +4,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { DeleteLoggerDeviceComponent } from '../deleteloggerdevice/deleteloggerdevice.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-loggerdevicedetails',
@@ -19,7 +20,9 @@ export class LoggerDeviceDetailsComponent implements OnInit {
   loggerDeviceId: any;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
+    title.setTitle('Logger Device Details')
+  }
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,7 +11,8 @@ export class HomeComponent implements OnInit {
   infoMessage: string;
   helloMessage: string;
 
-  constructor() {
+  constructor(private title: Title) {
+    title.setTitle('Home')
   }
 
 

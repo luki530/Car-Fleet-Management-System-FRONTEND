@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 
 
@@ -21,7 +22,9 @@ export class ChangePasswordComponent implements OnInit {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
+  constructor(private title: Title, private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+    title.setTitle('Change Password')
+  }
 
   form: any = {};
 

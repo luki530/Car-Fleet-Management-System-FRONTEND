@@ -84,6 +84,10 @@
             </span>
                     <mat-select [value]="translate.currentLang" #selectedLang (selectionChange)="switchLang(selectedLang.value)">
                         <mat-option *ngFor="let language of translate.getLangs()" [value]="language">
+                            <mat-icon class="flag-icon flag-icon-us" *ngIf="language.toUpperCase() === 'EN'"></mat-icon>
+                            <mat-icon class="flag-icon flag-icon-pl" *ngIf="language.toUpperCase() === 'PL'"></mat-icon>
+                            <mat-icon class="flag-icon flag-icon-de" *ngIf="language.toUpperCase() === 'DE'"></mat-icon>
+                            <mat-icon class="flag-icon flag-icon-jp" *ngIf="language.toUpperCase() === 'JA'"></mat-icon>
                             {{ language.toUpperCase() }}
                         </mat-option>
                     </mat-select>

@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DeleteCarComponent } from '../deletecar/deletecar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AssignLoggerDeviceComponent } from '../assignloggerdevice/assignloggerdevice.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-carprofile',
@@ -21,7 +22,9 @@ export class CarProfileComponent implements OnInit {
   carId: any;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
+    title.setTitle('Car Details')
+  }
 
   httpOptions = {
     headers: new HttpHeaders({

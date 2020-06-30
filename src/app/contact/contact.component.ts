@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -20,8 +21,8 @@ export class ContactComponent implements OnInit {
   subjects;
 
 
-  constructor(private connectionService: ConnectionService, private _snackBar: MatSnackBar, private translate: TranslateService) {
-
+  constructor(private title: Title,private connectionService: ConnectionService, private _snackBar: MatSnackBar, private translate: TranslateService) {
+    title.setTitle('Contact')
   }
 
   ngOnInit() {

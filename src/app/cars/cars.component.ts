@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddLoggerDeviceComponent } from '../addloggerdevice/addloggerdevice.component';
 import { TranslateService } from '@ngx-translate/core';
 import { CarProfileComponent } from '../carprofile/carprofile.component';
+import { Title } from '@angular/platform-browser';
 
 
 @Injectable()
@@ -35,7 +36,9 @@ export class CarsComponent implements OnInit {
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog, private translate: TranslateService) { }
+  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog, private translate: TranslateService) {
+    title.setTitle('Cars & Logger Devices')
+   }
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -4,6 +4,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 import { MatSliderChange } from '@angular/material/slider';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'carlogs',
@@ -48,7 +49,9 @@ export class CarLogsComponent implements OnInit {
   logSelect: number;
 
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private translate: TranslateService) { }
+  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private translate: TranslateService) {
+    title.setTitle('Car Logs')
+   }
 
   ngOnInit(): void {
     this.min = 0;

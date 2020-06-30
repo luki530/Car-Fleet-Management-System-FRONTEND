@@ -1,12 +1,12 @@
-import { Component, OnInit, ViewChild, Injectable, Inject } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router, ActivatedRoute } from '@angular/router';
-import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
 import { AddCardComponent } from '../addcard/addcard.component';
 import { DeleteUserComponent } from '../deleteuser/deleteuser.component';
 import { AssignRolesComponent } from '../assignroles/assignroles.component';
+import { Title } from "@angular/platform-browser"
 
 @Injectable()
 @Component({
@@ -28,7 +28,9 @@ export class UserProfileComponent implements OnInit {
   names: any = [];
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private title: Title, private http: HttpClient, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
+    title.setTitle("User Profile")
+   }
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -23,7 +23,9 @@ export class DeleteUserComponent implements OnInit {
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private router: Router, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, public dialogref: MatDialogRef<DeleteUserComponent>, private translate: TranslateService) { }
+  constructor(private http: HttpClient, private router: Router, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, public dialogref: MatDialogRef<DeleteUserComponent>, private translate: TranslateService) {
+
+   }
 
 
   ngOnInit(): void {
@@ -41,8 +43,9 @@ export class DeleteUserComponent implements OnInit {
         duration: 5000,
         panelClass: ['prompt']
       });
-      this.dialogref.close();
+
     });
+    this.dialogref.close();
     });
   }
 

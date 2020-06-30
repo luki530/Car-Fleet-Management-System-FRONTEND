@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { DeleteAccountComponent } from '../deleteaccount/deleteaccount.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
@@ -20,7 +21,9 @@ export class ProfileComponent implements OnInit {
   cardId: string;
   roles = [];
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private dialog: MatDialog) { }
+  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private dialog: MatDialog) {
+    title.setTitle('My Profile')
+   }
 
   httpOptions = {
     headers: new HttpHeaders({
