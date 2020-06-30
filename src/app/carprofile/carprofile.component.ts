@@ -20,6 +20,7 @@ export class CarProfileComponent implements OnInit {
   blocked: boolean;
   serialNumber: string;
   carId: any;
+  cars: any = [];
 
   // tslint:disable-next-line: max-line-length
   constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
@@ -38,6 +39,12 @@ export class CarProfileComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.carId = params.id;
     });
+    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars/', this.httpOptions)
+    .subscribe(
+      (response:any)=>{
+        this.cars = response;
+      }
+    );
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars/' + this.carId, this.httpOptions)
       .subscribe(
         (data: any) => {
@@ -63,6 +70,9 @@ export class CarProfileComponent implements OnInit {
 
   assignLoggerDevice(): void {
     let dialogRef = this.dialog.open(AssignLoggerDeviceComponent, {
+      data: {
+        'cars': this.cars
+      }
     });
 
     dialogRef.afterClosed().subscribe(() => {

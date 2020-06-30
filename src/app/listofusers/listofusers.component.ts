@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
+import { Component, OnInit, ViewChild, Injectable, AfterViewInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MatSort } from '@angular/material/sort';
@@ -30,6 +30,9 @@ export class ListOfUsersComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService) {
     title.setTitle('Users')
+    translate.getStreamOnTranslationChange('Items per page:').subscribe((text: string) => {
+      this.paginator._intl.itemsPerPageLabel = text;
+    });
    }
 
   httpOptions = {
@@ -41,9 +44,6 @@ export class ListOfUsersComponent implements OnInit {
 
 
   ngOnInit() {
-    this.translate.stream('Items per page:').subscribe((text: string) => {
-      this.paginator._intl.itemsPerPageLabel = text;
-    });
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofusers', this.httpOptions)
       .subscribe(
         (data: any) => {
@@ -52,6 +52,7 @@ export class ListOfUsersComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.isLoadingResults = false;
           this.users = data;
+
         },
         err => {
           this.isLoadingResults = false;
