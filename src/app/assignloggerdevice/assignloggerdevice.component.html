@@ -1,13 +1,16 @@
 <mat-card>
     <mat-card-content>
         <form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+            <mat-form-field>
+                <mat-select placeholder="{{'Choose logger device' | translate}}: " [(ngModel)]="form.serialNumber" name="serialNumber">
 
-            <mat-select placeholder="{{'Choose logger device' | translate}}: " [(ngModel)]="form.loggerDevice" name="loggerDevice">
-                <mat-option *ngFor="let loggerDevice of loggerDevices" [value]="loggerDevice">
-                    {{loggerDevice.serialNumber}}
-                </mat-option>
-            </mat-select>
+                    <mat-select-filter [array]="serialNumbers" (filteredReturn)="filteredList = $event"></mat-select-filter>
 
+                    <mat-option *ngFor="let serialNumber of filteredList" [value]="serialNumber ">
+                        {{serialNumber}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
             <mat-dialog-actions>
                 <button mat-stroked-button mat-dialog-close color="accent">{{'Cancel' | translate}}</button>
                 <button mat-raised-button color="primary">{{'Assign' | translate}}</button>

@@ -40,7 +40,6 @@ export class AddCarComponent implements OnInit {
         },
         err => {
         });
-    this.dialogref.close();
   }
 
 }

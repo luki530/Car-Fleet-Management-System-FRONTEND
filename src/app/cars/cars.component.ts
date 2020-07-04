@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Injectable } from '@angular/core';
+import { Component, OnInit, ViewChild, Injectable, QueryList, ViewChildren } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MatSort } from '@angular/material/sort';
@@ -9,7 +9,6 @@ import { AddCarComponent } from '../addcar/addcar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddLoggerDeviceComponent } from '../addloggerdevice/addloggerdevice.component';
 import { TranslateService } from '@ngx-translate/core';
-import { CarProfileComponent } from '../carprofile/carprofile.component';
 import { Title } from '@angular/platform-browser';
 
 
@@ -32,7 +31,7 @@ export class CarsComponent implements OnInit {
   loggerDevices: any = [];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
 
 
   // tslint:disable-next-line: max-line-length
@@ -48,15 +47,12 @@ export class CarsComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.translate.getStreamOnTranslationChange('Items per page:').subscribe((text: string) => {
-      this.paginator._intl.itemsPerPageLabel = text;
-    });
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars', this.httpOptions)
       .subscribe(
         (data: any) => {
           this.dataSource = new MatTableDataSource(data);
           this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator;
+          this.dataSource.paginator = this.paginator.toArray()[0];
           this.isLoadingResults = false;
           this.cars = data;
         },
@@ -68,7 +64,7 @@ export class CarsComponent implements OnInit {
         (response: any) => {
           this.dataSource1 = new MatTableDataSource(response);
           this.dataSource1.sort = this.sort;
-          this.dataSource1.paginator = this.paginator;
+          this.dataSource1.paginator = this.paginator.toArray()[1];
           this.isLoadingResults = false;
           this.loggerDevices = response;
         },

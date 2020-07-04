@@ -23,6 +23,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatSelectFilterModule } from 'mat-select-filter';
+
 
 import { NgModule } from '@angular/core';
 
@@ -59,6 +62,8 @@ import { NgModule } from '@angular/core';
     MatNativeDateModule,
     MatGridListModule,
     MatSliderModule,
+    NgxMatSelectSearchModule,
+    MatSelectFilterModule
   ],
   providers: [MatDatepickerModule]
 })

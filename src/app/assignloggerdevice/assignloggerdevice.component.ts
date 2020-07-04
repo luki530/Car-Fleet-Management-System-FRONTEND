@@ -1,12 +1,8 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-assignloggerdevice',
@@ -17,8 +13,10 @@ export class AssignLoggerDeviceComponent implements OnInit {
   form: any = {};
   loggerDevices: any = [];
   carId: any;
-  unusedLoggerDevice: any = [];
+  serialNumbers: any = [];
   checkLoggerDevice: any = [];
+
+  filteredList: any = [];
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -26,6 +24,7 @@ export class AssignLoggerDeviceComponent implements OnInit {
       Authorization: 'Bearer' + this.tokenStorage.getToken()
     })
   };
+
 
 
   // tslint:disable-next-line: max-line-length
@@ -37,9 +36,19 @@ export class AssignLoggerDeviceComponent implements OnInit {
     });
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
       .subscribe(
-        (data: any) => {
-          this.loggerDevices = data;
+        (response: any) => {
+          this.loggerDevices = response;
+
           this.checkLoggerDevice = this.data.cars;
+          this.checkLoggerDevice.forEach(element => {
+            if (element.loggerDevice != null ) {
+              this.loggerDevices.splice(element.loggerDevice,1)
+            }
+          });
+          this.loggerDevices.forEach(param => {
+            this.serialNumbers.push(param.serialNumber)
+          });
+          this.filteredList = this.serialNumbers.slice();
         },
         err => {
         });
@@ -47,7 +56,7 @@ export class AssignLoggerDeviceComponent implements OnInit {
 
   save() {
     this.http.put<any>('https://backend.carfleetmanagementsystem.pl:443/assignloggerdevice', {
-      serialNumber: this.form.loggerDevices.serialNumber,
+      serialNumber: this.form.serialNumber,
       carId: this.carId,
     }, this.httpOptions)
       .subscribe(

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
@@ -8,8 +9,10 @@ import { Title } from '@angular/platform-browser';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private title: Title) {
-    title.setTitle('About Us')
+  constructor(private title: Title, private translate: TranslateService) {
+    this.translate.getStreamOnTranslationChange('About Us').subscribe((text: string) => {
+    title.setTitle(text)
+    });
    }
 
   ngOnInit(): void {

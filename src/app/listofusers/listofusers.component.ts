@@ -30,9 +30,7 @@ export class ListOfUsersComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService) {
     title.setTitle('Users')
-    translate.getStreamOnTranslationChange('Items per page:').subscribe((text: string) => {
-      this.paginator._intl.itemsPerPageLabel = text;
-    });
+
    }
 
   httpOptions = {
@@ -44,6 +42,9 @@ export class ListOfUsersComponent implements OnInit {
 
 
   ngOnInit() {
+    this.translate.getStreamOnTranslationChange('Items per page:').subscribe((text: string) => {
+      this.paginator._intl.itemsPerPageLabel = text;
+    });
     this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofusers', this.httpOptions)
       .subscribe(
         (data: any) => {
