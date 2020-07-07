@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
+import { GlobalConstants } from '../global-constants';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class DeleteLoggerDeviceComponent implements OnInit {
 
   deleteLoggerDevice(): void {
     // tslint:disable-next-line: max-line-length
-    this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices/' + this.loggerDeviceId, this.httpOptions).subscribe(() => {
+    this.http.delete<any>(GlobalConstants.URL+'listofloggerdevices/' + this.loggerDeviceId, this.httpOptions).subscribe(() => {
       this.router.navigate(['/cars']);
       this.translate.getStreamOnTranslationChange('Logger device has been deleted !').subscribe((text:string) => {
       this.snackBar.open(text, '', {

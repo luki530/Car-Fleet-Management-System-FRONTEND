@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-addloggerdevice',
@@ -23,15 +24,15 @@ export class AddLoggerDeviceComponent implements OnInit {
   };
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService,  public dialogref: MatDialogRef<AddLoggerDeviceComponent>) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, public dialogref: MatDialogRef<AddLoggerDeviceComponent>) { }
 
   ngOnInit(): void {
   }
 
   save() {
-    this.http.post<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', {
-        simCardNumber: this.form.simCardNumber,
-        serialNumber: this.form.serialNumber
+    this.http.post<any>(GlobalConstants.URL + 'listofloggerdevices', {
+      simCardNumber: this.form.simCardNumber,
+      serialNumber: this.form.serialNumber
     }, this.httpOptions)
       .subscribe(
         () => {

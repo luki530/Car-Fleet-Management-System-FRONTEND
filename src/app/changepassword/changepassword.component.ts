@@ -2,6 +2,7 @@ import { Component, OnInit, Input, SimpleChange } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { GlobalConstants } from '../global-constants';
 
 
 
@@ -98,7 +99,7 @@ export class ChangePasswordComponent implements OnInit {
 
   onSubmit() {
     // tslint:disable-next-line: max-line-length
-    this.http.post<any>('https://backend.carfleetmanagementsystem.pl:443/auth/changepassword', { token: this.form.token, newPassword: this.form.newPassword, confirmNewPassword: this.form.confirmNewPassword }, this.httpOptions).subscribe(
+    this.http.post<any>(GlobalConstants.URL+'auth/changepassword', { token: this.form.token, newPassword: this.form.newPassword, confirmNewPassword: this.form.confirmNewPassword }, this.httpOptions).subscribe(
       data => {
         this.isSuccessful = true;
       },

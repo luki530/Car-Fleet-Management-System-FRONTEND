@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-addcar',
@@ -9,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./addcar.component.css']
 })
 export class AddCarComponent implements OnInit {
-  form: any = { blocked: false};
+  form: any = { blocked: false };
   model: any;
   blocked: boolean;
   plateNumber: any;
@@ -23,16 +24,16 @@ export class AddCarComponent implements OnInit {
     })
   };
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService,  public dialogref: MatDialogRef<AddCarComponent>) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, public dialogref: MatDialogRef<AddCarComponent>) { }
 
   ngOnInit(): void {
   }
 
   save() {
-    this.http.post<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars', {
-        model: this.form.model,
-        blocked: this.form.blocked,
-        plateNumber: this.form.plateNumber
+    this.http.post<any>(GlobalConstants.URL + 'listofcars', {
+      model: this.form.model,
+      blocked: this.form.blocked,
+      plateNumber: this.form.plateNumber
     }, this.httpOptions)
       .subscribe(
         (response: any) => {

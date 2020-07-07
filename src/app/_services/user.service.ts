@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const API_URL = 'https://backend.carfleetmanagementsystem.pl:443/api/test/';
+import { GlobalConstants } from '../global-constants';
+
+const API_URL = GlobalConstants.URL + 'api/test/';
 
 @Injectable({
   providedIn: 'root'

@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ActivatedRoute } from '@angular/router';
+import { GlobalConstants } from '../global-constants';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class AddCardComponent implements OnInit {
   };
 
   // tslint:disable-next-line: max-line-length
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService,  public dialogref: MatDialogRef<AddCardComponent>, private activatedRoute: ActivatedRoute) {}
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, public dialogref: MatDialogRef<AddCardComponent>, private activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit() {
@@ -34,9 +35,9 @@ export class AddCardComponent implements OnInit {
   }
 
   save() {
-    this.http.post<any>('https://backend.carfleetmanagementsystem.pl:443/addcard', {
-        userId: this.userId,
-        cardId: this.form.cardId
+    this.http.post<any>(GlobalConstants.URL + 'addcard', {
+      userId: this.userId,
+      cardId: this.form.cardId
     }, this.httpOptions)
       .subscribe(
         (response: any) => {

@@ -14,7 +14,7 @@ import * as Hammer from 'hammerjs';
 import { MatSidenav } from '@angular/material/sidenav';
 import { DateAdapter } from '@angular/material/core';
 
-import { AgmMap } from '@agm/core';
+import { GlobalConstants } from './global-constants';
 
 @Component({
   selector: 'app-root',
@@ -55,8 +55,6 @@ export class AppComponent implements OnInit {
 
   @ViewChild(MatSidenav)
   public sidenav: MatSidenav;
-
-  @ViewChild(AgmMap, { static: true }) public agmMap: AgmMap;
 
 
   constructor(public elementRef: ElementRef, private tokenStorageService: TokenStorageService, private http: HttpClient, private router: Router, public translate: TranslateService, public themeService: ThemeService, private dateAdapter: DateAdapter<Date>) {

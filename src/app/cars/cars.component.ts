@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddLoggerDeviceComponent } from '../addloggerdevice/addloggerdevice.component';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+import { GlobalConstants } from '../global-constants';
 
 
 @Injectable()
@@ -35,9 +36,9 @@ export class CarsComponent implements OnInit {
 
 
   // tslint:disable-next-line: max-line-length
-  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog, private translate: TranslateService) {
+  constructor(private title: Title, private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog, private translate: TranslateService) {
     title.setTitle('Cars & Logger Devices')
-   }
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -47,7 +48,7 @@ export class CarsComponent implements OnInit {
   };
 
   ngOnInit() {
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars', this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL + 'listofcars', this.httpOptions)
       .subscribe(
         (data: any) => {
           this.dataSource = new MatTableDataSource(data);
@@ -59,7 +60,7 @@ export class CarsComponent implements OnInit {
         err => {
           this.isLoadingResults = false;
         });
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL + 'listofloggerdevices', this.httpOptions)
       .subscribe(
         (response: any) => {
           this.dataSource1 = new MatTableDataSource(response);

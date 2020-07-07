@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-assignroles',
@@ -28,10 +29,10 @@ export class AssignRolesComponent implements OnInit {
     })
   };
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private snackBar: MatSnackBar, private dialogref: MatDialogRef<AssignRolesComponent>, private activatedRoute: ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private snackBar: MatSnackBar, private dialogref: MatDialogRef<AssignRolesComponent>, private activatedRoute: ActivatedRoute, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/roles/', this.httpOptions).subscribe(
+    this.http.get<any>(GlobalConstants.URL + 'roles/', this.httpOptions).subscribe(
       (response: any) => {
         this.isLoadingResults = false;
         this.roles = response
@@ -39,7 +40,7 @@ export class AssignRolesComponent implements OnInit {
         this.roles.forEach(element => {
           element.hasRole = false;
           this.userRoles.forEach(param => {
-            if(element.name == param.name){
+            if (element.name == param.name) {
               element.hasRole = true;
             }
           });
@@ -76,11 +77,11 @@ export class AssignRolesComponent implements OnInit {
   assignRoles() {
     var tempRoles = [];
     this.roles.forEach(element => {
-      if(element.hasRole) {
+      if (element.hasRole) {
         tempRoles.push(element.name)
       }
     })
-    this.http.put<any>('https://backend.carfleetmanagementsystem.pl:443/roles', {
+    this.http.put<any>(GlobalConstants.URL + 'roles', {
       userId: this.userId,
       roles: tempRoles
     }, this.httpOptions)

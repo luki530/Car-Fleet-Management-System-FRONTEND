@@ -4,6 +4,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { DeleteAccountComponent } from '../deleteaccount/deleteaccount.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-profile',
@@ -21,9 +22,9 @@ export class ProfileComponent implements OnInit {
   cardId: string;
   roles = [];
 
-  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private dialog: MatDialog) {
+  constructor(private title: Title, private http: HttpClient, private tokenStorage: TokenStorageService, private dialog: MatDialog) {
     title.setTitle('My Profile')
-   }
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -34,7 +35,7 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/myprofile', this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL + 'myprofile', this.httpOptions)
       .subscribe(
         (data: any) => {
           this.name = data.name;
