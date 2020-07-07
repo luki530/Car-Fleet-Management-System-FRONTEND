@@ -172,6 +172,13 @@ export class AppComponent implements OnInit {
           "value": "indigo-pink"
         },
         {
+          "backgroundColor": "#fff",
+          "buttonColor": "#ffff00",
+          "headingColor": "#00ffff",
+          "label": text['Cyan & Yellow'],
+          "value": "cyan-yellow"
+        },
+        {
           "backgroundColor": "#303030",
           "buttonColor": "#607d8b",
           "headingColor": "#e91e63",
@@ -184,13 +191,6 @@ export class AppComponent implements OnInit {
           "headingColor": "#9c27b0",
           "label": text['Purple & Green'],
           "value": "purple-green"
-        },
-        {
-          "backgroundColor": "#303030",
-          "buttonColor": "#ffff00",
-          "headingColor": "#00ffff",
-          "label": text['Cyan & Yellow'],
-          "value": "cyan-yellow"
         }
       ];
 
