@@ -29,6 +29,7 @@ export class CarLogsComponent implements OnInit {
     }
   };
 
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

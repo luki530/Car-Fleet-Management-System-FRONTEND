@@ -48,6 +48,7 @@ import { ThemeService } from './theme.service';
 import { StyleManagerService } from './style-manager.service';
 import { DeleteAccountComponent } from './deleteaccount/deleteaccount.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

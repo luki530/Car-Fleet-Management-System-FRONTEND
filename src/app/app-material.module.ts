@@ -25,6 +25,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSelectFilterModule } from 'mat-select-filter';
+import { Ng9PasswordStrengthBarModule } from 'ng9-password-strength-bar';
+
+
+
 
 
 import { NgModule } from '@angular/core';
@@ -63,7 +67,8 @@ import { NgModule } from '@angular/core';
     MatGridListModule,
     MatSliderModule,
     NgxMatSelectSearchModule,
-    MatSelectFilterModule
+    MatSelectFilterModule,
+    Ng9PasswordStrengthBarModule
   ],
   providers: [MatDatepickerModule]
 })

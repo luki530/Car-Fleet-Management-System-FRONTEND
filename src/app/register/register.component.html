@@ -30,10 +30,13 @@
             </mat-form-field>
             <mat-form-field class="full-width-input">
                 <input matInput type="password" placeholder="{{'Password' | translate}}" [(ngModel)]="form.password" name="password" required minlength="6" #password="ngModel">
+
                 <mat-error>
                     {{'errorPassword' | translate}}
                 </mat-error>
             </mat-form-field>
+            <ng9-password-strength-bar [passwordToCheck]="form.password" [barLabel]="barLabel"> </ng9-password-strength-bar>
+
             <mat-form-field class="full-width-input">
                 <input matInput type="password" placeholder="{{'Confirm Password' | translate}}" [(ngModel)]="form.confirmPassword" name="confirmPassword" required minlength="6" #confirmPassword="ngModel">
                 <mat-error>
