@@ -2517,7 +2517,7 @@ td.mat-footer-cell {
 
 .mat-tab-label,
 .mat-tab-link {
-    color: #7b1fa2
+    color: #69f0ae
 }
 
 .mat-tab-label.mat-tab-disabled,
@@ -2552,7 +2552,7 @@ td.mat-footer-cell {
 
 .mat-tab-group.mat-primary .mat-ink-bar,
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #7b1fa2
+    background-color: #69f0ae
 }
 
 .mat-tab-group.mat-primary.mat-background-primary .mat-ink-bar,
@@ -2813,4 +2813,8 @@ td.mat-footer-cell {
 .footer {
     background: #7b1fa2;
     color: #fff
+}
+
+.mat-filter {
+    background-color: rgba(255, 255, 255, 0.04) !important;
 }

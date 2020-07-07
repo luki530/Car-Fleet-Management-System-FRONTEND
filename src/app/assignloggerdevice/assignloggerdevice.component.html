@@ -4,7 +4,7 @@
             <mat-form-field>
                 <mat-select placeholder="{{'Choose logger device' | translate}}: " [(ngModel)]="form.serialNumber" name="serialNumber">
 
-                    <mat-select-filter [array]="serialNumbers" (filteredReturn)="filteredList = $event"></mat-select-filter>
+                    <mat-select-filter noResultsMessage="{{'No results' | translate}}: " placeholder="{{'Search' | translate}}: " [array]="serialNumbers" (filteredReturn)="filteredList = $event"></mat-select-filter>
 
                     <mat-option *ngFor="let serialNumber of filteredList" [value]="serialNumber ">
                         {{serialNumber}}

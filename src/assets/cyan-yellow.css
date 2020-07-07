@@ -2509,7 +2509,7 @@ td.mat-footer-cell {
 
 .mat-tab-label,
 .mat-tab-link {
-    color: #00ffff;
+    color: #ffdf00;
 }
 
 .mat-tab-label.mat-tab-disabled,
@@ -2544,7 +2544,7 @@ td.mat-footer-cell {
 
 .mat-tab-group.mat-primary .mat-ink-bar,
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: #00ffff
+    background-color: #ffdf00
 }
 
 .mat-tab-group.mat-primary.mat-background-primary .mat-ink-bar,
