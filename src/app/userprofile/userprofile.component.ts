@@ -7,6 +7,7 @@ import { AddCardComponent } from '../addcard/addcard.component';
 import { DeleteUserComponent } from '../deleteuser/deleteuser.component';
 import { AssignRolesComponent } from '../assignroles/assignroles.component';
 import { Title } from "@angular/platform-browser"
+import { GlobalConstants } from '../global-constants';
 
 @Injectable()
 @Component({
@@ -30,7 +31,7 @@ export class UserProfileComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   constructor(private title: Title, private http: HttpClient, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
     title.setTitle("User Profile")
-   }
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -43,7 +44,7 @@ export class UserProfileComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.userId = params.id;
     });
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/userprofile?id=' + this.userId, this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL + 'userprofile?id=' + this.userId, this.httpOptions)
       .subscribe(
         (data: any) => {
           this.name = data.name;
@@ -70,9 +71,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   assignRoles(): void {
-    let dialogRef = this.dialog.open(AssignRolesComponent, { data: {
-      'roles': this.roles
-    }
+    let dialogRef = this.dialog.open(AssignRolesComponent, {
+      data: {
+        'roles': this.roles
+      }
     });
 
     dialogRef.afterClosed().subscribe(() => {

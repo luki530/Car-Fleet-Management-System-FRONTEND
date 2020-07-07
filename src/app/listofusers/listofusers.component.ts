@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+import { GlobalConstants } from '../global-constants';
+
 
 
 @Injectable()
@@ -28,10 +30,10 @@ export class ListOfUsersComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService) {
+  constructor(private title: Title, private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private translate: TranslateService) {
     title.setTitle('Users')
 
-   }
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -45,7 +47,7 @@ export class ListOfUsersComponent implements OnInit {
     this.translate.getStreamOnTranslationChange('Items per page:').subscribe((text: string) => {
       this.paginator._intl.itemsPerPageLabel = text;
     });
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofusers', this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL + 'listofusers', this.httpOptions)
       .subscribe(
         (data: any) => {
           this.dataSource = new MatTableDataSource(data);

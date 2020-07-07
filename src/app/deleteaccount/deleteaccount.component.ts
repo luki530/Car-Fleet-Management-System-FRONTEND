@@ -6,6 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { TranslateService } from '@ngx-translate/core';
 
+import { GlobalConstants } from '../global-constants';
+
 @Component({
   selector: 'app-deleteuser',
   templateUrl: './deleteaccount.component.html',
@@ -26,7 +28,7 @@ export class DeleteAccountComponent implements OnInit {
   constructor(private tokenStorage: TokenStorageService, private http: HttpClient, private router: Router, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, public dialogref: MatDialogRef<DeleteAccountComponent>, private translate: TranslateService) { }
 
 
-  ngOnInit(){
+  ngOnInit() {
   }
 
   return() {
@@ -38,15 +40,15 @@ export class DeleteAccountComponent implements OnInit {
 
   deleteAccount(): void {
     // tslint:disable-next-line: max-line-length
-    this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/myprofile', this.httpOptions).subscribe(() => {
+    this.http.delete<any>(GlobalConstants.URL + 'myprofile', this.httpOptions).subscribe(() => {
       this.return();
-      this.translate.getStreamOnTranslationChange('Your account has been deleted!').subscribe((text:string) => {
-      this.snackBar.open(text, '', {
-        duration: 5000,
-        panelClass: ['prompt']
+      this.translate.getStreamOnTranslationChange('Your account has been deleted!').subscribe((text: string) => {
+        this.snackBar.open(text, '', {
+          duration: 5000,
+          panelClass: ['prompt']
+        });
+        this.dialogref.close();
       });
-      this.dialogref.close();
-    });
     });
   }
 

@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { TranslateService } from '@ngx-translate/core';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-deleteuser',
@@ -25,7 +26,7 @@ export class DeleteUserComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   constructor(private http: HttpClient, private router: Router, private tokenStorage: TokenStorageService, private activatedRoute: ActivatedRoute, private snackBar: MatSnackBar, public dialogref: MatDialogRef<DeleteUserComponent>, private translate: TranslateService) {
 
-   }
+  }
 
 
   ngOnInit(): void {
@@ -36,16 +37,16 @@ export class DeleteUserComponent implements OnInit {
 
   deleteUser(): void {
     // tslint:disable-next-line: max-line-length
-    this.http.delete<any>('https://backend.carfleetmanagementsystem.pl:443/userprofile/' + this.userId, this.httpOptions).subscribe(() => {
+    this.http.delete<any>(GlobalConstants.URL + 'userprofile/' + this.userId, this.httpOptions).subscribe(() => {
       this.router.navigate(['/listofusers']);
-      this.translate.getStreamOnTranslationChange('User has been deleted!').subscribe((text:string) => {
-      this.snackBar.open(text, '', {
-        duration: 5000,
-        panelClass: ['prompt']
-      });
+      this.translate.getStreamOnTranslationChange('User has been deleted!').subscribe((text: string) => {
+        this.snackBar.open(text, '', {
+          duration: 5000,
+          panelClass: ['prompt']
+        });
 
-    });
-    this.dialogref.close();
+      });
+      this.dialogref.close();
     });
   }
 

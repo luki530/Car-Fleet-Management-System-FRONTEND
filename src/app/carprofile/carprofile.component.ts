@@ -6,6 +6,7 @@ import { DeleteCarComponent } from '../deletecar/deletecar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AssignLoggerDeviceComponent } from '../assignloggerdevice/assignloggerdevice.component';
 import { Title } from '@angular/platform-browser';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-carprofile',
@@ -23,7 +24,7 @@ export class CarProfileComponent implements OnInit {
   cars: any = [];
 
   // tslint:disable-next-line: max-line-length
-  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
+  constructor(private title: Title, private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
     title.setTitle('Car Details')
   }
 
@@ -39,13 +40,13 @@ export class CarProfileComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.carId = params.id;
     });
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars/', this.httpOptions)
-    .subscribe(
-      (response:any)=>{
-        this.cars = response;
-      }
-    );
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars/' + this.carId, this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL + 'listofcars/', this.httpOptions)
+      .subscribe(
+        (response: any) => {
+          this.cars = response;
+        }
+      );
+    this.http.get<any>(GlobalConstants.URL + 'listofcars/' + this.carId, this.httpOptions)
       .subscribe(
         (data: any) => {
           this.model = data.model;

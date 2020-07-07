@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-assignloggerdevice',
@@ -34,7 +35,7 @@ export class AssignLoggerDeviceComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.carId = params.id;
     });
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices', this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL+'listofloggerdevices', this.httpOptions)
       .subscribe(
         (response: any) => {
           this.loggerDevices = response;
@@ -55,7 +56,7 @@ export class AssignLoggerDeviceComponent implements OnInit {
   }
 
   save() {
-    this.http.put<any>('https://backend.carfleetmanagementsystem.pl:443/assignloggerdevice', {
+    this.http.put<any>(GlobalConstants.URL+'assignloggerdevice', {
       serialNumber: this.form.serialNumber,
       carId: this.carId,
     }, this.httpOptions)

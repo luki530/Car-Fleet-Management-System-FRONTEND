@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { DeleteLoggerDeviceComponent } from '../deleteloggerdevice/deleteloggerdevice.component';
 import { Title } from '@angular/platform-browser';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'app-loggerdevicedetails',
@@ -20,7 +21,7 @@ export class LoggerDeviceDetailsComponent implements OnInit {
   loggerDeviceId: any;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private title: Title,private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
+  constructor(private title: Title, private http: HttpClient, private tokenStorage: TokenStorageService, private router: Router, private activatedRoute: ActivatedRoute, private dialog: MatDialog) {
     title.setTitle('Logger Device Details')
   }
 
@@ -36,7 +37,7 @@ export class LoggerDeviceDetailsComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe(params => {
       this.loggerDeviceId = params.id;
     });
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofloggerdevices/' + this.loggerDeviceId, this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL + 'listofloggerdevices/' + this.loggerDeviceId, this.httpOptions)
       .subscribe(
         (data: any) => {
           this.simCardNumber = data.simCardNumber;

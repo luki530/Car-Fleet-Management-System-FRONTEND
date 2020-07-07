@@ -5,6 +5,7 @@ import { NgxMaterialTimepickerTheme } from 'ngx-material-timepicker';
 import { MatSliderChange } from '@angular/material/slider';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+import { GlobalConstants } from '../global-constants';
 
 @Component({
   selector: 'carlogs',
@@ -58,7 +59,7 @@ export class CarLogsComponent implements OnInit {
     this.min = 0;
     this.max = 0;
     this.step = 1;
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/listofcars', this.httpOptions)
+    this.http.get<any>(GlobalConstants.URL+'listofcars', this.httpOptions)
       .subscribe(
         (data: any) => {
           this.cars = data;
@@ -68,7 +69,7 @@ export class CarLogsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.http.get<any>('https://backend.carfleetmanagementsystem.pl:443/carlog/find/' + this.form.car.id
+    this.http.get<any>(GlobalConstants.URL+'carlog/find/' + this.form.car.id
       + '/' + (this.form.startDate.getTime() / 1000 + (this.stringToInt(this.form.startTime))) + '/'
       + (this.form.endDate.getTime() / 1000 + (this.stringToInt(this.form.endTime))),
       this.httpOptions)

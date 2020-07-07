@@ -2,9 +2,10 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../_services/token-storage.service';
+import { GlobalConstants } from '../global-constants';
 
 
-const AUTH_API = 'https://backend.carfleetmanagementsystem.pl:443/auth/';
+const AUTH_API = GlobalConstants.URL+'auth/';
 
 
 const httpOptions = {
